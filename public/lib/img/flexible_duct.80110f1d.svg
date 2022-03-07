@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="0 15.042 43.984 10.681" enable-background="new 0 15.042 43.984 10.681" xml:space="preserve">
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+   <![CDATA[
+
+	.color,.stroked{
+		stroke-width:1;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked {
+		fill:none;
+	}
+
+      ]]>
+</style>
+
+<polyline class="stroked" points="1.418,24.523 
+		3.128,17.519 4.84,24.306 6.551,17.302 8.262,24.09 9.973,17.098 11.685,23.886 13.395,16.881 15.107,23.669 16.817,16.663 
+		18.529,23.451 20.24,16.46 21.951,23.248 23.663,16.46 25.373,23.451 27.084,16.663 28.796,23.669 30.507,16.881 32.217,23.886 
+		33.928,17.098 35.64,24.09 37.351,17.302 39.062,24.306 40.773,17.519 42.484,24.523 	"/>
+
+</svg>

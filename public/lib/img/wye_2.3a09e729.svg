@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="0 0 38.688 43.986" enable-background="new 0 0 38.688 43.986" xml:space="preserve">
+
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+
+<style type="text/css" >
+   <![CDATA[
+
+	.color,.stroked{
+		stroke-width:1;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked {
+		fill:none;
+	}
+
+      ]]>
+</style>
+
+<g class="stroked">
+	<line x1="4.987" y1="3.81" x2="1.584" y2="5.707"/>
+	<line x1="1.418" y1="1.419" x2="13.287" y2="22.117"/>
+	<line x1="37.271" y1="22.033" x2="13.203" y2="22.117"/>
+	<line x1="1.418" y1="42.65" x2="13.369" y2="22.033"/>
+	<line x1="1.584" y1="38.362" x2="4.987" y2="40.259"/>
+	<line x1="33.454" y1="23.931" x2="33.454" y2="20.138"/>
+</g>
+</svg>

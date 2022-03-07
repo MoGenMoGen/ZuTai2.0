@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="-12.72 0 54.399 43.811" enable-background="new -12.72 0 54.399 43.811" xml:space="preserve">
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+<![CDATA[
+
+	.color,.stroked,.dashed{
+		stroke-width:0.5;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked,.dashed{
+		fill:none;
+	}
+	
+	.dashed {
+		stroke-dasharray:1.4173,1.4173;
+	}
+
+      ]]>
+</style>
+
+<polygon class="color" points="-11.302,1.418 -11.302,27.171 40.262,27.15 40.262,1.418 	"/>
+<g class="stroked">
+	<line x1="33.706" y1="27.149" x2="33.706" y2="17.644"/>
+	<line x1="6.493" y1="8.794" x2="8.623" y2="8.794"/>
+	<polyline points="8.623,11.251 6.493,8.794 8.623,6.499"/>
+	<line x1="33.706" y1="11.089" x2="33.706" y2="1.418"/>
+	<polyline points="6.493,6.499 6.493,35.179 25.674,35.179 25.674,24.691"/>
+	<line x1="27.477" y1="27.149" x2="27.477" y2="1.418"/>
+	<polyline points="1.74,21.577 27.477,21.577 33.706,27.149 40.097,21.577"/>
+	<line x1="-11.302" y1="8.022" x2="1.74" y2="8.022"/>
+	<line x1="-11.302" y1="14.46" x2="1.74" y2="14.46"/>
+	<line x1="-11.302" y1="20.735" x2="1.74" y2="20.735"/>
+	<line x1="1.74" y1="1.418" x2="1.74" y2="27.149"/>
+</g>
+<circle class="color" cx="16.083" cy="35.18" r="7.295"/>
+<path class="stroked" d="M11.193,40.59 c-1.032-1.259-1.652-2.868-1.652-4.623c0-4.029,3.268-7.297,7.296-7.297c1.877,0,3.588,0.71,4.881,1.873"/>
+
+</svg>

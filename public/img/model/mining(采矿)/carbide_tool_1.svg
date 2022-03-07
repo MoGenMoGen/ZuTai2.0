@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	   viewBox="0 0 102 52" xmlns:agg="http://www.example.com">
+	 
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="F" name="saturation" description="Saturation" min="0" max="1" cssAttributes="opacity" classes="color"/>
+</agg:params>
+
+<style type="text/css" >
+   <![CDATA[
+
+	.stroke,.thin,.thick{
+		stroke-linecap:butt;
+		stroke-linejoin:round;
+		stroke: black;
+		fill:none;
+		opacity:0.5;
+	}
+
+	.stroke{stroke-width:0.5;}
+
+	.thin {stroke-width:0.25;}
+
+	.thick {stroke-width:0.75;}
+	
+	.color {
+		fill:#3664BF;
+		opacity:0.2;
+	}
+
+      ]]>
+</style>
+
+<defs>	 
+	<linearGradient id="metal_gradient" gradientUnits="userSpaceOnUse" x1="41.4399" y1="51" x2="41.4399" y2="1">
+		<stop  offset="0" style="stop-color:#4C5B75"/>
+		<stop  offset="0.0323" style="stop-color:#616F86"/>
+		<stop  offset="0.098" style="stop-color:#8E99AA"/>
+		<stop  offset="0.1641" style="stop-color:#B4BCC7"/>
+		<stop  offset="0.2298" style="stop-color:#D1D7DE"/>
+		<stop  offset="0.2946" style="stop-color:#E5EAEF"/>
+		<stop  offset="0.3584" style="stop-color:#F2F6F9"/>
+		<stop  offset="0.42" style="stop-color:#F6FAFC"/>
+		<stop  offset="0.4744" style="stop-color:#F2F6F8"/>
+		<stop  offset="0.5308" style="stop-color:#E6E9EC"/>
+		<stop  offset="0.5882" style="stop-color:#D3D5D7"/>
+		<stop  offset="0.6461" style="stop-color:#B7B8BB"/>
+		<stop  offset="0.704" style="stop-color:#949396"/>
+		<stop  offset="0.72" style="stop-color:#89878B"/>
+		<stop  offset="1" style="stop-color:#F6FAFC"/>
+	</linearGradient>
+	<path id="boundary" d="M6.588,51C3.501,51,1,39.807,1,26
+		C1,12.193,3.501,1,6.588,1L81.88,2.754v46.681l0,0L6.588,51z"/>
+</defs>
+	
+<use xlink:href="#boundary" fill="url(#metal_gradient)"/>
+
+<path opacity="0.5" fill="#42555B" d="M54.483,48.797
+	c-2.209,0.129-5.443-0.378-7.357-1.471c-2.828-1.61-1.678-4.612,0.89-5.372C50.582,41.196,81.88,31.95,81.88,31.95v16.477
+	L54.483,48.797z M54.483,3.202c-2.209-0.127-5.443,0.379-7.357,1.47c-2.828,1.612-1.678,4.615,0.89,5.373
+	c2.566,0.759,33.864,10.004,33.864,10.004V3.573L54.483,3.202z"/>
+	
+<g class="color">
+	<use xlink:href="#boundary"/>
+</g>
+	
+<g>
+	<polygon fill="#262626" points="77.686,36.491 79.877,36.491 81.876,38.648 81.876,51 
+		92.426,49.032 96.81,38.648 98.809,36.491 101,26.106 96.81,23.949 92.426,17.667 92.426,15.699 96.81,11.384 90.45,1 81.876,1 
+		81.876,15.699 79.877,19.824 77.686,19.824 77.686,36.491"/>
+	<polygon points="77.686,36.491 79.877,36.491 81.876,38.648 81.876,51 92.426,49.032 
+		96.81,38.648 98.809,36.491 100.87,26.724 99.41,28.051 87.247,31.772 77.686,33.931 77.686,36.491"/>
+	<polygon points="79.877,19.824 84.068,19.824 85.056,18.852 90.45,16.102 89.246,14.537 
+		90.836,9.819 81.876,9.819 81.876,15.699 79.877,19.824"/>
+	<polygon fill="#666666" points="84.068,19.824 87.247,31.772 90.836,33.931 
+		92.426,37.084 99.41,26.676 98.809,25.111 96.81,23.949 92.04,18.26 89.849,16.694 84.068,19.824"/>
+	<polygon fill="#666666" points="92.426,17.667 90.45,16.102 89.246,14.537 90.836,9.819 
+		95.629,9.819 96.81,11.384 92.426,15.699 92.426,17.667"/>
+</g>
+
+</svg>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="0 0 43.984 43.986" enable-background="new 0 0 43.984 43.986" xml:space="preserve">
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+<![CDATA[
+
+	.color,.stroked,.dashed{
+		stroke-width:0.5;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked,.dashed{
+		fill:none;
+	}
+	
+	.dashed {
+		stroke-dasharray:1.4173,1.4173;
+	}
+
+      ]]>
+</style>
+
+<g class="stroked">
+	<line x1="2.652" y1="27.602" x2="10.835" y2="27.602"/>
+	<line x1="12.907" y1="27.602" x2="21.091" y2="27.602"/>
+	<line x1="23.059" y1="27.602" x2="31.243" y2="27.602"/>
+	<line x1="33.314" y1="27.602" x2="41.498" y2="27.602"/>
+	<polyline points="10.835,32.49 2.652,32.49 2.652,25.211 "/>
+	<line x1="12.907" y1="32.49" x2="21.091" y2="32.49"/>
+	<line x1="23.059" y1="32.49" x2="31.243" y2="32.49"/>
+	<polyline points="33.314,32.49 41.498,32.49 41.498,25.211 "/>
+	<line x1="2.652" y1="22.715" x2="10.835" y2="22.715"/>
+	<line x1="12.907" y1="22.715" x2="21.091" y2="22.715"/>
+	<line x1="23.163" y1="22.715" x2="31.243" y2="22.715"/>
+	<line x1="33.314" y1="22.715" x2="41.498" y2="22.715"/>
+	<line x1="2.652" y1="17.827" x2="10.835" y2="17.827"/>
+	<line x1="12.907" y1="17.827" x2="21.091" y2="17.827"/>
+	<line x1="23.163" y1="17.827" x2="31.243" y2="17.827"/>
+	<line x1="33.314" y1="17.827" x2="41.498" y2="17.827"/>
+	<polyline points="2.652,20.323 2.652,12.938 10.835,12.938 "/>
+	<line x1="12.907" y1="12.938" x2="21.091" y2="12.938"/>
+	<line x1="23.059" y1="12.938" x2="31.243" y2="12.938"/>
+	<polyline points="33.314,12.938 41.498,12.938 41.498,20.323 "/>
+</g>
+</svg>

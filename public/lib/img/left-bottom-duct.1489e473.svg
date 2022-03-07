@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="38.448 23.407 38.097 38.094" enable-background="new 38.448 23.407 38.097 38.094"
+	 xml:space="preserve">
+	 
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="F" name="saturation" description="Saturation" min="0" max="1" cssAttributes="opacity" classes="color"/>
+</agg:params>
+
+<style type="text/css" >
+   <![CDATA[
+
+	.stroke{
+		stroke-width:0.3;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: black;
+		fill:none;
+	}
+	
+	.color {
+		fill:#3664BF;
+		opacity:0.2;
+	}
+
+      ]]>
+</style>
+
+<linearGradient id="gradient" gradientUnits="userSpaceOnUse" x1="-972.8208" y1="1345.8225" x2="-937.3144" y2="1310.3162" gradientTransform="matrix(4.489659e-011 1 1 -4.489659e-011 -1271.2937 998.2429)">
+	<stop  offset="0" style="stop-color:#99A3B2"/>
+	<stop  offset="0.9997" style="stop-color:#F6FAFC"/>
+</linearGradient>
+<polygon fill="url(#gradient)" points="46.369,59.467 48.253,59.467 48.253,51.697 40.48,51.697 40.48,53.582 38.948,53.582 
+	38.948,23.907 40.48,23.907 40.48,25.793 48.253,25.793 74.159,25.793 74.159,51.697 74.159,59.467 76.044,59.467 76.044,61 
+	46.369,61 "/>
+	
+<polygon class="color" points="46.369,59.467 48.253,59.467 48.253,51.697 40.48,51.697 40.48,53.582 38.948,53.582 
+	38.948,23.907 40.48,23.907 40.48,25.793 48.253,25.793 74.159,25.793 74.159,51.697 74.159,59.467 76.044,59.467 76.044,61 
+	46.369,61 "/>
+	
+<g class="stroke">
+	<polyline fill="none" points="48.253,59.467 46.369,59.467 46.369,61 76.044,61 76.044,59.467 74.159,59.467"/>
+	<polyline fill="none" points="74.159,51.697 74.159,59.467 48.253,59.467 48.253,51.697"/>
+	<polyline fill="none" points="40.48,25.793 40.48,23.907 38.948,23.907 38.948,53.582 40.48,53.582 40.48,51.697"/>
+	<polyline fill="none" points="48.253,25.793 40.48,25.793 40.48,51.697 48.253,51.697"/>
+	<rect fill="none" x="48.253" y="25.793"  />
+	<rect fill="none" x="49.808" y="27.347"  />
+	<line fill="none" x1="49.808" y1="27.347" x2="72.605" y2="50.143"/>
+	<line fill="none" x1="72.605" y1="27.347" x2="49.808" y2="50.143"/>
+</g>
+
+<polygon opacity="0.2" fill="black" points="61.205,38.742 72.605,27.347 49.808,27.347 "/>
+<polygon opacity="0.4" fill="white" points="61.205,38.746 72.605,50.143 49.808,50.143 "/>
+<polygon opacity="0.15" fill="white" points="72.605,50.143 72.605,27.347 61.205,38.742 "/>
+<polygon opacity="0.1" fill="black" points="49.808,50.143 61.205,38.742 49.808,27.347 "/>
+
+</svg>

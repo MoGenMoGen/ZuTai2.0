@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="-7.571 6.057 59.125 30.739" enable-background="new -7.571 6.057 59.125 30.739" xml:space="preserve"
+	>
+
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+
+<style type="text/css" >
+   <![CDATA[
+
+	.color,.stroked{
+		stroke-width:1;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked {
+		fill:none;
+	}
+
+      ]]>
+</style>
+
+<rect x="-6.154" y="7.475" class="color"  />
+
+<g class="stroked">
+	<line x1="21.992" y1="7.475" x2="21.992" y2="35.38"/>
+	<polygon points="5.124,31.192 5.31,30.205
+		5.93,29.219 6.831,28.604 7.919,28.418 9.007,28.604 9.909,29.219 10.528,30.205 10.714,31.192 10.528,32.272 9.909,33.165 
+		9.007,33.779 7.919,33.967 6.831,33.779 5.93,33.165 5.31,32.272 	"/>
+	<line x1="7.919" y1="28.418" x2="7.919" y2="8.909"/>
+	<polygon points="26.964,17.936 27.151,16.857
+		27.77,15.964 28.69,13.73 29.76,10.955 30.848,13.73 31.749,15.964 32.386,16.857 32.556,17.936 32.386,19.018 31.749,19.91 
+		30.848,20.525 29.76,20.712 28.69,20.525 27.77,19.91 27.151,19.018 	"/>
+	<polygon points="35.351,17.936 35.615,16.857
+		36.159,15.964 37.153,13.73 38.147,10.955 39.236,13.73 40.229,15.964 40.755,16.857 41.036,17.936 40.755,19.018 40.229,19.91 
+		39.236,20.525 38.147,20.712 37.153,20.525 36.159,19.91 35.615,19.018 	"/>
+	<polygon points="31.11,29.126 31.391,28.046
+		31.918,27.059 32.913,24.919 34.001,22.143 34.995,24.919 35.989,27.059 36.608,28.046 36.796,29.126 36.608,30.111 35.989,31.081 
+		34.995,31.714 34.001,31.899 32.913,31.714 31.918,31.081 31.391,30.111 	"/>
+	<polygon points="39.593,29.126 39.76,28.046
+		40.399,27.059 41.393,24.919 42.388,22.143 43.458,24.919 44.452,27.059 44.996,28.046 45.183,29.126 44.996,30.111 44.452,31.081 
+		43.458,31.714 42.388,31.899 41.393,31.714 40.399,31.081 39.76,30.111 	"/>
+</g>
+</svg>

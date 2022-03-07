@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="0 0 43.984 43.986" enable-background="new 0 0 43.984 43.986" xml:space="preserve">
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+   <![CDATA[
+
+	.color,.stroked,.dashed{
+		stroke-width:0.5;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked,.dashed{
+		fill:none;
+	}
+	
+	.dashed {
+		stroke-dasharray:1.4173,1.4173;
+	}
+
+      ]]>
+</style>
+<path class="color" d="M30.452,8.863c-4.56-3.91-11.36-3.62-15.58,0.65c-4.21,4.25-4.43,11.05-0.5,15.57
+	c-2.44-2.09-3.99-5.21-3.99-8.68c0-6.33,5.13-11.45,11.45-11.45C25.272,4.953,28.352,6.463,30.452,8.863z"/>
+<path class="stroked" d="M30.452,8.863
+	c-4.56-3.91-11.36-3.62-15.58,0.65c-4.21,4.25-4.43,11.05-0.5,15.57"/>
+<g class="stroked">
+	<line x1="21.835" y1="7.231" x2="21.835" y2="2.569"/>
+	<line x1="12.582" y1="16.398" x2="8.191" y2="16.398"/>
+	<line x1="31.245" y1="16.398" x2="35.794" y2="16.398"/>
+	<line x1="19.639" y1="16.398" x2="14.935" y2="16.398"/>
+	<line x1="24.187" y1="16.398" x2="28.737" y2="16.398"/>
+	<line x1="21.835" y1="14.067" x2="21.835" y2="9.406"/>
+	<line x1="21.835" y1="18.574" x2="21.835" y2="23.391"/>
+	<line x1="21.835" y1="36.91" x2="21.835" y2="41.416"/>
+	<line x1="21.835" y1="27.897" x2="21.835" y2="32.558"/>
+</g>
+<circle class="stroked" cx="21.832" cy="16.398" r="11.45"/>
+<g class="dashed stroked">
+	<line x1="33.286" y1="16.398" x2="33.286" y2="41.416"/>
+	<line x1="10.385" y1="16.398" x2="10.385" y2="41.416"/>
+</g>
+</svg>

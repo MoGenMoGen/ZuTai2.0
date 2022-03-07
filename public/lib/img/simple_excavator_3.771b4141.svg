@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	   viewBox="0 0 190 114" xmlns:agg="http://www.example.com">
+	 
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+
+<style type="text/css" >
+<![CDATA[
+
+	.color,.stroked,.dashed{
+		stroke-width:0.5;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked,.dashed{
+		fill:none;
+	}
+	
+	.dashed {
+		stroke-dasharray:1.4173,1.4173;
+	}
+
+      ]]>
+</style>
+	 
+<defs>
+	<path id="boundary" d="M134.088,86.549l-8.568-2.547H189l-3.936-53.421h-69.357l-5.686-25.64H68.416l3.889,3.893h29.551
+		l2.139,13.915H72.305l-1.797-6.082L36.729,1L18.939,4.941v9.584l-3.888,29.922l4.298,16.328l6.027,1.423l2.214,7.719
+		c-2.294-1.137-4.587-2.272-6.881-3.408c-2.405,10.469-4.809,20.936-7.213,31.402c-2.274,2.991-4.547,5.983-6.822,8.975
+		c-1.892-0.029-3.784-0.059-5.675-0.089c1.773,0.88,3.548,1.758,5.322,2.637c5.451,0.38,10.903,0.763,16.354,1.144
+		c7.413,0.584,14.334-3.759,17.035-10.693c2.702-6.936,0.543-14.824-5.313-19.412c0.04-2.376,0.198-7.148,0.198-7.148
+		l-3.554-26.735l-6.075-31.722l53.366,31.382l-7.824,37.754h5.793l-8.525,2.553c-6.502,1.907-12.82,6.326-12.82,13.484
+		c0,7.157,5.799,12.961,12.951,12.961h66.102c7.15,0,12.949-5.804,12.949-12.961C146.957,92.881,140.707,88.521,134.088,86.549z"/>
+</defs>
+
+<use xlink:href="#boundary" class="color"/>
+
+<g class="stroked">
+	<line x1="84.406" y1="8.833" x2="86.205" y2="22.748"/>
+	<line x1="182.973" y1="16.667" x2="182.973" y2="30.581"/>
+	<line x1="112.621" y1="16.667" x2="182.973" y2="16.667"/>
+	<line x1="70.508" y1="16.667" x2="103.059" y2="16.667"/>
+	<line x1="72.305" y1="8.833" x2="70.508" y2="16.667"/>
+	<line x1="113.908" y1="24.5" x2="182.973" y2="24.5"/>
+	<line x1="131.697" y1="16.667" x2="131.697" y2="30.581"/>
+	<line x1="149.486" y1="16.667" x2="149.486" y2="30.581"/>
+	<line x1="167.275" y1="16.667" x2="167.275" y2="30.581"/>
+</g>
+
+</svg>

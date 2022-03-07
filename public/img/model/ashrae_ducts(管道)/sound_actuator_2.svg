@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="0 13.692 43.984 16.602" enable-background="new 0 13.692 43.984 16.602" xml:space="preserve">
+
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+   <![CDATA[
+
+	.color,.stroked{
+		stroke-width:1;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked {
+		fill:none;
+	}
+
+      ]]>
+</style>
+
+<line class="stroked" x1="1.418" y1="22.069" x2="42.568" y2="22.069"/>
+<rect class="color" x="13.42" y="15.112"  />
+<polyline class="stroked" points="15.999,25.362 15.999,26.45 21.458,26.45 21.458,22.068 15.999,22.068 15.999,17.688 21.458,17.688 21.458,18.79 "/>
+<polyline class="stroked" points="22.542,26.45 22.542,22.068 23.09,17.688 27.452,17.688 28.001,22.068 28.001,26.45 "/>
+<line class="stroked" x1="22.542" y1="22.068" x2="28.001" y2="22.068"/>
+
+</svg>

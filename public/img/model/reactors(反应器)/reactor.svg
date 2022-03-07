@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	   viewBox="-1 -1 162 167" enable-background="new 0 0 160 165" xmlns:agg="http://www.example.com" xml:space="preserve">
+
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="F" name="saturation" description="Saturation" min="0" max="1" cssAttributes="opacity" classes="color"/>
+</agg:params>
+	 
+<style type="text/css" >
+   <![CDATA[
+
+	.stroke {
+		stroke-width:0.3;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: black;
+		fill:none;
+	}
+	
+	.color {
+		fill:#00B3FF;
+		opacity:0.2;
+	}
+	
+      ]]>
+</style>
+	 
+<defs>
+	<path id="boundary" d="M160,14.5V0H0v14.5h5v136H0V165h160v-14.5h-5v-136H160z"/>
+</defs>
+
+<linearGradient id="horizontalGradient" gradientUnits="userSpaceOnUse" x1="5" y1="100" x2="150" y2="100">
+	<stop  offset="0" style="stop-color:#767676"/>
+	<stop  offset="0.06" style="stop-color:#919191"/>
+	<stop  offset="0.14" style="stop-color:#B1B1B1"/>
+	<stop  offset="0.21" style="stop-color:#CECECE"/>
+	<stop  offset="0.28" style="stop-color:#E4E4E4"/>
+	<stop  offset="0.35" style="stop-color:#F6F6F6"/>
+	<stop  offset="0.42" style="stop-color:#FEFEFF"/>
+	<stop  offset="0.47" style="stop-color:#F6F6F6"/>
+	<stop  offset="0.53" style="stop-color:#E7E7E7"/>
+	<stop  offset="0.58" style="stop-color:#D2D1D1"/>
+	<stop  offset="0.64" style="stop-color:#B7B7B7"/>
+	<stop  offset="0.7" style="stop-color:#989898"/>
+	<stop  offset="0.72" style="stop-color:#8B8B8B"/>
+	<stop  offset="1" style="stop-color:#FDFDFD"/>
+</linearGradient>
+
+<linearGradient id="flangeGradient" xlink:href="#horizontalGradient" x1="0" y1="100" x2="160" y2="100"/>
+
+<rect x="5" y="14.5" fill="url(#horizontalGradient)"  />
+	
+<rect fill="url(#flangeGradient)"  />
+<rect y="150.5" fill="url(#flangeGradient)"  />
+
+<g style="fill:#606060">
+	<rect x="143.803" y="14.5"  />
+	<rect x="132.524" y="14.5"  />
+	<rect x="116.305" y="14.5"  />
+	<rect x="96.656" y="14.5"  />
+	<rect x="76.375" y="14.5"  />
+	<rect x="8.947" y="14.5"  />
+	<rect x="20.226" y="14.5"  />
+	<rect x="36.445" y="14.5"  />
+	<rect x="56.094" y="14.5"  />
+	<rect x="143.803" y="146.5"  />
+	<rect x="132.524" y="146.5"  />
+	<rect x="116.305" y="146.5"  />
+	<rect x="96.656" y="146.5"  />
+	<rect x="76.375" y="146.5"  />
+	<rect x="8.947" y="146.5"  />
+	<rect x="20.226" y="146.5"  />
+	<rect x="36.445" y="146.5"  />
+	<rect x="56.094" y="146.5"  />
+</g>
+
+<g class="stroke">
+	<use xlink:href="#boundary"/>
+	<line x1="5" y1="14.5" x2="155" y2="14.5"/>
+	<line x1="5" y1="150.5" x2="155" y2="150.5"/>
+	<line x1="0" y1="157.75" x2="160" y2="157.75"/>
+	<line x1="0" y1="7.25" x2="160" y2="7.25"/>
+</g>
+
+<use xlink:href="#boundary" class="color"/>
+
+</svg>

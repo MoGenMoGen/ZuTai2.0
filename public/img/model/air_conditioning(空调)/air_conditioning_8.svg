@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="0 6.885 43.984 30.224" enable-background="new 0 6.885 43.984 30.224" xml:space="preserve">
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+   <![CDATA[
+
+	.color,.stroked{
+		stroke-width:1;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked {
+		fill:none;
+	}
+      ]]>
+</style>
+<polygon class="color" points="1.417,21.997 8.388,8.303 35.823,8.303 42.567,21.997 35.823,35.692 8.388,35.692 1.417,21.997 	"/>
+<g class="stroked">
+	<circle cx="22.104" cy="21.997" r="9.428"/>
+	<line x1="14.601" y1="27.705" x2="16.932" y2="14.139"/>
+	<line x1="29.607" y1="27.705" x2="27.278" y2="14.139"/>
+</g>
+</svg>

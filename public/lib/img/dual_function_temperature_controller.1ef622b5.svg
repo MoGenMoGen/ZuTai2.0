@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="-7.571 6.057 59.125 30.739" enable-background="new -7.571 6.057 59.125 30.739" xml:space="preserve"
+	>
+	
+<style type="text/css" >
+   <![CDATA[
+
+	.color,.stroked{
+		stroke-width:1;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked {
+		fill:none;
+	}
+
+      ]]>
+</style>
+	
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+
+<rect class="color" x="-6.154" y="7.475"  />
+
+<g class="stroked">
+	<line x1="21.992" y1="7.475" x2="21.992" y2="35.38"/>
+	<polygon points="5.124,31.192 5.31,30.205
+		5.93,29.219 6.831,28.604 7.919,28.418 9.007,28.604 9.909,29.219 10.528,30.205 10.714,31.192 10.528,32.272 9.909,33.165 
+		9.007,33.779 7.919,33.967 6.831,33.779 5.93,33.165 5.31,32.272 "/>
+	<line x1="7.919" y1="28.418" x2="7.919" y2="8.909"/>
+	<polygon points="33.269,31.192 33.456,30.205
+		34.076,29.219 34.976,28.604 36.064,28.418 37.152,28.604 38.054,29.219 38.674,30.205 38.859,31.192 38.674,32.272 38.054,33.165 
+		37.152,33.779 36.064,33.967 34.976,33.779 34.076,33.165 33.456,32.272 "/>
+	<line x1="36.064" y1="28.418" x2="36.064" y2="8.909"/>
+</g>
+</svg>

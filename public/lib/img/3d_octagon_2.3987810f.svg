@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="0 -0.688 32.828 43.113" enable-background="new 0 -0.688 32.828 43.113" xml:space="preserve">
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+<![CDATA[
+
+	.color,.stroked,.dashed{
+		stroke-width:0.5;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked,.dashed{
+		fill:none;
+	}
+	
+	.dashed {
+		stroke-dasharray:1.4173,1.4173;
+	}
+
+      ]]>
+</style>
+
+<polygon class="color" points="
+		1.284,20.83 6.294,7.634 13.2,0.73 20.105,0.73 26.399,7.023 31.411,20.83 31.411,30.791 21.387,40.871 11.305,40.871 
+		1.284,30.791 1.284,20.83 	"/>
+<polyline class="stroked" points="1.284,20.159 11.305,10.811 21.387,10.811 31.411,20.771 	"/>
+<line class="stroked" x1="11.305" y1="10.811" x2="13.2" y2="0.73"/>
+<line class="stroked" x1="21.387" y1="10.811" x2="20.105" y2="0.73"/>
+
+</svg>

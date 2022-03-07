@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="0 0 43.984 43.986" enable-background="new 0 0 43.984 43.986" xml:space="preserve">
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+   <![CDATA[
+
+	.color,.stroked,.dashed{
+		stroke-width:1;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked,.dashed {
+		fill:none;
+	}
+	
+	.dashed {
+		stroke-dasharray:1.4173,1.4173;
+	}
+
+      ]]>
+</style>
+	  
+<polygon class="color" points="1.417,1.417 42.567,1.417 42.567,42.569 1.417,42.569 1.417,1.417 "/>
+<g class="stroked">
+	<polygon points="5.218,5.383 38.6,5.383 38.6,38.767 5.218,38.767 5.218,5.383 "/>
+	<line x1="19.43" y1="21.909" x2="24.388" y2="21.909"/>
+	<line x1="21.909" y1="24.554" x2="21.909" y2="19.596"/>
+	<line x1="21.909" y1="31.991" x2="21.909" y2="37.445"/>
+	<line x1="21.909" y1="11.995" x2="21.909" y2="6.871"/>
+	<line x1="31.907" y1="22.24" x2="37.444" y2="22.24"/>
+	<line x1="6.54" y1="22.24" x2="11.944" y2="22.24"/>
+	<polyline points="6.54,27.198 6.54,37.445 16.951,37.445 "/>
+	<polyline points="27.033,37.445 37.444,37.445 37.444,27.198 "/>
+	<polyline points="37.444,16.952 37.444,6.871 27.033,6.871 "/>
+	<polyline points="16.951,6.871 6.54,6.871 6.54,16.952 "/>
+	<line x1="6.54" y1="24.72" x2="6.54" y2="19.596"/>
+	<line x1="37.444" y1="19.596" x2="37.444" y2="24.72"/>
+	<line x1="19.43" y1="6.871" x2="24.553" y2="6.871"/>
+	<line x1="19.596" y1="37.445" x2="24.719" y2="37.445"/>
+</g>
+<circle class="dashed stroked" cx="21.909" cy="21.993" r="9.998"/>
+</svg>

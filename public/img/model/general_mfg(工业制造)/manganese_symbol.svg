@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px"
+	   viewBox="0 0 52 52" xmlns:agg="http://www.example.com" xml:space="preserve">
+	 
+<agg:params>
+		<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+	 
+<style type="text/css" >
+<![CDATA[
+
+	.color{
+		stroke-width:0.5;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+		fill:   #A1BFE2;
+	}
+]]>
+</style>
+	 
+<path class="color" d="M26,1C12.193,1,1,12.193,1,26c0,13.807,11.193,25,25,25c13.807,0,25-11.193,25-25C51,12.193,39.807,1,26,1z M26,44.5
+	C15.783,44.5,7.5,36.217,7.5,26C7.5,15.783,15.783,7.5,26,7.5c10.217,0,18.5,8.283,18.5,18.5C44.5,36.217,36.217,44.5,26,44.5z"/>
+<circle class="color" cx="26" cy="26" r="7"/>
+</svg>

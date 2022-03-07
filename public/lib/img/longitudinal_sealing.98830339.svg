@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="0 1.556 64.902 40.591" enable-background="new 0 1.556 64.902 40.591" xml:space="preserve">
+	 
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+
+<style type="text/css" >
+<![CDATA[
+
+	.color,.stroked,.dashed{
+		stroke-width:0.5;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked,.dashed{
+		fill:none;
+	}
+	
+	.dashed {
+		stroke-dasharray:1.4173,1.4173;
+	}
+]]>
+</style>
+
+<g class="color">
+	<path d="M3.166,6.432
+		c0,3.826,0,7.65,0,11.477c0,0.461-0.19,0.652-0.653,0.652c-0.301,0-0.602,0-0.902,0c0,0.87,0,1.74,0,2.611
+		c13.494,0,48.174,0,61.668,0c0-0.871,0-1.741,0-2.611c-0.302,0-0.603,0-0.904,0c-0.461,0-0.652-0.191-0.652-0.652
+		c0-3.826,0-7.65,0-11.477c0-1.802-1.463-3.265-3.266-3.265c-10.28,0-41.745,0-52.024,0C4.628,3.167,3.166,4.63,3.166,6.432z
+		 M58.456,5.78c0.461,0,0.653,0.191,0.653,0.652c0,4.043,0,8.086,0,12.129c-10.716,0-42.616,0-53.33,0c0-4.043,0-8.086,0-12.129
+		c0-0.461,0.191-0.652,0.652-0.652C16.711,5.78,48.176,5.78,58.456,5.78z"/>
+	<path d="M1.61,25.144
+		c0.301,0,0.602,0,0.902,0c0.463,0,0.653,0.19,0.653,0.653c0,3.825,0,7.65,0,11.475c0,1.804,1.462,3.265,3.266,3.265
+		c10.279,0,41.744,0,52.024,0c1.803,0,3.266-1.461,3.266-3.265c0-3.824,0-7.649,0-11.475c0-0.463,0.191-0.653,0.652-0.653
+		c0.302,0,0.603,0,0.904,0c0-0.871,0-1.741,0-2.612c-13.494,0-48.174,0-61.668,0C1.61,23.403,1.61,24.273,1.61,25.144z
+		 M59.109,25.144c0,4.043,0,8.085,0,12.128c0,0.462-0.192,0.652-0.653,0.652c-10.28,0-41.745,0-52.024,0
+		c-0.461,0-0.652-0.19-0.652-0.652c0-4.043,0-8.085,0-12.128C16.493,25.144,48.393,25.144,59.109,25.144z"/>
+</g>
+<line class="stroked" x1="32.444" y1="3.167" x2="32.444" y2="5.78"/>
+<line class="stroked" x1="32.451" y1="40.536" x2="32.451" y2="37.924"/>
+
+</svg>

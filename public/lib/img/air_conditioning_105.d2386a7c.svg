@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="10.875 -10.778 55.518 32.458" enable-background="new 10.875 -10.778 55.518 32.458"
+	 xml:space="preserve">
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+<![CDATA[
+
+	.color,.stroked,.dashed{
+		stroke-width:0.5;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked,.dashed{
+		fill:none;
+	}
+	
+	.dashed {
+		stroke-dasharray:1.4173,1.4173;
+	}
+
+      ]]>
+</style>
+<rect class="color" x="26.485" y="1.018"  />
+<rect class="color" x="12.293" y="-9.361"  />
+<g class="stroked">
+	<circle cx="36.162" cy="8.154" r="4.216"/>
+	<line x1="47.558" y1="9.451" x2="51.215" y2="9.451"/>
+	<line x1="38.27" y1="4.502" x2="39.369" y2="10.889"/>
+	<line x1="33.121" y1="11.073" x2="34.282" y2="4.381"/>
+	<polyline points="17.024,9.883 17.024,17.884 20.679,17.884 "/>
+	<line x1="26.485" y1="17.884" x2="23.045" y2="17.884"/>
+	<line x1="47.558" y1="10.532" x2="51.215" y2="10.532"/>
+	<line x1="47.558" y1="11.829" x2="51.215" y2="11.829"/>
+	<line x1="64.976" y1="1.018" x2="45.838" y2="20.262"/>
+	<line x1="45.838" y1="1.018" x2="45.838" y2="20.262"/>
+	<line fill="none" x1="45.838" y1="15.289" x2="26.485" y2="15.289"/>
+	<line x1="12.293" y1="-9.361" x2="21.754" y2="9.883"/>
+	<line x1="12.293" y1="9.883" x2="21.754" y2="-9.361"/>
+</g>
+</svg>

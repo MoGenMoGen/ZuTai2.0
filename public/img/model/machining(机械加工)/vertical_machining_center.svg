@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"  
+	 viewBox="0 0 152 152" enable-background="new 0 0 152 152" xml:space="preserve" xmlns:agg="http://www.example.com">
+
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param name="state" description="State" type="state">
+		<agg:state name="closed" description="Closed">
+			<agg:param attributes="visibility" ids="closed" value="visible"/>
+			<agg:param attributes="visibility" ids="open" value="hidden"/>
+		</agg:state>
+		<agg:state name="open" description="Open">
+			<agg:param attributes="visibility" ids="closed" value="hidden"/>
+			<agg:param attributes="visibility" ids="open" value="visible"/>
+		</agg:state>
+	</agg:param>
+</agg:params>
+	 
+<style type="text/css" >
+   <![CDATA[
+
+	.stroke,.thin,.thick{
+		stroke-linecap:butt;
+		stroke-linejoin:round;
+		stroke: black;
+		fill:none;
+		opacity:0.35;
+	}
+
+	.stroke{stroke-width:0.5;}
+
+	.thin {stroke-width:0.25;}
+
+	.thick {stroke-width:0.75;}
+	
+	.color {
+		fill:#2088B7;
+		opacity:1;
+	}
+
+      ]]>
+</style>	
+	 
+<polygon fill="#E5E5E5" points="4.009,51.109 1,126.076 4.009,147.729 51.109,151 100.893,151 147.991,147.729 151,126.076 147.991,51.109 "/>
+<polygon fill="#CCCCCC" points="125.378,35.213 120.604,35.213 120.604,56.473 125.378,56.473 "/>
+<polygon opacity="0.5" fill="#FFFFFF" points="124.789,35.213 121.191,35.213 121.191,56.473 124.789,56.473 "/>
+<polygon opacity="0.5" fill="#FFFFFF" points="124.199,35.213 121.779,35.213 121.779,56.473 124.199,56.473 "/>
+<polygon opacity="0.5" fill="#FFFFFF" points="123.611,35.213 122.369,35.213 122.369,56.473 123.611,56.473 "/>
+<rect x="119.688" y="30.699" fill="#EDEDED"  />
+<polygon fill="#E0E0E0" points="1,126.076 4.009,147.729 51.109,151 100.893,151 147.991,147.729 151,126.076 "/>
+
+<g>
+	<polygon points="62.266,118.88 63.182,118.88 63.182,119.796 62.266,119.796 	"/>
+	<polygon points="62.266,126.223 63.182,126.223 63.182,127.139 62.266,127.139 	"/>
+	<polygon points="62.266,133.563 63.182,133.563 63.182,134.479 62.266,134.479 	"/>
+	<polygon points="62.266,140.902 63.182,140.902 63.182,141.818 62.266,141.818 	"/>
+	<polygon points="62.266,148.245 63.182,148.245 63.182,149.161 62.266,149.161 	"/>
+</g>
+<g>
+	<polygon points="91.965,118.88 92.881,118.88 92.881,119.796 91.965,119.796 	"/>
+	<polygon points="91.965,126.223 92.881,126.223 92.881,127.139 91.965,127.139 	"/>
+	<polygon points="91.965,133.563 92.881,133.563 92.881,134.479 91.965,134.479 	"/>
+	<polygon points="91.965,140.902 92.881,140.902 92.881,141.818 91.965,141.818 	"/>
+	<polygon points="91.965,148.245 92.881,148.245 92.881,149.161 91.965,149.161 	"/>
+</g>
+<g>
+	<polygon points="75.022,118.88 75.938,118.88 75.938,119.796 75.022,119.796 	"/>
+	<polygon points="79.208,118.88 80.125,118.88 80.125,119.796 79.208,119.796 	"/>
+</g>
+<polygon fill="#E5E5E5" points="54.118,1 78.977,1 78.977,51.109 54.118,51.109 "/>
+<polygon opacity="0.03" points="54.118,36.391 78.977,15.719 78.977,51.109 54.118,51.109 "/>
+<polygon opacity="0.03" points="54.118,38.483 78.977,17.812 78.977,51.109 54.118,51.109 "/>
+<polygon opacity="0.03" points="54.118,41.82 78.977,20.822 78.977,51.109 54.118,51.109 "/>
+<polygon fill="#E5E5E5" points="29.195,41.493 54.118,41.493 54.118,51.109 29.195,51.109 "/>
+<polygon fill="#B2B2B2" points="60.398,19.579 73.024,19.579 73.024,32.204 60.398,32.204 "/>
+<polyline fill="#B2B2B2" points="44.829,41.493 44.829,44.829 38.484,44.829 38.484,41.493 "/>
+<polygon fill="#E5E5E5" points="78.977,35.213 119.688,30.699 119.688,35.213 78.977,38.483 "/>
+<polygon fill="#CCCCCC" points="112.818,56.473 131.658,54.969 131.658,76.883 112.818,75.117 "/>
+<polygon fill="#EDEDED" points="134.667,56.473 131.658,54.969 131.658,76.883 134.667,75.117 "/>
+<polygon fill="#9B9B9B" points="116.089,58.305 116.089,70.276 128.061,71.519 128.061,57.389 116.089,58.305 "/>
+<polygon fill="#333333" points="116.678,58.894 116.678,69.687 127.473,70.603 127.473,57.978 116.678,58.894 "/>
+<polygon class="color" points="1.646,114.775 150.546,114.775 150.354,110.001 1.646,110.001 "/>
+
+<line fill="none" stroke="#FFFFFF" stroke- x1="94.611" y1="151" x2="94.611" y2="114.775"/>
+<line fill="none" stroke="#FFFFFF" stroke- x1="60.987" y1="151" x2="60.987" y2="114.775"/>
+
+<defs>
+	<clipPath id="mask">
+		<rect x="44.829" y="57.258"  />
+	</clipPath>
+
+	<g id="left_door">
+		<rect x="44.829" y="57.127" fill="#E5E5E5"  />
+		<polygon points="73.024,88.592 73.024,75.967 74.528,75.967 74.528,88.592 		"/>
+		<polygon fill="#9B9B9B" points="67.442,101.029 69.826,98.646 69.846,65.348 67.073,62.943 50.386,62.943 47.635,65.351 
+			47.635,98.658 50.095,101.031 67.442,101.031 		"/>
+		<polygon fill="#333333" points="50.521,99.975 67.006,99.975 68.772,98.208 68.791,65.828 66.679,63.996 50.782,63.996 
+			48.688,65.828 48.688,98.208 50.521,99.975 		"/>
+		<line fill="none" opacity="0.5" stroke="#FFFFFF" stroke- x1="52.427" y1="91.415" x2="65.64" y2="74.341"/>
+		<line fill="none" opacity="0.5" stroke="#FFFFFF" stroke- x1="53.931" y1="81.962" x2="62.958" y2="70.579"/>
+	</g>
+	
+	<g id="right_door">
+		<rect x="76.065" y="57.127" fill="#E5E5E5"  />
+		<polygon points="77.473,88.592 77.473,75.967 78.977,75.967 78.977,88.592 		"/>
+		<polygon fill="#9B9B9B" points="84.559,101.029 82.175,98.646 82.175,65.35 84.926,62.942 101.613,62.942 104.365,65.35 
+			104.365,98.657 101.904,101.03 84.559,101.03 		"/>
+		<polygon fill="#333333" points="84.995,99.975 83.229,98.208 83.229,65.828 85.322,63.996 101.218,63.996 103.311,65.828 
+			103.311,98.208 101.479,99.975 84.995,99.975 		"/>
+		<line fill="none" opacity="0.5" stroke="#FFFFFF" stroke- x1="86.64" y1="91.415" x2="99.853" y2="74.341"/>
+		<line fill="none" opacity="0.5" stroke="#FFFFFF" stroke- x1="88.472" y1="83.04" x2="97.433" y2="71.659"/>
+	</g>
+</defs>
+
+<g id="closed" visibility="hidden">
+	<g clip-path="url(#mask)">
+		<use xlink:href="#left_door"/>
+		<use xlink:href="#right_door"/>
+	</g>
+	<line opacity="0.35" fill="none" stroke="#000000" stroke- x1="76" y1="57.127" x2="76" y2="107.17"/>
+</g>
+
+<g id="open" visibility="visible">
+	<rect x="44.829" y="57.127" fill="#6A6B77"  />
+	<g clip-path="url(#mask)">
+		<use xlink:href="#left_door" transform="translate(-25 0)"/>
+		<use xlink:href="#right_door" transform="translate(25 0)"/>
+	</g>
+	<line opacity="0.35" fill="none" stroke="#000000" stroke- x1="51" y1="57.127" x2="51" y2="107.17"/>
+	<line opacity="0.35" fill="none" stroke="#000000" stroke- x1="101" y1="57.127" x2="101" y2="107.17"/>
+</g>
+
+<g opacity="0.35" class="stroke">
+	<polyline points="78.977,35.213 119.688,30.699 119.688,35.213 78.977,38.483 	"/>
+	<polyline points="119.688,35.213 126.605,35.213 126.605,30.699 126.605,30.699 119.688,30.699 	"/>
+	<line x1="54.118" y1="51.109" x2="54.118" y2="1"/>
+	<polyline points="54.118,1 78.977,1 78.977,51.109 	"/>
+	<line x1="120.604" y1="51.109" x2="4.009" y2="51.109"/>
+	<polyline points="4.009,51.109 1,126.076 4.009,147.729 51.109,151 100.893,151 147.991,147.729 151,126.076 147.991,51.109 125.378,51.109 	"/>
+	<polyline points="29.195,51.109 29.195,41.493 54.118,41.493 	"/>
+	<polyline points="115.762,75.393 115.762,77.473 129.893,78.977 129.893,76.718 	"/>
+	<line x1="125.378" y1="55.47" x2="125.378" y2="35.213"/>
+	<line x1="120.604" y1="35.213" x2="120.604" y2="55.851"/>
+	<polygon points="112.818,56.473 131.658,54.969 131.658,76.883 112.818,75.117 	"/>
+	<polyline points="131.658,76.883 134.667,75.117 134.667,56.473 134.667,56.473 131.658,54.969 	"/>
+	<polyline points="44.829,107.17 44.829,57.127 107.171,57.127 	"/>
+	<line x1="121.52" y1="75.967" x2="121.52" y2="72.107"/>
+	<line x1="112.818" y1="71.192" x2="131.396" y2="73.023"/>
+	<line x1="4.009" y1="144.72" x2="60.398" y2="144.72"/>
+	<line x1="94.611" y1="144.72" x2="147.991" y2="144.72"/>
+	<line x1="94.021" y1="151" x2="94.021" y2="114.775"/>
+	<line x1="60.398" y1="151" x2="60.398" y2="114.775"/>
+	<polyline points="44.829,41.493 44.829,44.829 38.484,44.829 38.484,41.493 	"/>
+	<polygon points="60.398,19.579 73.024,19.579 73.024,32.204 60.398,32.204 	"/>
+</g>
+
+<polyline opacity="1" fill="none" stroke="#FFFFFF" stroke- points="107.171,57.127 107.171,107.17 44.829,107.17 "/>
+
+</svg>

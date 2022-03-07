@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="0 7.419 43.984 36.567" enable-background="new 0 7.419 43.984 36.567" xml:space="preserve">
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+<![CDATA[
+
+	.color,.stroked,.dashed{
+		stroke-width:0.5;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked,.dashed{
+		fill:none;
+	}
+	
+	.dashed {
+		stroke-dasharray:1.4173,1.4173;
+	}
+]]>
+</style>
+<path class="color" d="M39.549,39.138
+	c0,0.463-0.194,0.656-0.657,0.656c-11.396,0-22.792,0-34.188,0c-0.464,0-0.656-0.193-0.656-0.656c0-3.415,0-6.828,0-10.243
+	c0-0.465,0.192-0.659,0.656-0.659c0.304,0,0.607,0,0.911,0c0-0.875,0-1.752,0-2.629c-0.304,0-0.607,0-0.911,0
+	c-1.815,0-3.287,1.473-3.287,3.288c0,3.415,0,6.828,0,10.243c0,1.815,1.472,3.286,3.287,3.286c11.396,0,22.792,0,34.188,0
+	c1.813,0,3.287-1.471,3.287-3.286c0-3.415,0-6.828,0-10.243c0-1.815-1.474-3.288-3.287-3.288c-0.304,0-0.608,0-0.912,0
+	c0,0.877,0,1.754,0,2.629c0.304,0,0.608,0,0.912,0c0.463,0,0.657,0.194,0.657,0.659C39.549,32.31,39.549,35.723,39.549,39.138z"/>
+<path class="color" d="M39.549,12.078
+	c0-0.466-0.194-0.658-0.657-0.658c-11.396,0-22.792,0-34.188,0c-0.464,0-0.656,0.192-0.656,0.658c0,3.413,0,6.828,0,10.243
+	c0,0.464,0.192,0.657,0.656,0.657c0.304,0,0.607,0,0.911,0c0,0.876,0,1.753,0,2.63c-0.304,0-0.607,0-0.911,0
+	c-1.815,0-3.287-1.472-3.287-3.287c0-3.415,0-6.83,0-10.243c0-1.816,1.472-3.289,3.287-3.289c11.396,0,22.792,0,34.188,0
+	c1.813,0,3.287,1.473,3.287,3.289c0,3.413,0,6.828,0,10.243c0,1.815-1.474,3.287-3.287,3.287c-0.304,0-0.608,0-0.912,0
+	c0-0.877,0-1.754,0-2.63c0.304,0,0.608,0,0.912,0c0.463,0,0.657-0.192,0.657-0.657C39.549,18.906,39.549,15.491,39.549,12.078z"/>
+</svg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"  
+	 viewBox="0 0 20 40" enable-background="new 0 0 20 40" xml:space="preserve">
+
+<agg:params>
+	<agg:param  type="C" name="color" classes="color" attribute="fill" description="Main Color"></agg:param>
+	<agg:param  type="F" name="opacity" min="0" max="1" classes="color" attribute="opacity" description="Color Intesity"></agg:param>
+</agg:params>
+
+<style type="text/css" >
+   <![CDATA[
+
+	.stroke{
+		stroke-width:1;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: black;
+		fill:none;
+	}
+	
+	.color {
+		fill:white;
+		opacity:1;
+	}
+
+      ]]>
+</style>
+
+<path class="color" d="M20,15V5C11.716,5,5,11.716,5,20s6.716,15,15,15V25c-2.762,0-5-2.238-5-5S17.238,15,20,15z"/>
+
+<path class="stroke" d="M20,25c-2.762,0-5-2.238-5-5s2.238-5,5-5"/>
+<path class="stroke" d="M20,35c-8.284,0-15-6.716-15-15S11.716,5,20,5"/>
+
+</svg>

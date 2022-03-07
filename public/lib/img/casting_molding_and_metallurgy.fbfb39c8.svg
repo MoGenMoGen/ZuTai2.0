@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="0 13.822 43.984 30.165" enable-background="new 0 13.822 43.984 30.165" xml:space="preserve">
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+<![CDATA[
+
+	.color,.stroked{
+		stroke-width:0.5;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked{
+		fill:none;
+	}
+	
+	.black
+	{
+		fill: black;
+	}
+]]>
+</style>
+<path class="color" d="M8.222,39.166
+	l14.593-23.927h1.757L9.977,39.166H8.222 M20.292,39.166h1.645l14.595-23.927h-1.755L20.292,39.166 M14.257,39.166h1.646
+	l14.594-23.927h-1.646L14.257,39.166 M26.218,39.166h1.756l9.437-15.365h-1.755L26.218,39.166 M6.575,32.361h1.647l10.314-17.122
+	h-1.755L6.575,32.361 M6.575,22.045h1.647l4.279-6.806h-1.646L6.575,22.045"/>
+<polygon class="color" points="
+	9.099,19.52 10.855,19.52 9.099,15.239 4.82,15.239 4.82,25.447 1.417,25.447 1.417,32.361 4.82,32.361 4.82,42.569 39.056,42.569 
+	39.056,32.361 42.567,32.361 42.567,25.447 39.056,25.447 39.056,15.239 23.694,15.239 21.937,19.52 34.777,19.52 34.777,27.202 
+	31.375,32.361 31.375,37.52 18.536,37.52 16.011,32.361 9.099,32.361 9.099,19.52 "/>
+</svg>

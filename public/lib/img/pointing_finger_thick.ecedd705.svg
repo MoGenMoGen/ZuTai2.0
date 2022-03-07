@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="_x30_" xmlns:agg="http://www.example.com"
+	 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"   x="0px" y="0px" 
+	  viewBox="1.582 -1.417 41.933 32.288" enable-background="new 1.582 -1.417 41.933 32.288" xml:space="preserve"
+	>
+<agg:params>
+	<agg:param type="C" name="color" description="Color" cssAttributes="fill" classes="color"/>
+	<agg:param type="C" name="strokeColor" description="Stroke Color" cssAttributes="stroke" classes="color,stroked"/>
+</agg:params>
+<style type="text/css" >
+<![CDATA[
+
+	.color,.stroked,.dashed{
+		stroke-width:0.5;
+		stroke-linecap:round;
+		stroke-linejoin:round;
+		stroke: #000000;
+	}
+	
+	.color {
+		fill:   #A1BFE2;
+
+	}
+	
+	.stroked,.dashed{
+		fill:none;
+	}
+	
+	.dashed {
+		stroke-dasharray:1.4173,1.4173;
+	}
+
+      ]]>
+</style>
+<path class="color" d="M24.666,0.946
+	C24.678,0.428,24.263,0,23.745,0c-4.15,0-8.3,0-12.45,0C9.979,0,8.708,0.468,7.708,1.321c-0.92,0.784-1.843,1.57-2.764,2.354
+	C3.711,4.725,3,6.264,3,7.886c0,5.346,0,10.692,0,16.035c0,3.056,2.477,5.532,5.53,5.532c5.739,0,11.476,0,17.215,0
+	c1.49,0,2.719-1.165,2.799-2.65c0.078-1.488-1.02-2.778-2.498-2.936c1.713,0.184,3.249-1.066,3.416-2.78
+	c0.167-1.716-1.095-3.239-2.813-3.39c2.022,0.177,3.785-1.367,3.875-3.395c0.089-2.029-1.53-3.722-3.562-3.722
+	c3.449,0,9.063,0,12.512,0c1.449,0,2.625-1.174,2.625-2.625s-1.176-2.625-2.625-2.625c-5.711,0-13.59,0-19.301,0
+	C22.614,5.332,24.607,3.385,24.666,0.946z"/>
+<line class="stroked" x1="13.522" y1="5.332" x2="20.172" y2="5.332"/>
+</svg>
