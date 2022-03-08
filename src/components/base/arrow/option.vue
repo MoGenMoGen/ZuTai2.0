@@ -12,9 +12,7 @@
 	<el-form-item label="高度">
 	  <avue-input-number v-model="main.activeOption.height"></avue-input-number>
 	</el-form-item>
-	<el-form-item label="旋转">
-	  <el-slider v-model="main.activeOption.rotate" :max="360"  :step="1"></el-slider>
-	</el-form-item>
+
 	<el-form-item label="旋转">
 	  <avue-input-number v-model="main.activeOption.rotate"></avue-input-number>
 	</el-form-item>

@@ -1,16 +1,20 @@
 <!-- 自定义配置 -->
 <template>
   <div>
+    <el-collapse v-model="activeName" accordion>
+      <el-collapse-item title="边框样式" name="1">
+        <el-form-item label="边框颜色">
+          <avue-input-color placeholder="请选择颜色" v-model="main.activeOption.borderColor" ></avue-input-color>
+        </el-form-item>
+        <el-form-item label="边框宽度">
+          <avue-input-number v-model="main.activeOption.borderWidth" @change="borderWidthChange"></avue-input-number>
+        </el-form-item>
+        <el-form-item label="边框样式">
+          <avue-select v-model="main.activeOption.borderType" placeholder="请选择样式" type="tree" :dic="dicBorder"></avue-select>
+        </el-form-item>
+      </el-collapse-item>
+    </el-collapse>
 
-    <el-form-item label="边框颜色">
-      <avue-input-color placeholder="请选择颜色" v-model="main.activeOption.borderColor" ></avue-input-color>
-    </el-form-item>
-    <el-form-item label="边框宽度">
-      <avue-input-number v-model="main.activeOption.borderWidth" @change="borderWidthChange"></avue-input-number>
-    </el-form-item>
-    <el-form-item label="边框样式">
-      <avue-select v-model="main.activeOption.borderType" placeholder="请选择样式" type="tree" :dic="dicBorder"></avue-select>
-    </el-form-item>
 
   </div>
 </template>

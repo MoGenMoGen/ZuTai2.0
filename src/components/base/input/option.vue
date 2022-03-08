@@ -27,12 +27,10 @@
     <el-form-item label="透明度">
       <avue-slider v-model="main.activeOption.opacity"></avue-slider>
     </el-form-item>
-
-    <border-style></border-style>
-
     <el-form-item label="圆角弧度">
       <avue-input-number v-model="main.activeOption.radius"></avue-input-number>
     </el-form-item>
+    <border-style></border-style>
     <font-style></font-style>
   </div>
 </template>

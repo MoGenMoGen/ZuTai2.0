@@ -1,5 +1,6 @@
 <template>
   <div :class="b()">
+    <p style="color: #ffffff;font-size: 20px">type:{{type}}1</p>
     <div v-for="(item,index) in listData"
          :key="index"
          :style="styleParentSize">

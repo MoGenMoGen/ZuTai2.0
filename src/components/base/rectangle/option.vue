@@ -1,17 +1,19 @@
 <!-- 自定义配置 -->
 <template>
   <div>
-
+	  <border-style></border-style>
     <el-form-item label="背景颜色">
       <avue-input-color placeholder="请选择颜色" v-model="main.activeOption.color" ></avue-input-color>
     </el-form-item>
-    <border-style></border-style>
     <el-form-item label="圆角弧度">
       <avue-input-number v-model="main.activeOption.radius"></avue-input-number>
     </el-form-item>
-	<el-form-item label="旋转">
-	  <el-slider v-model="main.activeOption.rotate" :max="360"  :step="1"></el-slider>
-	</el-form-item>
+	  <el-form-item label="透明度">
+		  <avue-slider v-model="main.activeOption.opacity"></avue-slider>
+	  </el-form-item>
+	  <el-form-item label="旋转">
+		  <avue-input-number v-model="main.activeOption.rotate"></avue-input-number>
+	  </el-form-item>
 	<el-form-item label="开启弹窗">
 	  <avue-switch v-model="main.activeOption.popup"></avue-switch>
 	</el-form-item>

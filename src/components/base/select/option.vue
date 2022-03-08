@@ -1,12 +1,7 @@
 <!-- 自定义配置 -->
 <template>
   <div>
-    <el-button type="text" style="margin:0 10px;" @click="AddInput">新增选项</el-button>
-    <el-form-item label="选项" v-for="(item,index) in main.activeOption.List" :key="index">
-      <el-input style="width: 120px" type="input" placeholder="文本内容" v-model="item.input"></el-input>
-      <el-input style="width: 80px" type="input" placeholder="值" v-model="item.value"></el-input>
-      <el-button type="danger" style="margin-top:3px;" @click="Del(index)">删除</el-button>
-    </el-form-item>
+
 
     <el-form-item label="变量名称">
       <el-input   type="text"  placeholder="请输入变量名称"   v-model="main.activeOption.valNm">  </el-input>
@@ -25,13 +20,30 @@
     <el-form-item label="透明度">
       <avue-slider v-model="main.activeOption.opacity"></avue-slider>
     </el-form-item>
-
-    <border-style></border-style>
-
     <el-form-item label="圆角弧度">
       <avue-input-number v-model="main.activeOption.radius"></avue-input-number>
     </el-form-item>
+    <border-style></border-style>
     <font-style></font-style>
+
+
+    <el-collapse v-model="activeName" accordion>
+      <el-collapse-item title="数据" name="1">
+        <el-button type="primary" style="margin-left: 10px; margin-top: 20px" @click="AddInput">新增选项</el-button>
+        <span style="color: #fff;margin-left: 10px">value值必须唯一</span>
+
+        <div v-for="(item,index) in main.activeOption.List" :key="item" style="border-bottom: 1px dashed rgba(255,255,255,0.3)">
+          <el-form-item label="显示文字">
+            <el-input placeholder="请输入显示文字" v-model="item.input" clearable @input="updVal"></el-input>
+          </el-form-item>
+          <el-form-item label="文字对应value">
+            <el-input placeholder="请输入对应value" v-model="item.value" clearable @input="updVal"></el-input>
+            <el-button type="text" @click="Del(index)">删除</el-button>
+          </el-form-item>
+        </div>
+
+      </el-collapse-item>
+    </el-collapse>
   </div>
 </template>
 

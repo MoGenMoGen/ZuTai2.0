@@ -78,6 +78,23 @@ export default [{
                 "borderType": 'solid',
             }
         }
+    },{
+        "label": '三角形',
+        "option": {
+            "name": "三角形",
+            "title": "三角形",
+            "icon": 'icon-juxing',
+            "img": require('@/assets/base/triangle.png'),
+            "component": {
+                "width": 250,
+                "height": 250,
+                "name": "baseTriangle",
+                "prop": "baseTriangle",
+            },
+            "option": {
+
+            }
+        },
     }, {
         label: '矩形',
         option: {
@@ -102,97 +119,7 @@ export default [{
                 "borderType": 'solid',
             }
         }
-    }, {
-        "label": '文本框',
-        "option": {
-            "title": "文本框",
-            "name": "文本框",
-            "icon": 'icon-text',
-            "img": require('@/assets/text.png'),
-            "dataType": 0,
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "data": {
-                value: '文本框'
-            },
-            "component": {
-                "width": 100,
-                "height": 40,
-                "name": "text",
-                "prop": "text"
-            },
-            "option": {
-                "lineHeight":40,
-                "textAlign": "center",
-                "fontSize": 26,
-                "fontWeight": "normal",
-                "color": "#fff",
-            },
-        },
-    }, {
-        label: '文本域',
-        option: {
-            "name": "文本域",
-            "title": "文本域",
-            "icon": 'icon-wenziyu',
-            "img": require('@/assets/base/text.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 200,
-                "height": 200,
-                "name": "baseText",
-                "prop": "baseText",
-            },
-            "option": {
-                "color": '#fff',
-                "lineHeight": 24,
-                'fontWeight': 'normal',
-                "opacity": 100,
-                "fontSize": '18',
-                "textarea": '',
-                "fontFamily": '微软雅黑',
-				"textAlign": 'left'
-				
-            }
-        }
-    }, {
-        label: '按钮',
-        option: {
-            "name": "按钮",
-            "title": "按钮",
-            "icon": 'icon-anniu',
-            "img": require('@/assets/base/button.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 200,
-                "height": 50,
-                "name": "baseButton",
-                "prop": "baseButton",
-            },
-            "option": {
-                "color": '#fff',
-                "borderColor": '',
-                "borderWidth": 1,
-                "borderType": 'solid',
-                "bgColor": '#f00',
-                "lineHeight": 24,
-                'fontWeight': 'normal',
-                "opacity": 100,
-                "fontSize": '18',
-                "textarea": '',
-                "fontFamily": '微软雅黑',
-                "radius": 20,
-                "bgImg":'',
-                "color2": '#fff',
-                "bgColor2": '#f00',
-                "bgImg2":''
-            }
-        }
-    }, {
+    },  {
         label: '多边形',
         option: {
             "name": "多边形",
@@ -260,7 +187,62 @@ export default [{
                 pointBgColor:'#f00'
             }
         }
+    },{
+        "label": '文本框',
+        "option": {
+            "title": "文本框",
+            "name": "文本框",
+            "icon": 'icon-text',
+            "img": require('@/assets/text.png'),
+            "dataType": 0,
+            "dataFormatter": "",
+            "stylesFormatter": "",
+            "data": {
+                value: '文本框'
+            },
+            "component": {
+                "width": 100,
+                "height": 40,
+                "name": "text",
+                "prop": "text"
+            },
+            "option": {
+                "lineHeight":40,
+                "textAlign": "center",
+                "fontSize": 26,
+                "fontWeight": "normal",
+                "color": "#fff",
+            },
+        },
     }, {
+        label: '文本域',
+        option: {
+            "name": "文本域",
+            "title": "文本域",
+            "icon": 'icon-wenziyu',
+            "img": require('@/assets/base/text.png'),
+            "data": [],
+            "dataFormatter": "",
+            "stylesFormatter": "",
+            "component": {
+                "width": 200,
+                "height": 200,
+                "name": "baseText",
+                "prop": "baseText",
+            },
+            "option": {
+                "color": '#fff',
+                "lineHeight": 24,
+                'fontWeight': 'normal',
+                "opacity": 100,
+                "fontSize": '18',
+                "textarea": '',
+                "fontFamily": '微软雅黑',
+				"textAlign": 'left'
+				
+            }
+        }
+    },  {
         label: '二维码',
         option: {
             "name": "二维码",
@@ -320,6 +302,36 @@ export default [{
             }
         }
     }, {
+        label: '多选组',
+        option: {
+            "name": "多选组",
+            "title": "多选组",
+            "icon": 'icon-fuxuankuang',
+            "img": require('@/assets/base/checkbox.png'),
+            "data": [],
+            "dataFormatter": "",
+            "stylesFormatter": "",
+            "component": {
+                "width": 200,
+                "height": 200,
+                "name": "baseCheckbox",
+                "prop": "baseCheckbox",
+            },
+            "option": {
+                "color": "#fff",
+                "selectColor": "#409EFF",
+                "fontSize": 14,
+                "scale": 1,
+                "showAll": false,
+                // "borderWidth": 14,
+                // "innerWidth": 4,
+                "list": [{
+                    "name": "选项一",
+                    "value": 1
+                }]
+            }
+        }
+    },  {
         label: '输入框',
         option: {
             "name": "输入框",
@@ -382,6 +394,41 @@ export default [{
                 "placeholder":'请选择',
                 "fontFamily": '微软雅黑',
             },
+        }
+    },{
+        label: '按钮',
+        option: {
+            "name": "按钮",
+            "title": "按钮",
+            "icon": 'icon-anniu',
+            "img": require('@/assets/base/button.png'),
+            "data": [],
+            "dataFormatter": "",
+            "stylesFormatter": "",
+            "component": {
+                "width": 200,
+                "height": 50,
+                "name": "baseButton",
+                "prop": "baseButton",
+            },
+            "option": {
+                "color": '#fff',
+                "borderColor": '',
+                "borderWidth": 1,
+                "borderType": 'solid',
+                "bgColor": '#f00',
+                "lineHeight": 24,
+                'fontWeight': 'normal',
+                "opacity": 100,
+                "fontSize": '18',
+                "textarea": '',
+                "fontFamily": '微软雅黑',
+                "radius": 20,
+                "bgImg":'',
+                "color2": '#fff',
+                "bgColor2": '#f00',
+                "bgImg2":''
+            }
         }
     }, {
         label: '开关',
@@ -452,37 +499,7 @@ export default [{
             },
 
         }
-    }, {
-        label: '多选组',
-        option: {
-            "name": "多选组",
-            "title": "多选组",
-            "icon": 'icon-fuxuankuang',
-            "img": require('@/assets/base/checkbox.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 200,
-                "height": 200,
-                "name": "baseCheckbox",
-                "prop": "baseCheckbox",
-            },
-            "option": {
-                "color": "#fff",
-                "selectColor": "#409EFF",
-                "fontSize": 14,
-                "scale": 1,
-                "showAll": false,
-                // "borderWidth": 14,
-                // "innerWidth": 4,
-                "list": [{
-                    "name": "选项一",
-                    "value": 1
-                }]
-            }
-        }
-    }, {
+    },{
         label: '链接区域',
         option: {
             "name": "链接区域",
@@ -613,24 +630,7 @@ export default [{
                 "fontWeight": "normal"
             }
         },
-    }, {
-        "label": '三角形',
-        "option": {
-            "name": "三角形",
-            "title": "三角形",
-            "icon": 'icon-juxing',
-            "img": require('@/assets/base/triangle.png'),
-            "component": {
-                "width": 250,
-                "height": 250,
-                "name": "baseTriangle",
-                "prop": "baseTriangle",
-            },
-            "option": {
-                
-            }
-        },
-    }]
+    }, ]
 }, {
     "label": '图表',
     "icon": 'icon-bar',
@@ -674,51 +674,51 @@ export default [{
                 "prop": "common",
             },
 			"option": {
-			    
 			}
         }
-    }, {
-        label: '自定义',
-        option: {
-            "name": "自定义",
-            "title": "自定义",
-            "icon": 'icon-bar',
-            "img": require('@/assets/icon/自定义.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 800,
-                "height": 500,
-                "name": "test",
-                "prop": "test",
-            },
-            "option": {
-                "fontSize": 20,
-            }
-        }
     },
-        {
-            label: '状态指示',
-            option: {
-                "name": "状态指示",
-                "title": "状态指示",
-                "icon": 'icon-zhuangtaideng',
-                "img": require('@/assets/icon/指示状态.png'),
-                "data": [],
-                "dataFormatter": "",
-                "stylesFormatter": "",
-                "component": {
-                    "width": 80,
-                    "height": 80,
-                    "name": "state",
-                    "prop": "state",
-                },
-                "option": {
-                    "fontSize": 20,
-                }
-            }
-        },
+    //     {
+    //     label: '自定义',
+    //     option: {
+    //         "name": "自定义",
+    //         "title": "自定义",
+    //         "icon": 'icon-bar',
+    //         "img": require('@/assets/icon/自定义.png'),
+    //         "data": [],
+    //         "dataFormatter": "",
+    //         "stylesFormatter": "",
+    //         "component": {
+    //             "width": 800,
+    //             "height": 500,
+    //             "name": "test",
+    //             "prop": "test",
+    //         },
+    //         "option": {
+    //             "fontSize": 20,
+    //         }
+    //     }
+    // },
+        // {
+        //     label: '状态指示',
+        //     option: {
+        //         "name": "状态指示",
+        //         "title": "状态指示",
+        //         "icon": 'icon-zhuangtaideng',
+        //         "img": require('@/assets/icon/指示状态.png'),
+        //         "data": [],
+        //         "dataFormatter": "",
+        //         "stylesFormatter": "",
+        //         "component": {
+        //             "width": 80,
+        //             "height": 80,
+        //             "name": "state",
+        //             "prop": "state",
+        //         },
+        //         "option": {
+        //             "fontSize": 20,
+        //         }
+        //     }
+        // },
         {
             label: '指示灯',
             option: {
@@ -1524,26 +1524,28 @@ export default [{
                 duration: '1000',
             }
         }
-    }, {
-        "label": '图片框',
-        "option": {
-            "title": "图片框",
-            "name": "图片框",
-            "icon": 'icon-tupiankuang',
-            "img": require('@/assets/imgborder.png'),
-            "top": 0,
-            "left": 0,
-            "component": {
-                "width": 140,
-                "height": 140,
-                "name": "imgborder",
-                "prop": "imgborder",
-            },
-            "option": {
-                backgroundColor: 'rgba(180, 181, 198, 0.1)',
-            }
-        }
-    }, {
+    },
+    //     {
+    //     "label": '图片框',
+    //     "option": {
+    //         "title": "图片框",
+    //         "name": "图片框",
+    //         "icon": 'icon-tupiankuang',
+    //         "img": require('@/assets/imgborder.png'),
+    //         "top": 0,
+    //         "left": 0,
+    //         "component": {
+    //             "width": 140,
+    //             "height": 140,
+    //             "name": "imgborder",
+    //             "prop": "imgborder",
+    //         },
+    //         "option": {
+    //             backgroundColor: 'rgba(180, 181, 198, 0.1)',
+    //         }
+    //     }
+    // },
+        {
         label: '轮播图',
         option: {
             "title": "轮播图",
@@ -1576,31 +1578,33 @@ export default [{
                 indicator: 'none'
             },
         }
-    }, {
-        label: 'iframe',
-        option: {
-            "title": "iframe",
-            "name": "iframe",
-            "icon": 'icon-iframe',
-            "img": require('@/assets/iframe.png'),
-            "top": 0,
-            "left": 0,
-            "component": {
-                "width": 670,
-                "height": 370,
-                "option": {},
-                "name": "iframe",
-                "prop": "iframe"
-            },
-            "option": {},
-            "dataType": 0,
-            "data": {
-                value: 'https://avuejs.com'
-            },
-            "dataFormatter": "",
-            "stylesFormatter": ""
-        }
-    }, {
+    },
+    //     {
+    //     label: 'iframe',
+    //     option: {
+    //         "title": "iframe",
+    //         "name": "iframe",
+    //         "icon": 'icon-iframe',
+    //         "img": require('@/assets/iframe.png'),
+    //         "top": 0,
+    //         "left": 0,
+    //         "component": {
+    //             "width": 670,
+    //             "height": 370,
+    //             "option": {},
+    //             "name": "iframe",
+    //             "prop": "iframe"
+    //         },
+    //         "option": {},
+    //         "dataType": 0,
+    //         "data": {
+    //             value: 'https://avuejs.com'
+    //         },
+    //         "dataFormatter": "",
+    //         "stylesFormatter": ""
+    //     }
+    // },
+        {
         label: 'video',
         option: {
             "title": "video",

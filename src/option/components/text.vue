@@ -13,39 +13,39 @@
       <avue-input-number v-model="main.activeOption.xsd"
                          :max="5"></avue-input-number>
     </el-form-item>
-
-    <el-form-item label="字体大小">
-      <avue-input-number v-model="main.activeOption.fontSize"
-                         :max="200"></avue-input-number>
-    </el-form-item>
-    <el-form-item label="字体颜色">
-      <avue-input-color v-model="main.activeOption.color"></avue-input-color>
-    </el-form-item>
-    <el-form-item label="字体间距">
-      <avue-slider v-model="main.activeOption.split"></avue-slider>
-    </el-form-item>
-    <el-form-item label="字体行高">
-      <avue-slider :min='12' v-model="main.activeOption.lineHeight"></avue-slider>
-    </el-form-item>
-    <el-form-item label="字体背景">
-      <avue-input-color v-model="main.activeOption.backgroundColor"></avue-input-color>
-    </el-form-item>
-    <el-form-item label="文字粗细">
-      <avue-select v-model="main.activeOption.fontWeight"
-                   :dic="dicOption.fontWeight">
-      </avue-select>
-    </el-form-item>
-    <el-form-item label="对齐方式">
-      <avue-select v-model="main.activeOption.textAlign"
-                   :dic="dicOption.textAlign">
-      </avue-select>
-    </el-form-item>
-
-
     <el-form-item label="变量名称">
       <avue-input v-model="main.activeObj.mqtt"> </avue-input>
     </el-form-item>
+
     <el-collapse accordion>
+      <el-collapse-item title="字体" name="1">
+        <el-form-item label="字体大小">
+          <avue-input-number v-model="main.activeOption.fontSize"
+                             :max="200"></avue-input-number>
+        </el-form-item>
+        <el-form-item label="字体颜色">
+          <avue-input-color v-model="main.activeOption.color"></avue-input-color>
+        </el-form-item>
+        <el-form-item label="字体间距">
+          <avue-slider v-model="main.activeOption.split"></avue-slider>
+        </el-form-item>
+        <el-form-item label="字体行高">
+          <avue-slider :min='12' v-model="main.activeOption.lineHeight"></avue-slider>
+        </el-form-item>
+        <el-form-item label="字体背景">
+          <avue-input-color v-model="main.activeOption.backgroundColor"></avue-input-color>
+        </el-form-item>
+        <el-form-item label="文字粗细">
+          <avue-select v-model="main.activeOption.fontWeight"
+                       :dic="dicOption.fontWeight">
+          </avue-select>
+        </el-form-item>
+        <el-form-item label="对齐方式">
+          <avue-select v-model="main.activeOption.textAlign"
+                       :dic="dicOption.textAlign">
+          </avue-select>
+        </el-form-item>
+      </el-collapse-item>
       <el-collapse-item title="跑马灯设置">
         <el-form-item label="开启">
           <avue-switch v-model="main.activeOption.scroll"></avue-switch>
