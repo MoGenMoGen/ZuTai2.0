@@ -146,7 +146,10 @@ export const dicOption = {
     }, {label: '日期(无年)', value: 'MM-dd'}, {label: '时分', value: 'hh:mm'}, {
         label: '时分秒',
         value: 'hh:mm:ss'
-    }, {label: '星期', value: 'day'}]
+    }, {label: '星期', value: 'day'}],
+    interactList: [{label: '点击', value: "click"}, {label: '双击', value: "dbclick"}, {label: '移入', value: "over"}, {label: '移出', value: "out"}],
+    eventTypeList: [{label: '打开弹窗', value: 'popup'}, {label: '打开浮窗', value: 'fc'}, {label: '提示文字', value: 'title'}, {label: '打开链接', value: 'link'}],
+    linkOption: [{label: '外部链接', value: 1}, {label: '内部链接', value: 2}]
 }
 
 

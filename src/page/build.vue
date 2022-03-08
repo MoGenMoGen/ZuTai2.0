@@ -394,6 +394,92 @@
 		      </el-form-item>
 		    </el-form>
 		  </el-tab-pane>
+          <el-tab-pane name="5" v-if="isActive">
+            <el-tooltip slot="label"
+                        effect="dark"
+                        content="交互事件"
+                        placement="top">
+              <div><i class="el-icon-thumb"></i></div>
+            </el-tooltip>
+            <el-form label-width="120px"
+                     label-position="left"
+                     size="mini">
+              <div v-for="(item,index) in activeObj.option.interact" :key="index">
+                  <el-form-item label="事件">
+                    <avue-select v-model="item.event" placeholder="请选择" type="tree" :dic="dicOption.interactList"></avue-select>
+                  </el-form-item>
+                  <el-form-item label="动作">
+                    <avue-select v-model="item.action" placeholder="请选择" type="tree" :dic="dicOption.eventTypeList"></avue-select>
+                  </el-form-item>
+                  <block v-if="item.action=='popup'">
+                      <el-form-item label="弹窗高度">
+                        <el-input v-model="item.popupH"></el-input>
+                      </el-form-item>
+                      <el-form-item label="弹窗宽度">
+                        <el-input v-model="item.popupW"></el-input>
+                      </el-form-item>
+                      <el-form-item label="弹窗链接">
+                        <el-input v-model="item.popupLink"></el-input>
+                      </el-form-item>
+                  </block>
+                  <block  v-if="item.action=='fc'">
+                      <el-form-item label="浮窗链接">
+                        <el-input v-model="item.fcLink"></el-input>
+                      </el-form-item>
+                  </block>
+                  <block v-if="item.action=='title'">
+                      <el-form-item label="提示文字">
+                        <el-input v-model="item.titleWord"></el-input>
+                      </el-form-item>
+                  </block>
+                  <block v-if="item.action=='link'">
+                      <el-form-item label="打开方式">
+                        <avue-radio v-model="item.linkTarget"
+                                    :dic="dicOption.target">
+                        </avue-radio>
+                      </el-form-item>
+                      <el-form-item label="链接方式">
+                        <avue-radio v-model="item.linkType"
+                                    :dic="dicOption.linkOption">
+                        </avue-radio>
+                      </el-form-item>
+                      <el-form-item label="外部链接" v-if="item.linkType==1">
+                        <avue-input v-model="item.linkHref"></avue-input>
+                      </el-form-item>
+                      <el-form-item label="内部链接" v-if="item.linkType==2">
+                        <el-select v-model="item.linkValue1" filterable>
+                          <el-option
+                            v-for="(cItem,cIndex) in options1"
+                            :key="cItem.categoryValue"
+                            :label="cItem.categoryKey"
+                            :value="cItem.categoryValue"
+                            @click.native ="handleSelect(item,cIndex)">
+                          </el-option>
+                        </el-select>
+                        <el-select v-model="item.linkValue2" filterable>
+                          <el-option
+                            v-for="(cItem,cIndex) in options1[item.selectIndex?item.selectIndex:0].visuals"
+                            :key="cItem.id"
+                            :label="cItem.title"
+                            :value="cItem.id"
+                            @click.native ="handleSelect2(item)">
+                          </el-option>
+                        </el-select>
+                      </el-form-item>
+                  </block>
+                  <el-form-item label="">
+                    <span @click="delInteract(index)" style="cursor: pointer;">删除此项</span>
+                  </el-form-item>
+                  <div style="width: 100%;height: 1px;margin: 10px 0;background: #fff;"></div>
+              </div>
+              <el-form-item label-width="0">
+                <el-button type="primary"
+                           size="mini"
+                           class="block"
+                           @click="addInteract">新增交互</el-button>
+              </el-form-item>
+            </el-form>
+          </el-tab-pane>
         </el-tabs>
       </div>
     </div>
@@ -467,6 +553,7 @@ import SketchRule from "vue-sketch-ruler";
 import { getList } from "@/api/db";
 import crypto from '@/utils/crypto'
 import {getAllData} from '@/api/visual'
+import {getCategoryAll} from '@/api/visual';
 export default {
   mixins: [init, components],
   data () {
@@ -528,7 +615,8 @@ export default {
 	  activeObjS: {
 		left: '',
 		top: ''
-	  }
+	  },
+      options1: [],
     }
   },
   components: {
@@ -716,6 +804,11 @@ export default {
       document.addEventListener('keydown',this.keyDown)
       document.addEventListener('mouseup',this.mouseup2)
     this.initFun()
+    getCategoryAll().then(res => {
+    	res.data.data.forEach((item,index) => {
+    		this.options1.push(item)
+    	})
+    })
     this.$nextTick(() => {
       this.initSize()
     })
@@ -1137,7 +1230,30 @@ export default {
 	},
 	changeX(e) {
 		console.log(e)
-	}
+	},
+    addInteract() {
+        let obj = {
+            event: '',
+            action: ''
+        }
+        if(this.activeObj.option.interact) {
+            this.activeObj.option.interact.push(obj)
+        } else {
+            this.$set(this.activeObj.option,'interact',[])
+            this.activeObj.option.interact.push(obj)
+            console.log(this.activeObj.option)
+        }
+    },
+    delInteract(index) {
+        this.activeObj.option.interact.splice(index,1)
+    },
+    // 跳转链接选择
+    handleSelect(item,index) {
+        this.$set(item,'selectIndex',index)
+    },
+    handleSelect2(item) {
+        this.$set(item,'linkHref',window.location.origin + '/view/'+ item.linkValue2)
+    }
   }
 }
 </script>

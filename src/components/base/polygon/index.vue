@@ -136,7 +136,6 @@
                 this.y = e.pointer.y
             },
             mouseup(e) {
-                console.log(e)
                 if (this.main.activeOption && this.main.activeOption.index === this.option.index) {
                     if (e.pointer.x === this.x && e.pointer.y === this.y && !this.option.ifEdit) { //是点击事件
                         this.pointArray.push({
@@ -147,52 +146,128 @@
                         this.fabricEvent();
                     }
                 }
-                if (!this.contain.menuFlag && this.option.isClick && this.PointInPoly(e.absolutePointer, this
+                if (!this.contain.menuFlag && this.PointInPoly(e.absolutePointer, this
                         .pointArray)) {
-                    if (this.option.eventOption_click == 'popup') {
-                        this.$parent.$parent.clickEvent(this.option.popupW_click, this.option.popupH_click, this.option
-                            .popupUrl_click)
-                    } else if (this.option.eventOption_click == 'fc') {
-                        this.$parent.$parent.overEvent(this.option.fcUrl_click, e.e.pageX+120, e.e.pageY,true)
-                    } else if (this.option.eventOption_click == 'title') {
-                        this.$parent.$parent.overTitle(this.option.title_click, e.e.screenX+120, e.e.screenY,true)
+                    // && this.option.isClick
+                    // if (this.option.eventOption_click == 'popup') {
+                    //     this.$parent.$parent.clickEvent(this.option.popupW_click, this.option.popupH_click, this.option
+                    //         .popupUrl_click)
+                    // } else if (this.option.eventOption_click == 'fc') {
+                    //     this.$parent.$parent.overEvent(this.option.fcUrl_click, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
+                    // } else if (this.option.eventOption_click == 'title') {
+                    //     this.$parent.$parent.overTitle(this.option.title_click, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
+                    // }
+                    if(this.option.interact) {
+                        this.option.interact.forEach((item,index) => {
+                            if(item.event=='click') {
+                                if (item.action == 'popup') {
+                                    this.$parent.$parent.clickEvent(item.popupW, item.popupH, item.popupLink)
+                                } else if (item.action == 'fc') {
+                                    this.$parent.$parent.overEvent(item.fcLink, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
+                                } else if (item.action == 'title') {
+                                    this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
+                                } else if (item.action == 'link') {
+                                    this.toPage(item)
+                                }
+                            }
+                        })
                     }
                 }
             },
             mousemove(e) {
-                if (!this.contain.menuFlag && this.option.isHover && this.PointInPoly(e.absolutePointer, this
+                if (!this.contain.menuFlag  && this.PointInPoly(e.absolutePointer, this
                         .pointArray)) {
-                    if (this.option.eventOption_hover == 'popup') {
-                        this.$parent.$parent.clickEvent(this.option.popupW_hover, this.option.popupH_hover, this.option
-                            .popupUrl_hover)
-                    } else if (this.option.eventOption_hover == 'fc') {
-                        if(!this.$parent.$parent.seen_event) {
-                            this.$parent.$parent.overEvent(this.option.fcUrl_hover, e.e.pageX, e.e.pageY)
-                        }
-                    } else if (this.option.eventOption_hover == 'title') {
-                        if(!this.$parent.$parent.title_event) {
-                            this.$parent.$parent.overTitle(this.option.title_hover, e.e.screenX+120, e.e.screenY)
-                        }
+                    //         && this.option.isHover
+                    // if (this.option.eventOption_hover == 'popup') {
+                    //     this.$parent.$parent.clickEvent(this.option.popupW_hover, this.option.popupH_hover, this.option
+                    //         .popupUrl_hover)
+                    // } else if (this.option.eventOption_hover == 'fc') {
+                    //     if(!this.$parent.$parent.seen_event) {
+                    //         this.$parent.$parent.overEvent(this.option.fcUrl_hover, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
+                    //     }
+                    // } else if (this.option.eventOption_hover == 'title') {
+                    //     if(!this.$parent.$parent.title_event) {
+                    //         this.$parent.$parent.overTitle(this.option.title_hover, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
+                    //     }
+                    // }
+                    if(this.option.interact) {
+                        this.option.interact.forEach((item,index) => {
+                            if(item.event=='over') {
+                                if (item.action == 'popup') {
+                                    this.$parent.$parent.clickEvent(item.popupW, item.popupH, item.popupLink)
+                                } else if (item.action == 'fc') {
+                                    this.$parent.$parent.overEvent(item.fcLink, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
+                                } else if (item.action == 'title') {
+                                    this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
+                                } else if (item.action == 'link') {
+                                    this.toPage(item)
+                                }
+                            }
+                        })
                     }
-                } else if (!this.contain.menuFlag && this.option.isHover && !this.PointInPoly(e.absolutePointer, this
+                } else if (!this.contain.menuFlag && !this.PointInPoly(e.absolutePointer, this
                         .pointArray)) {
-                    if (this.option.eventOption_hover == 'fc') {
-                        this.$parent.$parent.leaveEvent()
-                    } else if (this.option.eventOption_hover == 'title') {
-                        this.$parent.$parent.leaveTitle()
+                    // && this.option.isHover
+                    // if (this.option.eventOption_hover == 'fc') {
+                    //     this.$parent.$parent.leaveEvent()
+                    // } else if (this.option.eventOption_hover == 'title') {
+                    //     this.$parent.$parent.leaveTitle()
+                    // }
+                    if(this.option.interact) {
+                        this.option.interact.forEach((item,index) => {
+                            if(item.event=='out') {
+                                if (item.action == 'popup') {
+                                    // this.$parent.$parent.clickEvent(item.popupW, item.popupH, item.popupLink)
+                                } else if (item.action == 'fc') {
+                                    this.$parent.$parent.overEvent(item.fcLink, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
+                                } else if (item.action == 'title') {
+                                    this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
+                                } else if (item.action == 'link') {
+                                    this.toPage(item)
+                                }
+                            }
+                        })
                     }
                 }
             },
             mousedblclick(e) {
-                if (!this.contain.menuFlag && this.option.isDbclick && this.PointInPoly(e.absolutePointer, this
+                if (!this.contain.menuFlag && this.PointInPoly(e.absolutePointer, this
                         .pointArray)) {
-                    if (this.option.eventOption_dbclick == 'popup') {
-                        this.$parent.$parent.clickEvent(this.option.popupW_dbclick, this.option.popupH_dbclick, this
-                            .option.popupUrl_dbclick)
-                    } else if (this.option.eventOption_dbclick == 'fc') {
-                        this.$parent.$parent.overEvent(this.option.fcUrl_dbclick, e.e.pageX+120, e.e.pageY,true)
-                    } else if (this.option.eventOption_dbclick == 'title') {
-                        this.$parent.$parent.overTitle(this.option.title_dbclick, e.e.screenX+120, e.e.screenY,true)
+                             // && this.option.isDbclick
+                    // if (this.option.eventOption_dbclick == 'popup') {
+                    //     this.$parent.$parent.clickEvent(this.option.popupW_dbclick, this.option.popupH_dbclick, this
+                    //         .option.popupUrl_dbclick)
+                    // } else if (this.option.eventOption_dbclick == 'fc') {
+                    //     this.$parent.$parent.overEvent(this.option.fcUrl_dbclick, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
+                    // } else if (this.option.eventOption_dbclick == 'title') {
+                    //     this.$parent.$parent.overTitle(this.option.title_dbclick, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
+                    // }
+                    if(this.option.interact) {
+                        this.option.interact.forEach((item,index) => {
+                            if(item.event=='click') {
+                                if (item.action == 'popup') {
+                                    this.$parent.$parent.clickEvent(item.popupW, item.popupH, item.popupLink)
+                                } else if (item.action == 'fc') {
+                                    this.$parent.$parent.overEvent(item.fcLink, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
+                                } else if (item.action == 'title') {
+                                    this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
+                                } else if (item.action == 'link') {
+                                    this.toPage(item)
+                                }
+                            }
+                        })
+                    }
+                }
+            },
+            toPage(item) {
+                let myUrl = item.linkHref.indexOf('http')==-1 ? window.location.origin+'/view/'+item.linkHref : item.linkHref
+                if (item.linkTarget == '_blank') {
+                    window.open(myUrl)
+                } else if (item.linkTarget == '_self') {
+                    if (window != top){
+                        window.location.href = myUrl
+                    }else {
+                        top.location.href = myUrl;
                     }
                 }
             },
