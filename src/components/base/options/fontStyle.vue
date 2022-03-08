@@ -1,21 +1,26 @@
 <!-- 自定义配置 -->
 <template>
   <div>
-    <el-form-item label="字体">
-      <avue-select v-model="main.activeOption.fontFamily" placeholder="请选择字体" type="tree" :dic="dic2"></avue-select>
-    </el-form-item>
-    <el-form-item label="字体颜色">
-      <avue-input-color color-format="hex" :show-alpha="false" placeholder="请选择颜色" v-model="main.activeOption.color" ></avue-input-color>
-    </el-form-item>
-    <el-form-item label="字体大小">
-      <avue-input-number v-model="main.activeOption.fontSize"></avue-input-number>
-    </el-form-item>
-    <el-form-item label="字体行高">
-      <avue-slider v-model="main.activeOption.lineHeight"></avue-slider>
-    </el-form-item>
-    <el-form-item label="字体粗细">
-      <avue-radio v-model="main.activeOption.fontWeight" :dic="dic"></avue-radio>
-    </el-form-item>
+    <el-collapse v-model="activeName" accordion>
+      <el-collapse-item title="字体" name="1">
+        <el-form-item label="字体">
+          <avue-select v-model="main.activeOption.fontFamily" placeholder="请选择字体" type="tree" :dic="dic2"></avue-select>
+        </el-form-item>
+        <el-form-item label="字体颜色">
+          <avue-input-color color-format="hex" :show-alpha="false" placeholder="请选择颜色" v-model="main.activeOption.color" ></avue-input-color>
+        </el-form-item>
+        <el-form-item label="字体大小">
+          <avue-input-number v-model="main.activeOption.fontSize"></avue-input-number>
+        </el-form-item>
+        <el-form-item label="字体行高">
+          <avue-slider v-model="main.activeOption.lineHeight"></avue-slider>
+        </el-form-item>
+        <el-form-item label="字体粗细">
+          <avue-radio v-model="main.activeOption.fontWeight" :dic="dic"></avue-radio>
+        </el-form-item>
+      </el-collapse-item>
+    </el-collapse>
+
   </div>
 </template>
 

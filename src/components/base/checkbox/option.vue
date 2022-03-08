@@ -30,16 +30,22 @@
 		<!-- <el-form-item label="按钮选中内圈大小">
 		  <avue-input-number v-model="main.activeOption.innerWidth"></avue-input-number>
 		</el-form-item> -->
-		<el-button type="text" @click="add">添加选项</el-button>
-		<div v-for="(item,index) in main.activeOption.list" :key="item">
-		  <el-form-item label="显示文字">
-		    <el-input placeholder="请输入显示文字" v-model="item.name" clearable @input="updVal"></el-input>
-		  </el-form-item>
-		  <el-form-item label="文字对应value">
-			  <el-input placeholder="请输入对应value" v-model="item.value" clearable @input="updVal"></el-input>
-			  <el-button type="text" @click="del(index)" v-if="index>0">删除当前项</el-button>
-		  </el-form-item>
-		</div>
+		<el-collapse v-model="activeName" accordion>
+			<el-collapse-item title="数据" name="1">
+				<el-button type="primary" @click="add" style="margin-left: 20px; margin-top: 20px">添加选项</el-button>
+				<span style="color: #fff;margin-left: 10px">value值必须唯一</span>
+				<div v-for="(item,index) in main.activeOption.list" :key="item" style="border-bottom: 1px dashed rgba(255,255,255,0.3)">
+					<el-form-item label="显示文字">
+						<el-input placeholder="请输入显示文字" v-model="item.name" clearable @input="updVal"></el-input>
+					</el-form-item>
+					<el-form-item label="文字对应value">
+						<el-input placeholder="请输入对应value" v-model="item.value" clearable @input="updVal"></el-input>
+						<el-button type="text" @click="del(index)" v-if="index>0">删除当前项</el-button>
+					</el-form-item>
+				</div>
+			</el-collapse-item>
+		</el-collapse>
+
 	</div>
 </template>
 

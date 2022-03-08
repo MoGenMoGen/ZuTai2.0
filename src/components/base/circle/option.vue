@@ -1,15 +1,14 @@
 <!-- 自定义配置 -->
 <template>
   <div>
-
-    <el-form-item label="线条颜色">
+    <border-style></border-style>
+    <el-form-item label="圆形颜色">
       <avue-input-color placeholder="请选择颜色" v-model="main.activeOption.color" ></avue-input-color>
     </el-form-item>
-    <!-- <el-form-item label="透明度">
+    <el-form-item label="透明度">
       <avue-slider v-model="main.activeOption.opacity"></avue-slider>
-    </el-form-item> -->
+    </el-form-item>
 
-    <border-style></border-style>
 
   </div>
 </template>

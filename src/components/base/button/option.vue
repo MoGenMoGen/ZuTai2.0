@@ -33,18 +33,16 @@
     <el-form-item label="透明度">
       <avue-slider v-model="main.activeOption.opacity"></avue-slider>
     </el-form-item>
+    <font-style></font-style>
     <border-style></border-style>
     <el-form-item label="圆角弧度">
       <avue-input-number v-model="main.activeOption.radius"></avue-input-number>
     </el-form-item>
-    <font-style></font-style>
     <el-form-item label="按下字体颜色">
       <avue-input-color color-format="hex" :show-alpha="false" placeholder="请选择颜色" v-model="main.activeOption.color2" ></avue-input-color>
     </el-form-item>
     <imglist ref="imglist"   @change="handleSetImg"></imglist>
-	<el-form-item label="旋转">
-	  <el-slider v-model="main.activeOption.rotate" :max="360"  :step="1"></el-slider>
-	</el-form-item>
+
 	<el-form-item label="旋转">
 	  <avue-input-number v-model="main.activeOption.rotate"></avue-input-number>
 	</el-form-item>
