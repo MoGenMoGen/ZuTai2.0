@@ -168,6 +168,10 @@
                                     this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
                                 } else if (item.action == 'link') {
                                     this.toPage(item)
+                                } else if (item.action == 'fcClose') {
+                                    this.$parent.$parent.leaveEvent()
+                                } else if (item.action == 'titleClose') {
+                                    this.$parent.$parent.leaveTitle()
                                 }
                             }
                         })
@@ -201,6 +205,10 @@
                                     this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
                                 } else if (item.action == 'link') {
                                     this.toPage(item)
+                                } else if (item.action == 'fcClose') {
+                                    this.$parent.$parent.leaveEvent()
+                                } else if (item.action == 'titleClose') {
+                                    this.$parent.$parent.leaveTitle()
                                 }
                             }
                         })
@@ -224,6 +232,10 @@
                                     this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
                                 } else if (item.action == 'link') {
                                     this.toPage(item)
+                                } else if (item.action == 'fcClose') {
+                                    this.$parent.$parent.leaveEvent()
+                                } else if (item.action == 'titleClose') {
+                                    this.$parent.$parent.leaveTitle()
                                 }
                             }
                         })
@@ -253,6 +265,10 @@
                                     this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
                                 } else if (item.action == 'link') {
                                     this.toPage(item)
+                                } else if (item.action == 'fcClose') {
+                                    this.$parent.$parent.leaveEvent()
+                                } else if (item.action == 'titleClose') {
+                                    this.$parent.$parent.leaveTitle()
                                 }
                             }
                         })
