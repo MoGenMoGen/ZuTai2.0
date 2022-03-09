@@ -157,25 +157,7 @@
                     // } else if (this.option.eventOption_click == 'title') {
                     //     this.$parent.$parent.overTitle(this.option.title_click, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
                     // }
-                    if(this.option.interact) {
-                        this.option.interact.forEach((item,index) => {
-                            if(item.event=='click') {
-                                if (item.action == 'popup') {
-                                    this.$parent.$parent.clickEvent(item.popupW, item.popupH, item.popupLink)
-                                } else if (item.action == 'fc') {
-                                    this.$parent.$parent.overEvent(item.fcLink, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
-                                } else if (item.action == 'title') {
-                                    this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
-                                } else if (item.action == 'link') {
-                                    this.toPage(item)
-                                } else if (item.action == 'fcClose') {
-                                    this.$parent.$parent.leaveEvent()
-                                } else if (item.action == 'titleClose') {
-                                    this.$parent.$parent.leaveTitle()
-                                }
-                            }
-                        })
-                    }
+                    this.eventMethod(e,'click')
                 }
             },
             mousemove(e) {
@@ -194,25 +176,7 @@
                     //         this.$parent.$parent.overTitle(this.option.title_hover, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
                     //     }
                     // }
-                    if(this.option.interact) {
-                        this.option.interact.forEach((item,index) => {
-                            if(item.event=='over') {
-                                if (item.action == 'popup') {
-                                    this.$parent.$parent.clickEvent(item.popupW, item.popupH, item.popupLink)
-                                } else if (item.action == 'fc') {
-                                    this.$parent.$parent.overEvent(item.fcLink, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
-                                } else if (item.action == 'title') {
-                                    this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
-                                } else if (item.action == 'link') {
-                                    this.toPage(item)
-                                } else if (item.action == 'fcClose') {
-                                    this.$parent.$parent.leaveEvent()
-                                } else if (item.action == 'titleClose') {
-                                    this.$parent.$parent.leaveTitle()
-                                }
-                            }
-                        })
-                    }
+                    this.eventMethod(e,'over')
                 } else if (!this.contain.menuFlag && !this.PointInPoly(e.absolutePointer, this
                         .pointArray)) {
                     // && this.option.isHover
@@ -221,25 +185,7 @@
                     // } else if (this.option.eventOption_hover == 'title') {
                     //     this.$parent.$parent.leaveTitle()
                     // }
-                    if(this.option.interact) {
-                        this.option.interact.forEach((item,index) => {
-                            if(item.event=='out') {
-                                if (item.action == 'popup') {
-                                    // this.$parent.$parent.clickEvent(item.popupW, item.popupH, item.popupLink)
-                                } else if (item.action == 'fc') {
-                                    this.$parent.$parent.overEvent(item.fcLink, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
-                                } else if (item.action == 'title') {
-                                    this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top)
-                                } else if (item.action == 'link') {
-                                    this.toPage(item)
-                                } else if (item.action == 'fcClose') {
-                                    this.$parent.$parent.leaveEvent()
-                                } else if (item.action == 'titleClose') {
-                                    this.$parent.$parent.leaveTitle()
-                                }
-                            }
-                        })
-                    }
+                    this.eventMethod(e,'out')
                 }
             },
             mousedblclick(e) {
@@ -254,25 +200,28 @@
                     // } else if (this.option.eventOption_dbclick == 'title') {
                     //     this.$parent.$parent.overTitle(this.option.title_dbclick, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
                     // }
-                    if(this.option.interact) {
-                        this.option.interact.forEach((item,index) => {
-                            if(item.event=='click') {
-                                if (item.action == 'popup') {
-                                    this.$parent.$parent.clickEvent(item.popupW, item.popupH, item.popupLink)
-                                } else if (item.action == 'fc') {
-                                    this.$parent.$parent.overEvent(item.fcLink, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
-                                } else if (item.action == 'title') {
-                                    this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
-                                } else if (item.action == 'link') {
-                                    this.toPage(item)
-                                } else if (item.action == 'fcClose') {
-                                    this.$parent.$parent.leaveEvent()
-                                } else if (item.action == 'titleClose') {
-                                    this.$parent.$parent.leaveTitle()
-                                }
+                    this.eventMethod(e,'dbclick')
+                }
+            },
+            eventMethod(e,type) {
+                if(this.option.interact) {
+                    this.option.interact.forEach((item,index) => {
+                        if(item.event==type) {
+                            if (item.action == 'popup') {
+                                this.$parent.$parent.clickEvent(item.popupW, item.popupH, item.popupLink)
+                            } else if (item.action == 'fc') {
+                                this.$parent.$parent.overEvent(item.fcLink, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
+                            } else if (item.action == 'title') {
+                                this.$parent.$parent.overTitle(item.titleWord, e.e.offsetX+this.$parent.left, e.e.offsetY+this.$parent.top,true)
+                            } else if (item.action == 'link') {
+                                this.toPage(item)
+                            } else if (item.action == 'fcClose') {
+                                this.$parent.$parent.leaveEvent()
+                            } else if (item.action == 'titleClose') {
+                                this.$parent.$parent.leaveTitle()
                             }
-                        })
-                    }
+                        }
+                    })
                 }
             },
             toPage(item) {

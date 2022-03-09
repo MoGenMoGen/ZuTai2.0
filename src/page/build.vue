@@ -394,7 +394,7 @@
 		      </el-form-item>
 		    </el-form>
 		  </el-tab-pane>
-          <el-tab-pane name="5" v-if="isActive">
+          <el-tab-pane name="5" v-if="vaildProp('interactEventList')">
             <el-tooltip slot="label"
                         effect="dark"
                         content="交互事件"
