@@ -30,7 +30,9 @@
           <avue-slider v-model="main.activeOption.split"></avue-slider>
         </el-form-item>
         <el-form-item label="字体行高">
-          <avue-slider :min='12' :max="500" v-model="main.activeOption.lineHeight"></avue-slider>
+          <avue-input-number v-model="main.activeOption.lineHeight"
+                             :max="200"></avue-input-number>
+          <!--<avue-slider :min='12' :max="500" v-model="main.activeOption.lineHeight"></avue-slider>-->
         </el-form-item>
         <el-form-item label="字体背景">
           <avue-input-color v-model="main.activeOption.backgroundColor"></avue-input-color>
