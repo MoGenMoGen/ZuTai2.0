@@ -40,10 +40,11 @@
                       @focus="handleFocus"
                       @blur="handleBlur">
         <!--out鼠标划出  over鼠标划入-->
-        <!--<p style="color: #fff;font-size: 30px">{{item.left}}</p>-->
+        <!--<p style="color: #fff;font-size: 30px">{{item.mirrorLeft}}</p>-->
         <component :ref="common.NAME+item.index"
                    :id="common.NAME+item.index"
                    :is="common.COMPNAME+item.component.name"
+                   :class="{mirrorLeft:item.mirrorLeft,mirrorTop:item.mirrorTop}"
                    v-bind="item"
                    :data-formatter="getFunction(item.dataFormatter)"
                    :click-formatter="getFunction(item.clickFormatter,true)"
@@ -387,8 +388,12 @@ computed:{
   </style>
 <style lang="scss" scoped>
 
-
-
+.mirrorLeft{
+  transform: rotateY(180deg);
+}
+.mirrorTop{
+  transform: rotateX(180deg);
+}
 .hover_con {
   position: fixed;
   height: 200px;
