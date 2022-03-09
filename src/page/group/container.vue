@@ -176,6 +176,17 @@ export default {
       if (!this.contain.config.mark) this.contain.config.mark = {}
       if (!this.contain.config.query) this.contain.config.query = {}
     },
+    //进行镜像
+    toMirror(type){
+        this.contain.active.forEach((ele,eleIndex) => {
+            ele = this.contain.findlist(ele)
+            if (type=='left') {
+                this.$set(ele, 'mirrorLeft', ele.mirrorLeft ? false: true);
+            }else if(type=='top'){
+                this.$set(ele, 'mirrorTop',  ele.mirrorTop ? false: true);
+            }
+        })
+    },
     handlePostionSelect(postion) {
       console.log('对齐',postion)
       this.contain.ifMove = true //这个为真时不再触发move函数，以防位置数据重新计算出错

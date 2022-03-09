@@ -373,6 +373,10 @@
               <el-form-item label="高度">
                 <avue-input-number v-model="activeComponent.height"></avue-input-number>
               </el-form-item>
+              <el-form-item label="镜像">
+                <el-button @click="$refs.container.toMirror('left')">左右</el-button>
+                <el-button @click="$refs.container.toMirror('top')">上下</el-button>
+              </el-form-item>
             </el-form>
           </el-tab-pane>
 		  <el-tab-pane name="4"
@@ -814,6 +818,7 @@ export default {
     })
   },
   methods: {
+
       mouseup2(){
           console.log('鼠标抬起',this.ifBack)
         if(this.ifBack){ //撤销的不用监听
