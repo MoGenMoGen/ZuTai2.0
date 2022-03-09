@@ -23,7 +23,10 @@
       <iframe :src="popupUrl_event" scrolling="no" frameborder="0"  :height="height_event" :width="width_event" id="iframe_event"></iframe>
     </el-dialog>
     <div v-for="item in nav" :key="item.index"
-         @click="clickNav($event,item)"
+         @click="eventMethod($event,item,'click')"
+         @dblclick="eventMethod($event,item,'dbclick')"
+         @mouseover="eventMethod($event,item,'over')"
+         @mouseout="eventMethod($event,item,'out')"
          @contextmenu.prevent="contain.handleContextMenu && contain.handleContextMenu($event,item)">
       <avue-draggable v-if="!item.children && !item.iframeShow"
                       v-bind="item"
@@ -152,56 +155,67 @@ computed:{
   },
   methods: {
     //弹窗显示
-    clickNav(e, item) {
-
-      if (item.option.popup) {
-        this.popupUrl = item.option.popupUrl
-        if (item.option.popupH){
-            this.height = item.option.popupH
-        }else {
-          this.height = "460"
-        }
-        if (item.option.popupW){
-          this.width = item.option.popupW
-        }else {
-          this.width = "800"
-        }
-
-        // console.log(this.popupWidth)
-        this.popupWidth =(Number(this.width) + Number(18))  +'px'
-          // this.popupWidth =(Number(this.width))  +'px'
-        this.show = true
-
-
-        // setTimeout(() => {
-        //   let contentWindow = document.getElementById("iframe").contentWindow;
-        //   let className = contentWindow.document.getElementsByClassName("content");
-        //    console.log(className)
-        //    //console.log(contentWindow.document.getElementsByClassName("content")[0])
-        //   //.document.getElementsByClassName("")
-        //
-        //   // this.width = contentWindow.innerWidth
-        //   // this.height = contentWindow.innerHeight
-        //   // this.popupWidth = Number(this.width) + Number(20) +'px'
-        //   // console.log(this.width)
-        //   // console.log(this.height)
-        //   // console.log(contentWindow.innerHeight)
-        //   // console.log(contentWindow.innerWidth)
-        // }, 1000)
-
-      }
-    },
+    // clickNav(e, item) {
+    //   if (item.option.popup) {
+    //     this.popupUrl = item.option.popupUrl
+    //     if (item.option.popupH){
+    //         this.height = item.option.popupH
+    //     }else {
+    //       this.height = "460"
+    //     }
+    //     if (item.option.popupW){
+    //       this.width = item.option.popupW
+    //     }else {
+    //       this.width = "800"
+    //     }
+    //     this.popupWidth =(Number(this.width) + Number(18))  +'px'
+    //     this.show = true
+    //   }
+    // },
     //鼠标划入
-    over(url,left,top) {
-      if (url !== undefined){
-        this.fcUrl = url
-        this.seen = true
-        this.positionStyle = {top: top-200 + 'px', left: left+120 + 'px'};
-      }
-    },
+    // over(url,left,top) {
+    //   if (url !== undefined){
+    //     this.fcUrl = url
+    //     this.seen = true
+    //     this.positionStyle = {top: top-200 + 'px', left: left+120 + 'px'};
+    //   }
+    // },
     //鼠标划出
-    leave() {
-      this.seen = false
+    // leave() {
+    //   this.seen = false
+    // },
+    eventMethod(e,thisItem,type) {
+        if(thisItem.name!="多边形" && !this.contain.menuFlag&&thisItem.option.interact) {
+            thisItem.option.interact.forEach((item,index) => {
+                if(item.event==type) {
+                    if (item.action == 'popup') {
+                        this.clickEvent(item.popupW, item.popupH, item.popupLink)
+                    } else if (item.action == 'fc') {
+                        this.overEvent(item.fcLink, e.offsetX+thisItem.left, e.offsetY+thisItem.top,true)
+                    } else if (item.action == 'title') {
+                        this.overTitle(item.titleWord, e.offsetX+thisItem.left, e.offsetY+thisItem.top,true)
+                    } else if (item.action == 'link') {
+                        this.toPage(item)
+                    } else if (item.action == 'fcClose') {
+                        this.leaveEvent()
+                    } else if (item.action == 'titleClose') {
+                        this.leaveTitle()
+                    }
+                }
+            })
+        }
+    },
+    toPage(item) {
+        let myUrl = item.linkHref.indexOf('http')==-1 ? window.location.origin+'/view/'+item.linkHref : item.linkHref
+        if (item.linkTarget == '_blank') {
+            window.open(myUrl)
+        } else if (item.linkTarget == '_self') {
+            if (window != top){
+                window.location.href = myUrl
+            }else {
+                top.location.href = myUrl;
+            }
+        }
     },
     overEvent(url,left,top,click=false) {
       this.seen_event_click = click
