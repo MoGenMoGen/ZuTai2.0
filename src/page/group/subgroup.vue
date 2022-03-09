@@ -40,30 +40,34 @@
                       @focus="handleFocus"
                       @blur="handleBlur">
         <!--out鼠标划出  over鼠标划入-->
-        <!--<p style="color: #fff;font-size: 30px">{{item.mirrorLeft}}</p>-->
-        <component :ref="common.NAME+item.index"
-                   :id="common.NAME+item.index"
-                   :is="common.COMPNAME+item.component.name"
-                   :class="{mirrorLeft:item.mirrorLeft,mirrorTop:item.mirrorTop}"
-                   v-bind="item"
-                   :data-formatter="getFunction(item.dataFormatter)"
-                   :click-formatter="getFunction(item.clickFormatter,true)"
-                   :echart-formatter="getFunction(item.echartFormatter)"
-                   :label-formatter="getFunction(item.labelFormatter)"
-                   :styles-formatter="getFunction(item.stylesFormatter)"
-                   :sql-formatter="sqlFormatter"
-                   :formatter="getFunction(item.formatter)"
-                   :width="item.component.width"
-                   :data-query="getJson(item.dataQuery)"
-                   :height="item.component.height"
-                   :animation="!contain.menuFlag || !contain.menuFlag2"
-                   :theme="(item.option || {}).theme"
-                   :disabled="!contain.menuFlag || !contain.menuFlag2"
-                   :scale="container.stepScale"
-                   :option="item.option"
-                   :home-url="contain.config.url"
-                   title=""
-                   :click="handleClick"/>
+        <!--<p style="color: #fff;font-size: 30px">{{item.mirrorTop}}</p>-->
+        <div
+                :style="{transform:(item.mirrorTop ? 'scaleY(-1)' : 'scaleY(1)')+' '+(item.mirrorLeft ? 'scaleX(-1)' : 'scaleX(1)'),width:'100%',height:'100%'}"
+        >
+          <component :ref="common.NAME+item.index"
+                     :id="common.NAME+item.index"
+                     :is="common.COMPNAME+item.component.name"
+                     v-bind="item"
+                     :data-formatter="getFunction(item.dataFormatter)"
+                     :click-formatter="getFunction(item.clickFormatter,true)"
+                     :echart-formatter="getFunction(item.echartFormatter)"
+                     :label-formatter="getFunction(item.labelFormatter)"
+                     :styles-formatter="getFunction(item.stylesFormatter)"
+                     :sql-formatter="sqlFormatter"
+                     :formatter="getFunction(item.formatter)"
+                     :width="item.component.width"
+                     :data-query="getJson(item.dataQuery)"
+                     :height="item.component.height"
+                     :animation="!contain.menuFlag || !contain.menuFlag2"
+                     :theme="(item.option || {}).theme"
+                     :disabled="!contain.menuFlag || !contain.menuFlag2"
+                     :scale="container.stepScale"
+                     :option="item.option"
+                     :home-url="contain.config.url"
+                     title=""
+                     :click="handleClick"/>
+        </div>
+
       </avue-draggable>
       <subgroup :nav="item.children"></subgroup>
     </div>
