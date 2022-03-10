@@ -22,7 +22,7 @@
     <el-dialog custom-class="dialog" append-to-body :modal="false" :visible.sync="show_event" :width="popupWidth_event" v-dialogdrag>
       <iframe :src="popupUrl_event" scrolling="no" frameborder="0"  :height="height_event" :width="width_event" id="iframe_event"></iframe>
     </el-dialog>
-    <div v-for="item in nav" :key="item.index"
+    <div v-for="item in nav.slice(1)" :key="item.index"
          @click="eventMethod($event,item,'click')"
          @dblclick="eventMethod($event,item,'dbclick')"
          @mouseover="eventMethod($event,item,'over')"

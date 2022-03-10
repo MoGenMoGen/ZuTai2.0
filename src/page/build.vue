@@ -7,12 +7,38 @@
 
     <div class="app"  :class="{'app--none':!menuFlag}">
       <div class="menu"  v-show="menuFlag"  @click.self="handleMouseDown">
-        <p class="title">图层</p>
-        <layer ref="layer" :nav="nav"></layer>
+        <el-collapse accordion>
+            <el-collapse-item title="导航布局">
+                <div class="nav-box">
+                    <div v-for="(item,index) in navTypeList" :key="index"
+                     @click="selectLayout(item.type)"
+                     class="nav-item"
+                     :title="item.name">
+                        <div class="nav-top">
+                            <div v-if="index==1" style="inset:3px 3px 37px;" class="nav-inset"></div>
+                            <div v-if="index==2" style="inset:3px 45px 3px 3px;" class="nav-inset"></div>
+                            <div v-if="index==3" style="inset:3px 3px 37px;" class="nav-inset"></div>
+                            <div v-if="index==3" style="inset:11px 45px 3px 3px;" class="nav-inset"></div>
+                        </div>
+                        <img :src="item.type==navType?select:unselect" style="width: 14px;">
+                    </div>
+                </div>
+                <div class="nav-configure">配置</div>
+            </el-collapse-item>
+            <el-collapse-item title="页面">
+                <template slot="title">
+                  <div class="collapse-self">
+                      <span>页面</span><i @click.stop="addPage" class="header-icon el-icon-plus"></i>
+                  </div>
+                </template>
+            </el-collapse-item>
+            <el-collapse-item title="图层">
+                <layer ref="layer" :nav="nav.slice(1)"></layer>
+            </el-collapse-item>
+        </el-collapse>
       </div>
       <!-- 中间区域 -->
-      <div ref="wrapper"
-           style="flex:1;overflow:hidden;position:relative;">
+      <div ref="wrapper" style="flex:1;overflow:hidden;position:relative;">
         <div class="refer-line-img"
              @click="imgClick">
           <img :src="isShowReferLine?imgOpenData:imgClose">
@@ -398,6 +424,7 @@
 		      </el-form-item>
 		    </el-form>
 		  </el-tab-pane>
+          <!-- 交互事件 -->
           <el-tab-pane name="5" v-if="vaildProp('interactEventList')">
             <el-tooltip slot="label"
                         effect="dark"
@@ -484,6 +511,9 @@
               </el-form-item>
             </el-form>
           </el-tab-pane>
+          <!-- 导航布局配置 -->
+          <!-- <el-tab-pane name="6" v-if="navConfigure">
+          </el-tab-pane> -->
         </el-tabs>
       </div>
     </div>
@@ -556,12 +586,15 @@ import components from '@/option/components'
 import SketchRule from "vue-sketch-ruler";
 import { getList } from "@/api/db";
 import crypto from '@/utils/crypto'
-import {getAllData} from '@/api/visual'
-import {getCategoryAll} from '@/api/visual';
+import {getAllData,getCategoryAll,getVisualApp} from '@/api/visual'
+import select from "@/assets/select.png"
+import unselect from "@/assets/unselect.png"
 export default {
   mixins: [init, components],
   data () {
     return {
+        select,
+        unselect,
         ifmoseDown:false,
         currentIndex:0,//轮播图图片索引
       show: false,
@@ -621,6 +654,20 @@ export default {
 		top: ''
 	  },
       options1: [],
+      navTypeList: [{
+          type: 'blank',
+          name: '空白'
+      }, {
+          type: 'top',
+          name: '顶部栏'
+      }, {
+          type: 'left',
+          name: '左导航'
+      }, {
+          type: 'topALeft',
+          name: '顶部栏+左导航'
+      }],
+      navType: 'blank'
     }
   },
   components: {
@@ -792,6 +839,13 @@ export default {
             	this.$set(this.activeObjS,'left',this.minCoordinate.left)
             	this.$set(this.activeObjS,'top',this.minCoordinate.top)
             }
+            if(this.nav.length>0&&this.nav[0].type!='nav') {
+                let obj = {
+                    type: 'nav',
+                    navType: 'blank'
+                }
+                this.nav.unshift(obj)
+            }
         },
         deep: true
     }
@@ -804,14 +858,17 @@ export default {
     setInterval(this.getSiteData, 10000);
   },
   mounted () {
-      document.addEventListener('keyup',this.keyUp)
-      document.addEventListener('keydown',this.keyDown)
-      document.addEventListener('mouseup',this.mouseup2)
+    document.addEventListener('keyup',this.keyUp)
+    document.addEventListener('keydown',this.keyDown)
+    document.addEventListener('mouseup',this.mouseup2)
     this.initFun()
     getCategoryAll().then(res => {
     	res.data.data.forEach((item,index) => {
     		this.options1.push(item)
     	})
+    })
+    getVisualApp('1501470310035066881').then(res => {
+        console.log(132,res);
     })
     this.$nextTick(() => {
       this.initSize()
@@ -1258,6 +1315,16 @@ export default {
     },
     handleSelect2(item) {
         this.$set(item,'linkHref',window.location.origin + '/view/'+ item.linkValue2)
+    },
+    addPage() {
+        console.log(111)
+    },
+    selectLayout(item) {
+        if(this.nav.length>0&&this.nav[0].type=='nav') {
+            this.$set(this.nav[0],'navType',item)
+            this.navType = item
+            console.log(this.nav[0]);
+        }
     }
   }
 }
@@ -1321,5 +1388,54 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
+}
+
+.collapse-self {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+.nav-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 0 0;
+    .nav-item {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 10px;
+        .nav-top {
+            width: 60px;
+            height: 50px;
+            background-color: #fff;
+            margin-bottom: 10px;
+            position: relative;
+            border: 1px solid #ebebeb;
+            .nav-inset {
+                position: absolute;
+                background-color: #e0f1ff;
+            }
+        }
+    }
+}
+.nav-configure {
+    width: 90%;
+    margin: 0 auto 10px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+    background-color: #fafafa;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 </style>

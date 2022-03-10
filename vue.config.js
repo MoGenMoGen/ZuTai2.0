@@ -22,6 +22,7 @@ module.exports = {
         // target: 'http://192.168.0.17/api',
         // target: 'http://10.20.135.252/api',
 		// target: 'http://192.168.1.52:89/api',
+        // target: 'http://192.168.0.29:88/api',
         ws: true,
         pathRewrite: {
           '^/api': '/'

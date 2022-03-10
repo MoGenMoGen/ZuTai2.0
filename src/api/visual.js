@@ -296,3 +296,11 @@ export const siteHistory = (addr,st,et) => {
       }
     });
 }
+
+export const getVisualApp = (id) => request({
+  url: '/blade-visual/visualapp/appDtl',
+  method: 'get',
+  params: {
+    id: id
+  }
+});
