@@ -298,9 +298,15 @@ export const siteHistory = (addr,st,et) => {
 }
 
 export const getVisualApp = (id) => request({
-  url: '/blade-visual/visualapp/appDtl',
+  url: '/api/blade-visual/visualapp/appDtl',
   method: 'get',
   params: {
     id: id
   }
+});
+
+export const updateVisualApp = (data) => request({
+  url: '/api/blade-visual/visualapp/update',
+  method: 'post',
+  data: data
 });

@@ -7,7 +7,7 @@
 					:class="['menu__item--folder',{'is-active':handleGetActive(item) || handleGetActive(item.children),'is-over':contain.overactive===item.index}]">
 					<i class="iconfont icon-fold" @click="openFolder(item)" :class="{'is-active':item.menu}"></i>
 					<i class="iconfont icon-folder" @click="openFolder(item)"></i>
-					<input type="text" @keyup.enter="item.isname=false" v-if="item.isname" v-model="item.name">
+					<input type="text" @blur="item.isname=false" @keyup.enter="item.isname=false" v-if="item.isname" v-model="item.name">
 					<span v-else>{{item.name}}</span>
 					<i class="iconfont icon-caidan" style="position: absolute;right: 20px;"
 						@click.stop="contain.handleContextMenu && contain.handleContextMenu($event,item,false)"></i>

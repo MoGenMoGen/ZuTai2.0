@@ -153,7 +153,8 @@ export const dicOption = {
       {label: '关闭浮窗', value: 'fcClose'}, {label: '关闭提示文字', value: 'titleClose'}],
     linkOption: [{label: '外部链接', value: 1}, {label: '内部链接', value: 2}],
     interactEventList:['baseXline', 'baseYline', 'baseCircle', 'baseTriangle', 'baseRectangle', 'basePolygon', 'baseQrcode',
-    'baseButton', 'baseArrow', 'img', 'swiper', 'alert', 'wordcloud', '']
+    'baseButton', 'baseArrow', 'img', 'swiper', 'alert', 'wordcloud', ''],
+    fontFamily: [{label:'微软雅黑', value:'微软雅黑'},{label:'等线', value:'Deng'},{label:'仿宋', value:'simfang'},{label:'黑体', value:'simhei'},{label:'楷体', value:'simkai'}]
 }
 
 

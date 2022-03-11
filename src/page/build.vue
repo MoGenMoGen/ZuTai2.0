@@ -3,7 +3,7 @@
 
     <imglist ref="imglist"   @change="handleSetimg"></imglist>
 
-    <top ref="top"></top>
+    <top ref="top" :layout="layoutObj"></top>
 
     <div class="app"  :class="{'app--none':!menuFlag}">
       <div class="menu"  v-show="menuFlag"  @click.self="handleMouseDown">
@@ -20,10 +20,10 @@
                             <div v-if="index==3" style="inset:3px 3px 37px;" class="nav-inset"></div>
                             <div v-if="index==3" style="inset:11px 45px 3px 3px;" class="nav-inset"></div>
                         </div>
-                        <img :src="item.type==navType?select:unselect" style="width: 14px;">
+                        <img :src="(layoutObj.navType?layoutObj.navType==item.type:'blank'==item.type)?select:unselect" style="width: 14px;">
                     </div>
                 </div>
-                <div class="nav-configure">配置</div>
+                <div class="nav-configure" @click="configure">配置</div>
             </el-collapse-item>
             <el-collapse-item title="页面">
                 <template slot="title">
@@ -31,9 +31,16 @@
                       <span>页面</span><i @click.stop="addPage" class="header-icon el-icon-plus"></i>
                   </div>
                 </template>
+                <div style="height: 36px;" 
+                :class="['menu__item',{'is-active':pageId==item.id}]" 
+                v-for="(item,index) in pageList" :key="index" @click="choosePage(item.id)"
+                @dblclick="hangeChangeName(item)">
+                    <input type="text" @blur="item.isname=false" @keyup.enter="item.isname=false" v-if="item.isname" v-model="item.title">
+                    <span v-else>{{item.title}}</span>
+                </div>
             </el-collapse-item>
             <el-collapse-item title="图层">
-                <layer ref="layer" :nav="nav.slice(1)"></layer>
+                <layer ref="layer" :nav="nav"></layer>
             </el-collapse-item>
         </el-collapse>
       </div>
@@ -78,7 +85,7 @@
       <div class="menu params"   v-show="menuFlag">
         <p class="title">操作</p>
         <el-tabs class="tabs"   stretch   v-model="tabsActive">
-          <el-tab-pane name="0">
+          <el-tab-pane name="0" v-if="!navConfigure">
             <el-tooltip slot="label"  effect="dark"  content="配置"    placement="top">
               <div><i class="el-icon-setting"></i></div>
             </el-tooltip>
@@ -253,7 +260,7 @@
 
 
           <!-- 数据配置 -->
-          <el-tab-pane name="1"  v-if="vaildProp('dataList')">
+          <el-tab-pane name="1"  v-if="vaildProp('dataList')&&!navConfigure">
             <el-tooltip slot="label"  effect="dark"   content="数据"  placement="top">
               <div><i class="el-icon-document-copy"></i></div>
             </el-tooltip>
@@ -311,7 +318,7 @@
           </el-tab-pane>
           <!-- 交互事件配置 -->
           <el-tab-pane name="2"
-                       v-if="vaildProp('eventList')">
+                       v-if="vaildProp('eventList')&&!navConfigure">
             <el-tooltip slot="label"
                         effect="dark"
                         content="交互"
@@ -335,7 +342,7 @@
           </el-tab-pane>
           <!-- 其他事件配置 -->
           <el-tab-pane name="3"
-                       v-if="vaildProp('formatterList')">
+                       v-if="vaildProp('formatterList')&&!navConfigure">
             <el-tooltip slot="label"
                         effect="dark"
                         content="事件"
@@ -373,7 +380,7 @@
           </el-tab-pane>
           <!-- 基本参数配置 -->
           <el-tab-pane name="4"
-                       v-if="isActive&&activeList.length<2">
+                       v-if="isActive&&activeList.length<2&&!navConfigure">
             <el-tooltip slot="label"
                         effect="dark"
                         content="参数"
@@ -406,7 +413,7 @@
             </el-form>
           </el-tab-pane>
 		  <el-tab-pane name="4"
-		               v-if="isActive&&activeList.length>=2">
+		               v-if="isActive&&activeList.length>=2&&!navConfigure">
 		    <el-tooltip slot="label"
 		                effect="dark"
 		                content="参数"
@@ -425,7 +432,7 @@
 		    </el-form>
 		  </el-tab-pane>
           <!-- 交互事件 -->
-          <el-tab-pane name="5" v-if="vaildProp('interactEventList')">
+          <el-tab-pane name="5" v-if="vaildProp('interactEventList')&&!navConfigure">
             <el-tooltip slot="label"
                         effect="dark"
                         content="交互事件"
@@ -512,8 +519,82 @@
             </el-form>
           </el-tab-pane>
           <!-- 导航布局配置 -->
-          <!-- <el-tab-pane name="6" v-if="navConfigure">
-          </el-tab-pane> -->
+          <el-tab-pane name="6" v-if="navConfigure && (layoutObj.navType == 'left' || layoutObj.navType == 'topALeft')">
+              <el-tooltip slot="label" effect="dark" content="左导航" placement="top">
+                <div>左导航</div>
+              </el-tooltip>
+              <el-form label-width="120px" label-position="left" size="mini">
+                <el-collapse accordion>
+                    <el-collapse-item title="导航背景样式">
+                        <el-form-item label="导航宽度">
+                          <el-input v-model="layoutObj.width"></el-input>
+                        </el-form-item>
+                        <el-form-item label="导航背景颜色">
+                          <avue-input-color v-model="layoutObj.navBg"></avue-input-color>
+                        </el-form-item>
+                    </el-collapse-item>
+                    <el-collapse-item title="菜单样式">
+                        <el-form-item label="字体">
+                          <avue-radio v-model="layoutObj.fontFamily"
+                                      :dic="dicOption.fontFamily">
+                          </avue-radio>
+                        </el-form-item>
+                        <el-form-item label="文字默认颜色">
+                          <avue-input-color v-model="layoutObj.color"></avue-input-color>
+                        </el-form-item>
+                        <el-form-item label="文字选中颜色">
+                          <avue-input-color v-model="layoutObj.colorSelect"></avue-input-color>
+                        </el-form-item>
+                        <el-form-item label="子菜单背景色">
+                          <avue-input-color v-model="layoutObj.cmenuBg"></avue-input-color>
+                        </el-form-item>
+                        <el-form-item label="菜单hover颜色">
+                          <avue-input-color v-model="layoutObj.menuColorHover"></avue-input-color>
+                        </el-form-item>
+                        <el-form-item label="菜单选中颜色">
+                          <avue-input-color v-model="layoutObj.menuColorSelect"></avue-input-color>
+                        </el-form-item>
+                    </el-collapse-item>
+                </el-collapse>
+              </el-form>
+          </el-tab-pane>
+          <el-tab-pane name="7" v-if="navConfigure && (layoutObj.navType == 'top' || layoutObj.navType == 'topALeft')">
+              <el-tooltip slot="label" effect="dark" content="顶部栏" placement="top">
+                <div>顶部栏</div>
+              </el-tooltip>
+              <el-form label-width="120px" label-position="left" size="mini">
+                <el-collapse accordion>
+                    <el-collapse-item title="顶部栏背景样式">
+                        <el-form-item label="顶部栏高度">
+                          <el-input v-model="layoutObj.height"></el-input>
+                        </el-form-item>
+                        <el-form-item label="顶部栏背景颜色">
+                          <avue-input-color v-model="layoutObj.topBg"></avue-input-color>
+                        </el-form-item>
+                    </el-collapse-item>
+                    <el-collapse-item title="logo">
+                        <el-form-item label="图片地址">
+                            <img v-if="layoutObj.logo" :src="layoutObj.logo" width="100%" />
+                            <el-input v-model="layoutObj.logo">
+                              <div @click="handleOpenImg('layoutObj.logo')" slot="append">
+                                <i class="iconfont icon-img"></i>
+                              </div>
+                            </el-input>
+                        </el-form-item>
+                    </el-collapse-item>
+                    <el-collapse-item title="应用名称">
+                        <el-form-item label="字体">
+                          <avue-radio v-model="layoutObj.topFontFamily"
+                                      :dic="dicOption.fontFamily">
+                          </avue-radio>
+                        </el-form-item>
+                        <el-form-item label="文字颜色">
+                          <avue-input-color v-model="layoutObj.topColor"></avue-input-color>
+                        </el-form-item>
+                    </el-collapse-item>
+                </el-collapse>
+              </el-form>
+          </el-tab-pane>
         </el-tabs>
       </div>
     </div>
@@ -586,7 +667,7 @@ import components from '@/option/components'
 import SketchRule from "vue-sketch-ruler";
 import { getList } from "@/api/db";
 import crypto from '@/utils/crypto'
-import {getAllData,getCategoryAll,getVisualApp} from '@/api/visual'
+import {getAllData,getCategoryAll,getVisualApp,getObj,updateVisualApp} from '@/api/visual'
 import select from "@/assets/select.png"
 import unselect from "@/assets/unselect.png"
 export default {
@@ -666,8 +747,26 @@ export default {
       }, {
           type: 'topALeft',
           name: '顶部栏+左导航'
-      }],
-      navType: 'blank'
+      }], //导航布局列表
+      pageList: [], //页面列表
+      pageId: '1', //默认页面选中id
+      layoutObj: {
+        navType: 'blank',
+        width: 200,
+        navBg: '#205520',
+        fontFamily: '微软雅黑',
+        color: '#FFFFFF',
+        colorSelect: '#FFFFFF',
+        cmenuBg: '#242424',
+        menuColorHover: '#0066FF',
+        menuColorSelect: '#0066FF',
+        height: 48,
+        topBg: '#FFFFFF',
+        logo: '',
+        topFontFamily: '微软雅黑',
+        topColor: '#333333',
+      }, //导航布局配置对象
+      navConfigure: false, //是否导航布局配置
     }
   },
   components: {
@@ -839,13 +938,6 @@ export default {
             	this.$set(this.activeObjS,'left',this.minCoordinate.left)
             	this.$set(this.activeObjS,'top',this.minCoordinate.top)
             }
-            if(this.nav.length>0&&this.nav[0].type!='nav') {
-                let obj = {
-                    type: 'nav',
-                    navType: 'blank'
-                }
-                this.nav.unshift(obj)
-            }
         },
         deep: true
     }
@@ -867,8 +959,15 @@ export default {
     		this.options1.push(item)
     	})
     })
+    // this.$route.params.id
     getVisualApp('1501470310035066881').then(res => {
-        console.log(132,res);
+        this.layoutObj = JSON.parse(res.data.data.layout)
+        this.pageList = res.data.data.visuals
+        this.pageId = this.pageList[0].id
+        getObj(this.pageId).then(res => {
+            this.nav = JSON.parse(res.data.data.config.component) || []
+            this.config = JSON.parse(res.data.data.config.detail) || {};
+        })
     })
     this.$nextTick(() => {
       this.initSize()
@@ -1140,9 +1239,11 @@ export default {
       } else if (type === 'activeOption.imgUrl'){
         this.activeOption.imgUrl = val;
         this.activeObj.data.value = val;
-      }else if (type === 'config.staticImgList'){
-            this.code.obj[this.currentIndex].value = val
-        }
+      } else if (type === 'config.staticImgList'){
+        this.code.obj[this.currentIndex].value = val
+      } else if (type === 'layoutObj.logo'){
+        this.$set(this.layoutObj,'logo',val)
+      }
     },
     /* **************************标尺方法开始******************************* */
     // 滚轮触发
@@ -1201,6 +1302,8 @@ export default {
     },
     // 鼠标按下事件
      dragMousedown (e) {
+      this.navConfigure = false
+      this.tabsActive = '0';
       // 如果按下了空格键,且按下鼠标左键,那么鼠标变抓手,开启滚动条随鼠标拖动的操作
 	  this.handleInitActive()
       if (this.keys.space) {
@@ -1224,6 +1327,7 @@ export default {
       }
     },
 	selectNav (item) {
+        this.navConfigure = false
         if(this.isKeysCtrl){//ctrl
             if (Array.isArray(item)) { //数组
                 item.forEach(v=>{
@@ -1317,13 +1421,40 @@ export default {
         this.$set(item,'linkHref',window.location.origin + '/view/'+ item.linkValue2)
     },
     addPage() {
-        console.log(111)
+        this.navConfigure = false
     },
     selectLayout(item) {
-        if(this.nav.length>0&&this.nav[0].type=='nav') {
-            this.$set(this.nav[0],'navType',item)
-            this.navType = item
-            console.log(this.nav[0]);
+        this.navConfigure = true
+        if(item=='left'||item=='topALeft') {
+            this.tabsActive = '6';
+        } else if(item=='top') {
+            this.tabsActive = '7';
+        }
+        this.$set(this.layoutObj,'navType',item)
+        // let data = {
+        //     id: '1501470310035066881',
+        //     layout: JSON.stringify(this.layoutObj)
+        // }
+        // updateVisualApp(data)
+    },
+    choosePage(id) {
+        this.navConfigure = false
+        this.pageId = id
+        this.tabsActive = '0'
+        getObj(id).then(res => {
+            this.nav = JSON.parse(res.data.data.config.component) || []
+            this.config = JSON.parse(res.data.data.config.detail) || {};
+        })
+    },
+    hangeChangeName(item) {
+    	this.$set(item, 'isname', !item.isname)
+    },
+    configure() {
+        this.navConfigure = true
+        if(this.layoutObj.navType=='left'||this.layoutObj.navType=='topALeft') {
+            this.tabsActive = '6';
+        } else if(this.layoutObj.navType=='top') {
+            this.tabsActive = '7';
         }
     }
   }

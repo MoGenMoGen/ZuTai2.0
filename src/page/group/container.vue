@@ -3,6 +3,7 @@
     <div id="wrapper" class="wrapper" @mousedown="contain.handleMouseDown">
       <div class="content" id="content" ref="content" :style="contentStyle">
         <div class="container" :style="styleName" id="container" ref="container">
+          
           <div class="grade" v-if="gradeFlag || contain.config.gradeShow"
                :style="gradeLenStyle"></div>
           <subgroup ref="subgroup" :nav="contain.list" ></subgroup>
@@ -92,6 +93,7 @@ export default {
     //初始化数据
     initData() {
       const id = this.$route ? this.$route.params.id : this.props.id
+      // const id = this.$route ? this.$route.query.cid : this.props.id
       this.contain.id = id;
       this.contain.contentWidth = this.$refs.content.offsetWidth;
       const isBuild = this.$route ? this.$route.name === 'build' : this.props.name;

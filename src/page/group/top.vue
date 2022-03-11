@@ -139,7 +139,7 @@
 <script>
 import {uuid} from '@/utils/utils'
 import baseList from '@/option/base'
-import {updateComponent} from '@/api/visual'
+import {updateComponent,updateVisualApp} from '@/api/visual'
 import result from './result';
 
 export default {
@@ -148,6 +148,14 @@ export default {
     return {
       contain: this.contain,
     };
+  },
+  props: {
+      layout: {
+          type: Object,
+          default() {
+              return {}
+          }
+      },
   },
   components: {
     result
@@ -281,6 +289,11 @@ export default {
                 component: JSON.stringify(this.contain.nav),
               },
             }
+            let layoutData = {
+                id: this.$route.params.id,
+                layout: JSON.stringify(this.layout)
+            }
+            updateVisualApp(layoutData)
             return updateComponent(formdata)
           }).then(() => {
             loading.close();
@@ -315,6 +328,11 @@ export default {
           component: JSON.stringify(this.contain.nav),
         },
       }
+      let layoutData = {
+          id: this.$route.params.id,
+          layout: JSON.stringify(this.layout)
+      }
+      updateVisualApp(layoutData)
       updateComponent(formdata)
     },
     //导入组件到大屏
