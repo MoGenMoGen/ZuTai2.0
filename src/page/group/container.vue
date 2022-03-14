@@ -1,13 +1,24 @@
 <template>
   <div class="middle">
     <div id="wrapper" class="wrapper" @mousedown="contain.handleMouseDown">
-      <div class="content" id="content" ref="content" :style="contentStyle">
-        <div class="container" :style="styleName" id="container" ref="container">
-          
-          <div class="grade" v-if="gradeFlag || contain.config.gradeShow"
-               :style="gradeLenStyle"></div>
-          <subgroup ref="subgroup" :nav="contain.list" ></subgroup>
-        </div>
+      <div :style="topStyle">
+        <img :src="layoutObj.logo" v-if="layoutObj.logo" style="width: 60px;height: 20px;"><span v-if="layoutObj.topTitleShow" :style="topTitleStyle">2222</span>
+      </div>
+      <div style="display: flex" :style="{width: ((contain.config.scale * contain.config.width) / 100)+'px'}">
+          <div :style="leftStyle" style="display: flex;flex-direction: column;overflow-y: auto;">
+            <block v-if="layoutObj.navList.length>0">
+                <div v-for="(item,index) in layoutObj.navList" 
+                :style="navStyle" class="nav-customize" :class="item.id==selectId?'nav-active':''"
+                @click="selectNav(item)">{{item.name}}</div>
+            </block>
+          </div>
+          <div class="content" id="content" ref="content" :style="contentStyle">
+            <div class="container" :style="styleName" id="container" ref="container">
+              <div class="grade" v-if="gradeFlag || contain.config.gradeShow"
+                   :style="gradeLenStyle"></div>
+              <subgroup ref="subgroup" :nav="contain.list" ></subgroup>
+            </div>
+          </div>
       </div>
     </div>
   </div>
@@ -16,7 +27,7 @@
 <script>
 import subgroup from './subgroup'
 import common from '@/config'
-import {getObj} from '@/api/visual'
+import {getObj,getVisualApp} from '@/api/visual'
 export default {
   name: 'contents',
   inject: ["contain"],
@@ -46,6 +57,38 @@ export default {
 	  selectCountWH: {},
       scale: 1,
       gradeFlag: false,
+      layoutObj: {
+        navType: 'blank',
+        width: 200,
+        navBg: '#205520',
+        fontFamily: '微软雅黑',
+        color: '#FFFFFF',
+        colorSelect: '#FFFFFF',
+        cmenuBg: '#242424',
+        menuColorHover: '#0066FF',
+        menuColorSelect: '#0066FF',
+        height: 48,
+        topBg: '#FFF',
+        logo: 'https://www.baidu.com/img/flexible/logo/pc/result@2.png',
+        topFontFamily: '微软雅黑',
+        topColor: '#333333',
+        topTitleShow: true,
+        navList: [{
+            name: '页面1',
+            id: '111',
+            type: '_blank'
+        }, {
+            name: '页面2',
+            id: '222',
+            type: '_blank'
+        }, {
+            name: '页面3',
+            id: '333',
+            type: '_blank'
+        }],
+      },
+      selectId: '111',
+      pageList: []
     }
   },
   computed: {
@@ -57,11 +100,11 @@ export default {
     //计算中央可视化大屏比例
     styleName() {
       const scale = this.contain.config.scale;
-      const val = (scale / 100) + 0.001;
+      const val = (scale / 100);
       return Object.assign({
         transform: `scale(${val}, ${val})`,
-        width: this.setPx(this.contain.config.width),
-        height: this.setPx(this.contain.config.height),
+        width: this.setPx(this.contain.config.width - this.layoutObj.width),
+        height: this.setPx(this.contain.config.height - this.layoutObj.height),
         backgroundColor: this.contain.config.backgroundColor
       }, (() => {
         if (this.contain.config.backgroundImage) {
@@ -77,6 +120,41 @@ export default {
       return {
         backgroundSize: `${this.setPx(this.contain.config.gradeLen)} ${this.setPx(this.contain.config.gradeLen)},${this.setPx(this.contain.config.gradeLen)} ${this.setPx(this.contain.config.gradeLen)}`
       }
+    },
+    topStyle() {
+        return {
+            width: this.setPx((this.contain.config.scale * this.contain.config.width) / 100),
+            height: this.setPx(this.layoutObj.height),
+            background: this.layoutObj.topBg,
+            display: 'flex',
+            padding:'0 20px',
+            boxSizing: 'border-box',
+            alignItems: 'center',
+            zIndex: '1'
+        }
+    },
+    leftStyle() {
+        return {
+            width: this.setPx(this.layoutObj.width),
+            height: this.setPx((this.contain.config.scale * (this.contain.config.height - this.layoutObj.height)) / 100),
+            background: this.layoutObj.navBg,
+            zIndex: '1'
+        }
+    },
+    topTitleStyle() {
+        return {
+            fontFamily: this.layoutObj.topFontFamily,
+            color: this.layoutObj.topColor,
+            marginLeft: '10px'
+        }
+    },
+    navStyle() {
+        return {
+            '--colorDefault': this.layoutObj.color,
+            '--colorSelect': this.layoutObj.colorSelect,
+            '--bgHover': this.layoutObj.menuColorHover,
+            '--bgSelect': this.layoutObj.menuColorSelect,
+        }
     }
   },
   mounted() {
@@ -92,8 +170,80 @@ export default {
     },
     //初始化数据
     initData() {
+      // const pid = this.$route ? this.$route.params.id : this.props.id
+      // getVisualApp(pid).then(res => {
+      //     this.layoutObj = JSON.parse(res.data.data.layout)
+      //     this.pageList = res.data.data.visuals
+      //     const id = this.$route ? this.$route.query.id : this.pageList[0].id
+      //     this.selectId = id
+      //     this.contain.id = id;
+      //     this.contain.contentWidth = this.$refs.content.offsetWidth;
+      //     const isBuild = this.$route ? this.$route.name === 'build' : this.props.name;
+      //     const width = isBuild ? this.contain.contentWidth : document.body.clientWidth
+      //     let config;
+      //     const callback = () => {
+      //       //赋值属性
+      //       if (this.contain.config.mark.show && !isBuild) {
+      //         this.watermark(this.contain.config.mark);
+      //       }
+      //       this.calcData();
+      //       this.setScale(width);
+      //     }
+      //     if (id) {
+      //       const loading = this.$loading({
+      //         lock: true,
+      //         text: '正在加载中，请稍后',
+      //         spinner: 'el-icon-loading',
+      //         background: 'rgba(0, 0, 0, 0.7)'
+      //       });
+      //       getObj(id).then(res => {
+      //         const data = res.data.data;
+      //         this.contain.obj = data;
+      //         config = data.config;
+      //         this.contain.json = {
+      //           detail: JSON.parse(config.detail) || {},
+      //           component: JSON.parse(config.component) || [],
+      //         }
+      //     		  document.title = data.visual.title
+      //         this.contain.config = JSON.parse(config.detail) || {};
+      //         this.contain.nav = JSON.parse(config.component) || [];
+      //         this.contain.visual = data.visual;
+      //         //添加水印。只有查看页面生效
+      //         if (!isBuild) {
+      //           const password = this.contain.visual.password
+      //           if (!this.validatenull(password)) {
+      //             this.$prompt('请输入密码', '提示', {
+      //               confirmButtonText: '确定',
+      //               showCancelButton: false,
+      //               showClose: false,
+      //               closeOnClickModal: false,
+      //               inputPattern: new RegExp(password),
+      //               inputErrorMessage: '密码不正确，请重新输入'
+      //             }).then(() => {
+      //               callback();
+      //             })
+      //           } else {
+      //             callback();
+      //           }
+          
+      //         } else {
+      //           callback();
+      //         }
+      //         loading.close();
+      //       }).catch((err) => {
+      //         console.log(err)
+      //         loading.close();
+      //       })
+      //     } else if (this.option) {
+      //       config = this.option;
+      //       this.contain.config = config.detail || {};
+      //       this.contain.nav = config.component || [];
+      //       callback();
+      //     } else {
+      //       this.setScale(width);
+      //     }
+      // })
       const id = this.$route ? this.$route.params.id : this.props.id
-      // const id = this.$route ? this.$route.query.cid : this.props.id
       this.contain.id = id;
       this.contain.contentWidth = this.$refs.content.offsetWidth;
       const isBuild = this.$route ? this.$route.name === 'build' : this.props.name;
@@ -164,8 +314,8 @@ export default {
     //适配尺寸
     setResize() {
       this.contentStyle = {
-        width: this.setPx((this.contain.config.scale * this.contain.config.width) / 100),
-        height: this.setPx((this.contain.config.scale * this.contain.config.height) / 100),
+        width: this.setPx((this.contain.config.scale * (this.contain.config.width - this.layoutObj.width)) / 100),
+        height: this.setPx((this.contain.config.scale * (this.contain.config.height - this.layoutObj.height)) / 100),
       }
     },
     //计算比例
@@ -335,6 +485,14 @@ export default {
 		}
       })
     },
+    selectNav(item) {
+        this.selectId = item.id
+        if (item.type=='_self') {
+            this.$router.push({query:{id:this.selectId}})
+        } else if (item.type=='_blank') {
+            window.open(this.$route.path+'?id='+item.id)
+        }
+    }
   }
 }
 </script>
@@ -349,5 +507,18 @@ export default {
   }
    .middle{
      background-color: transparent !important;
+  }
+  .nav-customize {
+    padding: 10px;
+    box-sizing: border-box;
+    color: var(--colorDefault);
+    cursor: pointer;
+  }
+  .nav-customize:hover {
+    background-color: var(--bgHover);
+  }
+  .nav-active {
+    color: var(--colorSelect);
+    background-color: var(--bgSelect);
   }
 </style>

@@ -555,6 +555,35 @@
                           <avue-input-color v-model="layoutObj.menuColorSelect"></avue-input-color>
                         </el-form-item>
                     </el-collapse-item>
+                    <el-collapse-item title="菜单配置">
+                        <div style="height: 36px;display: flex;justify-content: space-between;padding: 0 10px;box-sizing: border-box;"
+                        :class="['menu__item']" 
+                        v-for="(item,index) in layoutObj.navList" :key="index">
+                            <span>{{item.name}}</span>
+                            <i class="el-icon-setting" style="color: #fff;" @click.stop="navSetting(item,index)"></i>
+                        </div>
+                        <block v-if="isNavSetting">
+                            <el-form-item label="显示名字">
+                                <avue-input v-model="layoutObj.navList[navSettingIndex].name"></avue-input>
+                            </el-form-item>
+                            <el-form-item label="打开方式">
+                              <avue-radio v-model="layoutObj.navList[navSettingIndex].type"
+                                          :dic="dicOption.target">
+                              </avue-radio>
+                            </el-form-item>
+                            <el-form-item label="页面选择">
+                              <el-select v-model="layoutObj.navList[navSettingIndex].oName" filterable>
+                                <el-option
+                                  v-for="(item,index) in pageList"
+                                  :key="item.id"
+                                  :label="item.title"
+                                  :value="item.id"
+                                  @click.native ="pageSelect(item,index)">
+                                </el-option>
+                              </el-select>
+                            </el-form-item>
+                        </block>
+                    </el-collapse-item>
                 </el-collapse>
               </el-form>
           </el-tab-pane>
@@ -583,6 +612,9 @@
                         </el-form-item>
                     </el-collapse-item>
                     <el-collapse-item title="应用名称">
+                        <el-form-item label="是否显示">
+                            <avue-switch v-model="layoutObj.topTitleShow"></avue-switch>
+                        </el-form-item>
                         <el-form-item label="字体">
                           <avue-radio v-model="layoutObj.topFontFamily"
                                       :dic="dicOption.fontFamily">
@@ -765,8 +797,27 @@ export default {
         logo: '',
         topFontFamily: '微软雅黑',
         topColor: '#333333',
+        topTitleShow: true,
+        navList: [{
+            name: '页面1',
+            id: '111',
+            type: '_self',
+            oName: '',
+        }, {
+            name: '页面2',
+            id: '222',
+            type: '_self',
+            oName: '',
+        }, {
+            name: '页面3',
+            id: '333',
+            type: '_self',
+            oName: '',
+        }]
       }, //导航布局配置对象
       navConfigure: false, //是否导航布局配置
+      isNavSetting: false, //显示nav配置项
+      navSettingIndex: 0, //显示nav配置项第几个
     }
   },
   components: {
@@ -1456,6 +1507,14 @@ export default {
         } else if(this.layoutObj.navType=='top') {
             this.tabsActive = '7';
         }
+    },
+    navSetting(item,index) {
+        this.isNavSetting = true
+        this.navSettingIndex = index
+    },
+    pageSelect(item,index) {
+        this.layoutObj.navList[this.navSettingIndex].id = item.id
+        console.log(this.layoutObj.navList)
     }
   }
 }
