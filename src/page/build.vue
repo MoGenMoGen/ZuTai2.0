@@ -31,12 +31,15 @@
                       <span>页面</span><i @click.stop="addPage" class="header-icon el-icon-plus"></i>
                   </div>
                 </template>
-                <div style="height: 36px;" 
+                <div style="height: 36px;display: flex;justify-content: space-between;" 
                 :class="['menu__item',{'is-active':pageId==item.id}]" 
                 v-for="(item,index) in pageList" :key="index" @click="choosePage(item.id)"
-                @dblclick="hangeChangeName(item)">
-                    <input type="text" @blur="item.isname=false" @keyup.enter="item.isname=false" v-if="item.isname" v-model="item.title">
-                    <span v-else>{{item.title}}</span>
+                >
+                    <span style="width: 80%;">{{item.title}}</span>
+                    <p style="width: 20%;display: flex;justify-content: space-between;color: #fff;">
+                        <i class="el-icon-edit" @click.stop="updatePage(item,index)"></i>
+                        <i class="el-icon-delete" @click.stop="delPage(item,index)"></i>
+                    </p>
                 </div>
             </el-collapse-item>
             <el-collapse-item title="图层">
@@ -76,7 +79,9 @@
                  ref="canvas"
                  :style="canvasStyle">
               <container ref="container"
-                         :wscale="scale">
+                         :wscale="scale"
+                         :layoutObj='layoutObj'
+                         :pageList='pageList'>
               </container>
             </div>
           </div>
@@ -583,6 +588,12 @@
                               </el-select>
                             </el-form-item>
                         </block>
+                        <el-form-item label-width="0">
+                          <el-button type="primary"
+                                     size="mini"
+                                     class="block"
+                                     @click="addNav">添加菜单</el-button>
+                        </el-form-item>
                     </el-collapse-item>
                 </el-collapse>
               </el-form>
@@ -681,6 +692,14 @@
 
         </el-form-item>
       </el-form>
+    </el-dialog>
+    <el-dialog :title="pageType==='add'?'新建大屏':'编辑大屏'"
+               width="35%"
+               :visible.sync="pageBox">
+      <avue-form :option="pageOption"
+                 v-model="pageForm"
+                 v-if="pageBox"
+                 @submit="handleSave"></avue-form>
     </el-dialog>
   </div>
 </template>
@@ -798,26 +817,49 @@ export default {
         topFontFamily: '微软雅黑',
         topColor: '#333333',
         topTitleShow: true,
-        navList: [{
-            name: '页面1',
-            id: '111',
-            type: '_self',
-            oName: '',
-        }, {
-            name: '页面2',
-            id: '222',
-            type: '_self',
-            oName: '',
-        }, {
-            name: '页面3',
-            id: '333',
-            type: '_self',
-            oName: '',
-        }]
+        navList: []
       }, //导航布局配置对象
       navConfigure: false, //是否导航布局配置
       isNavSetting: false, //显示nav配置项
       navSettingIndex: 0, //显示nav配置项第几个
+      pageType: '', //新增页面还是修改页面
+      pageBox: false, //新增/修改页面弹窗
+      pageOption: {
+        column: [{
+          label: '页面名称',
+          span: 24,
+          labelWidth: 100,
+          prop: 'title',
+          rules: [{
+            required: true,
+            message: "请输入页面名称",
+            trigger: "blur"
+          }]
+        }, {
+          label: '大屏尺寸',
+          span: 14,
+          labelWidth: 100,
+          prop: 'width',
+          placeholder: '请输入宽度',
+          rules: [{
+            required: true,
+            message: "请输入大屏尺寸",
+            trigger: "blur"
+          }]
+        }, {
+          label: '',
+          span: 10,
+          labelWidth: 1,
+          prop: 'height',
+          placeholder: '请输入高度',
+          rules: [{
+            required: true,
+            message: "请输入大屏尺寸",
+            trigger: "blur"
+          }]
+        }]
+      }, //新增/修改页面配置项
+      pageForm: {}
     }
   },
   components: {
@@ -1010,7 +1052,7 @@ export default {
     		this.options1.push(item)
     	})
     })
-    // this.$route.params.id
+    // this.$route.params.id1501470310035066881
     getVisualApp('1501470310035066881').then(res => {
         this.layoutObj = JSON.parse(res.data.data.layout)
         this.pageList = res.data.data.visuals
@@ -1471,9 +1513,65 @@ export default {
     handleSelect2(item) {
         this.$set(item,'linkHref',window.location.origin + '/view/'+ item.linkValue2)
     },
+    // 添加新页面
     addPage() {
         this.navConfigure = false
+        this.pageType = 'add'
+        this.pageBox = true
+        this.findObject(this.pageOption.column, 'width').display = true
+        this.findObject(this.pageOption.column, 'height').display = true
     },
+    // 更新页面
+    updatePage(item,index) {
+        this.navConfigure = false
+        this.pageType = 'update'
+        this.pageBox = true
+        this.findObject(this.pageOption.column, 'width').display = false
+        this.findObject(this.pageOption.column, 'height').display = false
+    },
+    // 删除页面
+    delPage(item,index) {
+        this.navConfigure = false
+        this.$confirm('是否确认永久删除?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          delObj(item.id).then(() => {
+            this.pageList.splice(index, 1)
+            this.$message.success('删除成功')
+          })
+        }).catch(() => {
+        
+        });
+    },
+    handleSave(form, done) {
+      done();
+      if (this.pageType == 'add') {
+        addObj(Object.assign({
+          category: this.activeName,
+        }, this.pageForm)).then(res => {
+          this.pageBox = false;
+          this.$message.success('新增成功');
+        })
+      } else {
+        updateObj({
+          id: this.pageForm.id,
+          category: this.pageForm.category,
+          password: this.pageForm.password,
+          status: this.pageForm.status,
+          title: this.pageForm.title,
+    	  navSelect: this.pageForm.navSelect
+        }).then(() => {
+          this.pageBox = false;
+          this.$message.success('修改成功');
+        })
+      }
+      getVisualApp('1501470310035066881').then(res => {
+          this.pageList = res.data.data.visuals
+      })
+    },
+    // 选择导航布局类型
     selectLayout(item) {
         this.navConfigure = true
         if(item=='left'||item=='topALeft') {
@@ -1482,12 +1580,14 @@ export default {
             this.tabsActive = '7';
         }
         this.$set(this.layoutObj,'navType',item)
+        this.$refs.container.setResize()
         // let data = {
         //     id: '1501470310035066881',
         //     layout: JSON.stringify(this.layoutObj)
         // }
         // updateVisualApp(data)
     },
+    // 选中当前页
     choosePage(id) {
         this.navConfigure = false
         this.pageId = id
@@ -1497,9 +1597,7 @@ export default {
             this.config = JSON.parse(res.data.data.config.detail) || {};
         })
     },
-    hangeChangeName(item) {
-    	this.$set(item, 'isname', !item.isname)
-    },
+    // 显示导航配置
     configure() {
         this.navConfigure = true
         if(this.layoutObj.navType=='left'||this.layoutObj.navType=='topALeft') {
@@ -1508,14 +1606,31 @@ export default {
             this.tabsActive = '7';
         }
     },
+    // 设置选中菜单导航
     navSetting(item,index) {
         this.isNavSetting = true
         this.navSettingIndex = index
     },
+    // 选择页面
     pageSelect(item,index) {
         this.layoutObj.navList[this.navSettingIndex].id = item.id
-        console.log(this.layoutObj.navList)
-    }
+    },
+    // 新增菜单
+    addNav() {
+        console.log(this.layoutObj)
+        let obj = {
+            name: '菜单1',
+            id: '',
+            type: '_self',
+            oName: '',
+        }
+        if(this.layoutObj.navList) {
+            this.layoutObj.navList.push(obj)
+        } else {
+            this.$set(this.layoutObj,'navList', [])
+            this.layoutObj.navList.push(obj)
+        }
+    },
   }
 }
 </script>

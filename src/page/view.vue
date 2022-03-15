@@ -1,15 +1,18 @@
 <template>
   <div class="build views">
-    <container :props="props" :option="option" ref="container"></container>
+    <container :props="props" :option="option" ref="container" :layoutObj='layoutObj' :pageList='pageList'></container>
   </div>
 </template>
 <script>
 import init from '@/mixins/'
-import {verToken,getAllData} from '@/api/visual'
+import {verToken,getAllData,getVisualApp} from '@/api/visual'
 
 export default {
   data() {
-    return {}
+    return {
+        layoutObj: {},
+        pageList: []
+    }
   },
   props: {
     option: Object,
@@ -22,6 +25,10 @@ export default {
   },
   mounted() {
     // this.isLogin()
+    getVisualApp('1501470310035066881').then(res => {
+      this.layoutObj = JSON.parse(res.data.data.layout)
+      this.pageList = res.data.data.visuals
+    })
     this.getSiteData()
     setInterval(this.getSiteData, 10000);
 

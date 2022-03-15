@@ -235,6 +235,11 @@ export default {
           component: JSON.stringify(this.contain.nav),
         },
       }
+      let layoutData = {
+          id: this.$route.params.id,
+          layout: JSON.stringify(this.layout)
+      }
+      updateVisualApp(layoutData)
       updateComponent(formdata)
       loading.close();
 
@@ -339,8 +344,8 @@ export default {
     handleAdd(option, first = false) {
 
       let obj = this.deepClone(option);
-      obj.left = 0;
-      obj.top = 0
+      obj.left = 500;
+      obj.top = 200
       obj.index = uuid();
       obj.option.index = obj.index
       if (first) {

@@ -1,12 +1,13 @@
 <template>
   <div class="middle">
     <div id="wrapper" class="wrapper" @mousedown="contain.handleMouseDown">
-      <div :style="topStyle">
+      <div :style="topStyle" v-if="layoutObj.navType == 'top' || layoutObj.navType == 'topALeft'">
         <img :src="layoutObj.logo" v-if="layoutObj.logo" style="width: 60px;height: 20px;"><span v-if="layoutObj.topTitleShow" :style="topTitleStyle">2222</span>
       </div>
       <div style="display: flex" :style="{width: ((contain.config.scale * contain.config.width) / 100)+'px'}">
-          <div :style="leftStyle" style="display: flex;flex-direction: column;overflow-y: auto;">
-            <block v-if="layoutObj.navList.length>0">
+          <div :style="leftStyle" style="display: flex;flex-direction: column;overflow-y: auto;flex-shrink: 0;"
+           v-if="layoutObj.navType == 'left' || layoutObj.navType == 'topALeft'">
+            <block v-if="layoutObj.navList">
                 <div v-for="(item,index) in layoutObj.navList" 
                 :style="navStyle" class="nav-customize" :class="item.id==selectId?'nav-active':''"
                 @click="selectNav(item)">{{item.name}}</div>
@@ -39,7 +40,9 @@ export default {
         return {}
       }
     },
-    wscale: Number
+    wscale: Number,
+    layoutObj:Object,
+    pageList: Array
   },
   provide() {
     return {
@@ -57,38 +60,8 @@ export default {
 	  selectCountWH: {},
       scale: 1,
       gradeFlag: false,
-      layoutObj: {
-        navType: 'blank',
-        width: 200,
-        navBg: '#205520',
-        fontFamily: '微软雅黑',
-        color: '#FFFFFF',
-        colorSelect: '#FFFFFF',
-        cmenuBg: '#242424',
-        menuColorHover: '#0066FF',
-        menuColorSelect: '#0066FF',
-        height: 48,
-        topBg: '#FFF',
-        logo: 'https://www.baidu.com/img/flexible/logo/pc/result@2.png',
-        topFontFamily: '微软雅黑',
-        topColor: '#333333',
-        topTitleShow: true,
-        navList: [{
-            name: '页面1',
-            id: '111',
-            type: '_blank'
-        }, {
-            name: '页面2',
-            id: '222',
-            type: '_blank'
-        }, {
-            name: '页面3',
-            id: '333',
-            type: '_blank'
-        }],
-      },
-      selectId: '111',
-      pageList: []
+      layoutObj: {},
+      selectId: '',
     }
   },
   computed: {
@@ -101,10 +74,22 @@ export default {
     styleName() {
       const scale = this.contain.config.scale;
       const val = (scale / 100);
+      let width = 0,
+      height = 0
+      if(this.layoutObj.navType=='top'||this.layoutObj.navType=='topALeft') {
+        height = this.setPx(this.contain.config.height - this.layoutObj.height)
+      } else {
+        height = this.setPx(this.contain.config.height)
+      }
+      if(this.layoutObj.navType=='left'||this.layoutObj.navType=='topALeft') {
+        width = this.setPx(this.contain.config.width - this.layoutObj.width)
+      } else {
+        width = this.setPx(this.contain.config.width)
+      }
       return Object.assign({
         transform: `scale(${val}, ${val})`,
-        width: this.setPx(this.contain.config.width - this.layoutObj.width),
-        height: this.setPx(this.contain.config.height - this.layoutObj.height),
+        width: width,
+        height: height,
         backgroundColor: this.contain.config.backgroundColor
       }, (() => {
         if (this.contain.config.backgroundImage) {
@@ -124,7 +109,7 @@ export default {
     topStyle() {
         return {
             width: this.setPx((this.contain.config.scale * this.contain.config.width) / 100),
-            height: this.setPx(this.layoutObj.height),
+            height: this.setPx((this.contain.config.scale *this.layoutObj.height)/100),
             background: this.layoutObj.topBg,
             display: 'flex',
             padding:'0 20px',
@@ -135,7 +120,7 @@ export default {
     },
     leftStyle() {
         return {
-            width: this.setPx(this.layoutObj.width),
+            width: this.setPx((this.contain.config.scale *this.layoutObj.width)/100),
             height: this.setPx((this.contain.config.scale * (this.contain.config.height - this.layoutObj.height)) / 100),
             background: this.layoutObj.navBg,
             zIndex: '1'
@@ -170,7 +155,7 @@ export default {
     },
     //初始化数据
     initData() {
-      // const pid = this.$route ? this.$route.params.id : this.props.id
+      // const pid = this.$route.name === 'view' ? this.$route.params.id : ''
       // getVisualApp(pid).then(res => {
       //     this.layoutObj = JSON.parse(res.data.data.layout)
       //     this.pageList = res.data.data.visuals
@@ -204,7 +189,7 @@ export default {
       //           detail: JSON.parse(config.detail) || {},
       //           component: JSON.parse(config.component) || [],
       //         }
-      //     		  document.title = data.visual.title
+      //     		  document.title = res.data.data.name
       //         this.contain.config = JSON.parse(config.detail) || {};
       //         this.contain.nav = JSON.parse(config.component) || [];
       //         this.contain.visual = data.visual;
@@ -225,7 +210,6 @@ export default {
       //           } else {
       //             callback();
       //           }
-          
       //         } else {
       //           callback();
       //         }
@@ -313,9 +297,21 @@ export default {
     },
     //适配尺寸
     setResize() {
+      let width = 0,
+      height = 0
+      if(this.layoutObj.navType=='top'||this.layoutObj.navType=='topALeft') {
+        height = this.setPx((this.contain.config.scale * (this.contain.config.height - this.layoutObj.height)) / 100)
+      } else {
+        height = this.setPx(this.contain.config.scale * this.contain.config.height /100)
+      }
+      if(this.layoutObj.navType=='left'||this.layoutObj.navType=='topALeft') {
+        width = this.setPx((this.contain.config.scale * (this.contain.config.width - this.layoutObj.width)) / 100)
+      } else {
+        width = this.setPx(this.contain.config.scale * this.contain.config.width /100)
+      }
       this.contentStyle = {
-        width: this.setPx((this.contain.config.scale * (this.contain.config.width - this.layoutObj.width)) / 100),
-        height: this.setPx((this.contain.config.scale * (this.contain.config.height - this.layoutObj.height)) / 100),
+        width: width,
+        height: height
       }
     },
     //计算比例
