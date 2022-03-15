@@ -119,9 +119,15 @@ export default {
         }
     },
     leftStyle() {
+        let height = 0
+        if(this.layoutObj.navType=='top'||this.layoutObj.navType=='topALeft') {
+          height = this.layoutObj.height
+        } else {
+          height = 0
+        }
         return {
             width: this.setPx((this.contain.config.scale *this.layoutObj.width)/100),
-            height: this.setPx((this.contain.config.scale * (this.contain.config.height - this.layoutObj.height)) / 100),
+            height: this.setPx((this.contain.config.scale * (this.contain.config.height - height)) / 100),
             background: this.layoutObj.navBg,
             zIndex: '1'
         }
