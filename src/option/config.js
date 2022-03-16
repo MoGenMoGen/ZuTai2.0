@@ -138,6 +138,7 @@ export const dicOption = {
         value: 0
     }],
     target: [{label: '本窗口', value: '_self'}, {label: '新窗口', value: '_blank',}],
+    targetType: [{label: '本应用', value: 'self'}, {label: '外链', value: 'out',}],
     swiperType: [{label: '普通', value: ''}, {label: '立体', value: 'card'}],
     swiperIndicator: [{label: '外部', value: 'indicator'}, {label: '不显示', value: 'none'}],
     format: [{label: '日期', value: 'yyyy-MM-dd'}, {label: '日期+时分', value: 'yyyy-MM-dd hh:mm'}, {

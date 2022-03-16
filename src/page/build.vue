@@ -576,7 +576,12 @@
                                           :dic="dicOption.target">
                               </avue-radio>
                             </el-form-item>
-                            <el-form-item label="页面选择">
+                            <el-form-item label="目标链接">
+                              <avue-radio v-model="layoutObj.navList[navSettingIndex].typeLink"
+                                          :dic="dicOption.targetType">
+                              </avue-radio>
+                            </el-form-item>
+                            <el-form-item label="页面选择" v-if="layoutObj.navList[navSettingIndex].typeLink=='self'">
                               <el-select v-model="layoutObj.navList[navSettingIndex].oName" filterable>
                                 <el-option
                                   v-for="(item,index) in pageList"
@@ -586,6 +591,9 @@
                                   @click.native ="pageSelect(item,index)">
                                 </el-option>
                               </el-select>
+                            </el-form-item>
+                            <el-form-item label="外部链接" v-if="layoutObj.navList[navSettingIndex].typeLink=='out'">
+                                <avue-input v-model="layoutObj.navList[navSettingIndex].id"></avue-input>
                             </el-form-item>
                         </block>
                         <el-form-item label-width="0">
@@ -1520,6 +1528,9 @@ export default {
         this.pageBox = true
         this.findObject(this.pageOption.column, 'width').display = true
         this.findObject(this.pageOption.column, 'height').display = true
+        this.pageForm.title = ''
+        this.pageForm.width = 1920
+        this.pageForm.height = 1080
     },
     // 更新页面
     updatePage(item,index) {
@@ -1528,6 +1539,7 @@ export default {
         this.pageBox = true
         this.findObject(this.pageOption.column, 'width').display = false
         this.findObject(this.pageOption.column, 'height').display = false
+        this.pageForm = item
     },
     // 删除页面
     delPage(item,index) {
@@ -1622,6 +1634,7 @@ export default {
             name: '菜单1',
             id: '',
             type: '_self',
+            typeLink: 'self',
             oName: '',
         }
         if(this.layoutObj.navList) {

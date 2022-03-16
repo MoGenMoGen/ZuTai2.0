@@ -490,9 +490,17 @@ export default {
     selectNav(item) {
         this.selectId = item.id
         if (item.type=='_self') {
-            this.$router.push({query:{id:this.selectId}})
+            if(item.typeLink=='self') {
+                this.$router.push({query:{id:item.id}})
+            } else if (item.typeLink=='out') {
+                window.location.href = item.id
+            }
         } else if (item.type=='_blank') {
-            window.open(this.$route.path+'?id='+item.id)
+            if(item.typeLink=='self') {
+                window.open(this.$route.path+'?id='+item.id)
+            } else if (item.typeLink=='out') {
+                window.open(item.id)
+            }
         }
     }
   }
