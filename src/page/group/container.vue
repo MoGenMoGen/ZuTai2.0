@@ -2,7 +2,7 @@
   <div class="middle">
     <div id="wrapper" class="wrapper" @mousedown="contain.handleMouseDown">
       <div :style="topStyle" v-if="layoutObj.navType == 'top' || layoutObj.navType == 'topALeft'">
-        <img :src="layoutObj.logo" v-if="layoutObj.logo" style="width: 60px;height: 20px;"><span v-if="layoutObj.topTitleShow" :style="topTitleStyle">2222</span>
+        <img :src="layoutObj.logo" v-if="layoutObj.logo" style="width: 60px;height: 20px;"><span v-if="layoutObj.topTitleShow" :style="topTitleStyle">{{title}}</span>
       </div>
       <div style="display: flex" :style="{width: ((contain.config.scale * contain.config.width) / 100)+'px'}">
           <div :style="leftStyle" style="display: flex;flex-direction: column;overflow-y: auto;flex-shrink: 0;"
@@ -62,6 +62,7 @@ export default {
       gradeFlag: false,
       layoutObj: {},
       selectId: '',
+      title: ''
     }
   },
   computed: {
@@ -165,6 +166,7 @@ export default {
       getVisualApp(pid).then(res => {
           this.layoutObj = JSON.parse(res.data.data.layout)
           this.pageList = res.data.data.visuals
+          this.title = res.data.data.name
           document.title = res.data.data.name
           const id = this.$route.query.id ? this.$route.query.id : this.pageList[0].id
           this.selectId = id
