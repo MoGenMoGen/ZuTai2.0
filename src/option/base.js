@@ -1681,6 +1681,7 @@ export default [{
                     duration: '1000',
                     ifRoate:false,
                     rotateSpeed:10,
+                    scale:1
                 }
             }
         },]

@@ -67,8 +67,8 @@
                 <el-form-item label="旋转速度" v-show="main.activeOption.ifRoate">
                     <el-slider v-model="main.activeOption.rotateSpeed" :max="360"  :step="1"></el-slider>
                 </el-form-item>
-                <el-form-item label="文字颜色">
-                    <avue-input-color type="textarea" v-model="main.activeOption.bodyColor"></avue-input-color>
+                <el-form-item label="默认缩放">
+                    <el-slider v-model="main.activeOption.scale" :max="2"  :step="0.1"></el-slider>
                 </el-form-item>
                 <el-form-item label="边框颜色">
                     <avue-input-color type="textarea" v-model="main.activeOption.borderColor"></avue-input-color>

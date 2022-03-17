@@ -6,8 +6,7 @@
 </template>
 
 <script>
-    import * as BABYLON from "babylonjs"
-
+    // import * as BABYLON from "babylonjs"
 
 export default ({
   name: "threeD",
@@ -98,7 +97,7 @@ export default ({
                 if(this.option.ifRoate){
                     console.log(this.option.rotateSpeed/6)
                     this.timer = setInterval(()=>{
-                        scene.activeCamera.alpha += this.option.rotateSpeed/360;
+                        scene.activeCamera.alpha += this.option.rotateSpeed/3600;
                     },100)
                 }else {
                     clearInterval(this.timer)
@@ -107,17 +106,17 @@ export default ({
 
                 // 添加一组灯光到场景
                 // eslint-disable-next-line no-unused-vars
-                var light1 = new BABYLON.HemisphericLight(
-                    "light1",
-                    new BABYLON.Vector3(1, 1, 0),
-                    scene
-                );
-                // eslint-disable-next-line no-unused-vars
-                var light2 = new BABYLON.PointLight(
-                    "light2",
-                    new BABYLON.Vector3(0, 1, -1),
-                    scene
-                );
+                // var light1 = new BABYLON.HemisphericLight(
+                //     "light1",
+                //     new BABYLON.Vector3(1, 1, 0),
+                //     scene
+                // );
+                // // eslint-disable-next-line no-unused-vars
+                // var light2 = new BABYLON.PointLight(
+                //     "light2",
+                //     new BABYLON.Vector3(0, 1, -1),
+                //     scene
+                // );
                 const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
                 if(this.option.materialColor){
                     this.materialColor = this.option.materialColor.slice(5,this.option.materialColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
@@ -133,18 +132,32 @@ export default ({
 
                 // 添加一个球体到场景中
                 // eslint-disable-next-line no-unused-vars
-                var sphere = BABYLON.MeshBuilder.CreateSphere(
-                    "sphere",
-                    { diameter: 2 },
-                    scene
-                );
-                sphere.material = myMaterial
+                // var sphere = BABYLON.MeshBuilder.CreateSphere(
+                //     "sphere",
+                //     { diameter: 2 },
+                //     scene
+                // );
+                // sphere.material = myMaterial
                 if(this.option.modeUrl){
-                    BABYLON.SceneLoader.Append("", this.option.modeUrl, scene, function (scene) {
 
-                        // 模型添加成功后，执行场景对象的一些方法
-
+                    // BABYLON.SceneLoader.Append('','22.obj', scene, function (scene) {
+                    //
+                    //     // 模型添加成功后，执行场景对象的一些方法
+                    //
+                    // });
+                    // http://192.168.0.29:89/img/model/11.gltf
+                     BABYLON.SceneLoader.Append("", this.option.modeUrl, scene, function (scene) {
+                        console.log('------------------')
+                        // Create a default arc rotate camera and light.
+                        scene.createDefaultCameraOrLight(true, true, true);
+                        // scene.material = myMaterial
+                        // scene.scaling = new BABYLON.Vector3(this.option.scale, this.option.scale, this.option.scale);
+                        // The default camera looks at the back of the asset.
+                        // Rotate the camera by 180 degrees to the front of the asset.
+                        // scene.activeCamera.alpha += Math.PI;
                     });
+                    // model.material = myMaterial
+                    // model.scaling = new BABYLON.Vector3(this.option.scale, this.option.scale, this.option.scale);
                 }
 
                 //背景
