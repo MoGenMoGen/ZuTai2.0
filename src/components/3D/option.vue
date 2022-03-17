@@ -39,6 +39,7 @@
 
             </div>
             <div class="btn">
+                <input v-model="main.activeOption.modeUrl"/>
                 <button>重置</button>
                 <el-button type="text" @click="imgVisible=true">模型库</el-button>
             </div>
@@ -138,6 +139,7 @@
         methods: {
             getFileList(){
                 getFilePath().then(res=>{
+                    console.log(res.data.data)
                     // this.arrShow = res.data.data
                 })
             },

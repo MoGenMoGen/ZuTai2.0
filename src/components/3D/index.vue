@@ -96,8 +96,9 @@ export default ({
                 camera.attachControl(this.canvas, true);
                 console.log(this.option.ifRoate)
                 if(this.option.ifRoate){
+                    console.log(this.option.rotateSpeed/6)
                     this.timer = setInterval(()=>{
-                        scene.activeCamera.alpha += .02;
+                        scene.activeCamera.alpha += this.option.rotateSpeed/360;
                     },100)
                 }else {
                     clearInterval(this.timer)
@@ -138,11 +139,14 @@ export default ({
                     scene
                 );
                 sphere.material = myMaterial
-                // BABYLON.SceneLoader.Append("", "11.gltf", scene, function (scene) {
-                //
-                //     // 模型添加成功后，执行场景对象的一些方法
-                //
-                // });
+                if(this.option.modeUrl){
+                    BABYLON.SceneLoader.Append("", this.option.modeUrl, scene, function (scene) {
+
+                        // 模型添加成功后，执行场景对象的一些方法
+
+                    });
+                }
+
                 //背景
                 let bgColor = this.option.backgroundColor.slice(5,this.option.backgroundColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
                 scene.clearColor = new BABYLON.Color4(bgColor[0], bgColor[1], bgColor[2], bgColor[3]);
