@@ -1618,8 +1618,7 @@ export default {
                 this.config = JSON.parse(res.data.data.config.detail) || {};
                 this.obj = res.data.data
                 this.visual = res.data.data.visual
-                let width = this.$refs.container.$refs.content.offsetWidth
-                this.$refs.container.setScale(width);
+                this.$refs.container.setScale(this.contentWidth);
             })
         }, 0);
     },
