@@ -492,6 +492,7 @@ export default {
         if (item.type=='_self') {
             if(item.typeLink=='self') {
                 this.$router.push({query:{id:item.id}})
+                this.initData()
             } else if (item.typeLink=='out') {
                 window.location.href = item.id
             }

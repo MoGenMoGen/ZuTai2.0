@@ -1064,7 +1064,8 @@ export default {
     getVisualApp(this.$route.params.id).then(res => {
         this.layoutObj = JSON.parse(res.data.data.layout)
         this.pageList = res.data.data.visuals
-        this.pageId = this.pageList[0].id
+        const id = this.$route.query.id ? this.$route.query.id : this.pageList[0].id
+        this.pageId = id
         getObj(this.pageId).then(res => {
             this.nav = JSON.parse(res.data.data.config.component) || []
             this.config = JSON.parse(res.data.data.config.detail) || {};
