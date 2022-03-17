@@ -1061,7 +1061,7 @@ export default {
     	})
     })
     // this.$route.params.id1501470310035066881
-    getVisualApp('1501470310035066881').then(res => {
+    getVisualApp(this.$route.params.id).then(res => {
         this.layoutObj = JSON.parse(res.data.data.layout)
         this.pageList = res.data.data.visuals
         this.pageId = this.pageList[0].id
@@ -1579,7 +1579,7 @@ export default {
           this.$message.success('修改成功');
         })
       }
-      getVisualApp('1501470310035066881').then(res => {
+      getVisualApp(this.$route.params.id).then(res => {
           this.pageList = res.data.data.visuals
       })
     },
