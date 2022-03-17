@@ -314,7 +314,7 @@ computed:{
       return this.$refs[`${this.common.DEAFNAME}${val}`];
     },
 	handleMove ({ index, left, top }) {
-        console.log('----------move---------------')
+        // console.log('----------move---------------')
         //   console.log(this.contain.activeIndex)
         // console.log(this.contain.inputPosChange)
         // if(this.contain.num>5){

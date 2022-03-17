@@ -98,6 +98,8 @@ import baseTriangleOption from '@/components/base/triangle/option'
 
 // 表格
 import myTableOption from '@/components/table/option'
+// 3D
+import threeDOption from '@/components/3D/option'
 
 export default {
   components: {
@@ -146,6 +148,7 @@ export default {
 	baseArrowOption,
     baseTriangleOption,
     myTableOption,
-    trendPageOption
+    trendPageOption,
+      threeDOption
   }
 }

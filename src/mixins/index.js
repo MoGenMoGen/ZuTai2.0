@@ -245,7 +245,7 @@ export default {
                 item.option.column.forEach(v=>{
                       if(v['__id']!==undefined )  delete v['__id']
 
-                        console.log(v)
+                        // console.log(v)
                 })
             }
          })

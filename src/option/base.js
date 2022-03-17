@@ -1653,7 +1653,37 @@ export default [{
             },
 
         },
-    }]
+    },{
+            "label": '3D',
+            "option": {
+                "title": "3D",
+                "name": "3D",
+                "icon": 'icon-tupianshangchuan',
+                "img": require('@/assets/img.png'),
+                "top": 0,
+                "left": 0,
+                "dataType": 0,
+                "data": {
+                    value: ''
+                },
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 400,
+                    "height": 400,
+                    "name": "threeD",
+                    "prop": "threeD",
+                },
+                "option": {
+                    materialColor:'rgba(255,0,0,1)',
+                    backgroundColor:'rgba(0,0,0,1)',
+                    rotate2: 0,
+                    duration: '1000',
+                    ifRoate:false,
+                    rotateSpeed:10,
+                }
+            }
+        },]
 }, {
     "label": '指标',
     "icon": 'icon-a-lujing47',

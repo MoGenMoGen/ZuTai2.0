@@ -16,6 +16,7 @@ import cursor from './cursor'
 import trendNew from './trendNew/'
 import myTable from './table/'
 import trendPage from './trendPage/'
+import threeD from './3D/'
 
 //基础组件
 import baseXline from './base/xline'
@@ -45,7 +46,7 @@ import baseTriangle from './base/triangle'
 
 export default (() => {
   const list = [
-    Test, State, Xline, Alert, alertList, energy, level, moveCar, light, trend, cursor,myTable,
+    Test, State, Xline, Alert, alertList, energy, level, moveCar, light, trend, cursor,myTable,threeD,
     baseXline, baseYline, baseCircle, baseRectangle, baseText, baseButton, baseInput, baseSelect, basePolygon, baseQrcode, baseDashboard,baseBrokenLine,
 	baseSwitch,
 	baseSlider,
