@@ -161,145 +161,145 @@ export default {
     },
     //初始化数据
     initData() {
-      // const pid = this.$route.name === 'view' ? this.$route.params.id : ''
-      // getVisualApp(pid).then(res => {
-      //     this.layoutObj = JSON.parse(res.data.data.layout)
-      //     this.pageList = res.data.data.visuals
-      //     const id = this.$route ? this.$route.query.id : this.pageList[0].id
-      //     this.selectId = id
-      //     this.contain.id = id;
-      //     this.contain.contentWidth = this.$refs.content.offsetWidth;
-      //     const isBuild = this.$route ? this.$route.name === 'build' : this.props.name;
-      //     const width = isBuild ? this.contain.contentWidth : document.body.clientWidth
-      //     let config;
-      //     const callback = () => {
-      //       //赋值属性
-      //       if (this.contain.config.mark.show && !isBuild) {
-      //         this.watermark(this.contain.config.mark);
-      //       }
-      //       this.calcData();
-      //       this.setScale(width);
-      //     }
-      //     if (id) {
-      //       const loading = this.$loading({
-      //         lock: true,
-      //         text: '正在加载中，请稍后',
-      //         spinner: 'el-icon-loading',
-      //         background: 'rgba(0, 0, 0, 0.7)'
-      //       });
-      //       getObj(id).then(res => {
-      //         const data = res.data.data;
-      //         this.contain.obj = data;
-      //         config = data.config;
-      //         this.contain.json = {
-      //           detail: JSON.parse(config.detail) || {},
-      //           component: JSON.parse(config.component) || [],
-      //         }
-      //     		  document.title = res.data.data.name
-      //         this.contain.config = JSON.parse(config.detail) || {};
-      //         this.contain.nav = JSON.parse(config.component) || [];
-      //         this.contain.visual = data.visual;
-      //         //添加水印。只有查看页面生效
-      //         if (!isBuild) {
-      //           const password = this.contain.visual.password
-      //           if (!this.validatenull(password)) {
-      //             this.$prompt('请输入密码', '提示', {
-      //               confirmButtonText: '确定',
-      //               showCancelButton: false,
-      //               showClose: false,
-      //               closeOnClickModal: false,
-      //               inputPattern: new RegExp(password),
-      //               inputErrorMessage: '密码不正确，请重新输入'
-      //             }).then(() => {
-      //               callback();
-      //             })
-      //           } else {
-      //             callback();
-      //           }
-      //         } else {
-      //           callback();
-      //         }
-      //         loading.close();
-      //       }).catch((err) => {
-      //         console.log(err)
-      //         loading.close();
-      //       })
-      //     } else if (this.option) {
-      //       config = this.option;
-      //       this.contain.config = config.detail || {};
-      //       this.contain.nav = config.component || [];
-      //       callback();
-      //     } else {
-      //       this.setScale(width);
-      //     }
-      // })
-      const id = this.$route ? this.$route.params.id : this.props.id
-      this.contain.id = id;
-      this.contain.contentWidth = this.$refs.content.offsetWidth;
-      const isBuild = this.$route ? this.$route.name === 'build' : this.props.name;
-      const width = isBuild ? this.contain.contentWidth : document.body.clientWidth
-      let config;
-      const callback = () => {
-        //赋值属性
-        if (this.contain.config.mark.show && !isBuild) {
-          this.watermark(this.contain.config.mark);
-        }
-        this.calcData();
-        this.setScale(width);
-      }
-      if (id) {
-        const loading = this.$loading({
-          lock: true,
-          text: '正在加载中，请稍后',
-          spinner: 'el-icon-loading',
-          background: 'rgba(0, 0, 0, 0.7)'
-        });
-        getObj(id).then(res => {
-          const data = res.data.data;
-          this.contain.obj = data;
-          config = data.config;
-          this.contain.json = {
-            detail: JSON.parse(config.detail) || {},
-            component: JSON.parse(config.component) || [],
-          }
-		  document.title = data.visual.title
-          this.contain.config = JSON.parse(config.detail) || {};
-          this.contain.nav = JSON.parse(config.component) || [];
-          this.contain.visual = data.visual;
-          //添加水印。只有查看页面生效
-          if (!isBuild) {
-            const password = this.contain.visual.password
-            if (!this.validatenull(password)) {
-              this.$prompt('请输入密码', '提示', {
-                confirmButtonText: '确定',
-                showCancelButton: false,
-                showClose: false,
-                closeOnClickModal: false,
-                inputPattern: new RegExp(password),
-                inputErrorMessage: '密码不正确，请重新输入'
-              }).then(() => {
-                callback();
-              })
-            } else {
-              callback();
+      const pid = this.$route.name === 'view' ? this.$route.params.id : ''
+      getVisualApp(pid).then(res => {
+          this.layoutObj = JSON.parse(res.data.data.layout)
+          this.pageList = res.data.data.visuals
+          const id = this.$route.query.id ? this.$route.query.id : this.pageList[0].id
+          this.selectId = id
+          this.contain.id = id;
+          this.contain.contentWidth = this.$refs.content.offsetWidth;
+          const isBuild = this.$route ? this.$route.name === 'build' : this.props.name;
+          const width = isBuild ? this.contain.contentWidth : document.body.clientWidth
+          let config;
+          const callback = () => {
+            //赋值属性
+            if (this.contain.config.mark.show && !isBuild) {
+              this.watermark(this.contain.config.mark);
             }
-
-          } else {
-            callback();
+            this.calcData();
+            this.setScale(width);
           }
-          loading.close();
-        }).catch((err) => {
-          console.log(err)
-          loading.close();
-        })
-      } else if (this.option) {
-        config = this.option;
-        this.contain.config = config.detail || {};
-        this.contain.nav = config.component || [];
-        callback();
-      } else {
-        this.setScale(width);
-      }
+          if (id) {
+            const loading = this.$loading({
+              lock: true,
+              text: '正在加载中，请稍后',
+              spinner: 'el-icon-loading',
+              background: 'rgba(0, 0, 0, 0.7)'
+            });
+            getObj(id).then(res => {
+              const data = res.data.data;
+              this.contain.obj = data;
+              config = data.config;
+              this.contain.json = {
+                detail: JSON.parse(config.detail) || {},
+                component: JSON.parse(config.component) || [],
+              }
+          		  document.title = res.data.data.name
+              this.contain.config = JSON.parse(config.detail) || {};
+              this.contain.nav = JSON.parse(config.component) || [];
+              this.contain.visual = data.visual;
+              //添加水印。只有查看页面生效
+              if (!isBuild) {
+                const password = this.contain.visual.password
+                if (!this.validatenull(password)) {
+                  this.$prompt('请输入密码', '提示', {
+                    confirmButtonText: '确定',
+                    showCancelButton: false,
+                    showClose: false,
+                    closeOnClickModal: false,
+                    inputPattern: new RegExp(password),
+                    inputErrorMessage: '密码不正确，请重新输入'
+                  }).then(() => {
+                    callback();
+                  })
+                } else {
+                  callback();
+                }
+              } else {
+                callback();
+              }
+              loading.close();
+            }).catch((err) => {
+              console.log(err)
+              loading.close();
+            })
+          } else if (this.option) {
+            config = this.option;
+            this.contain.config = config.detail || {};
+            this.contain.nav = config.component || [];
+            callback();
+          } else {
+            this.setScale(width);
+          }
+      })
+    //   const id = this.$route ? this.$route.params.id : this.props.id
+    //   this.contain.id = id;
+    //   this.contain.contentWidth = this.$refs.content.offsetWidth;
+    //   const isBuild = this.$route ? this.$route.name === 'build' : this.props.name;
+    //   const width = isBuild ? this.contain.contentWidth : document.body.clientWidth
+    //   let config;
+    //   const callback = () => {
+    //     //赋值属性
+    //     if (this.contain.config.mark.show && !isBuild) {
+    //       this.watermark(this.contain.config.mark);
+    //     }
+    //     this.calcData();
+    //     this.setScale(width);
+    //   }
+    //   if (id) {
+    //     const loading = this.$loading({
+    //       lock: true,
+    //       text: '正在加载中，请稍后',
+    //       spinner: 'el-icon-loading',
+    //       background: 'rgba(0, 0, 0, 0.7)'
+    //     });
+    //     getObj(id).then(res => {
+    //       const data = res.data.data;
+    //       this.contain.obj = data;
+    //       config = data.config;
+    //       this.contain.json = {
+    //         detail: JSON.parse(config.detail) || {},
+    //         component: JSON.parse(config.component) || [],
+    //       }
+		  // document.title = data.visual.title
+    //       this.contain.config = JSON.parse(config.detail) || {};
+    //       this.contain.nav = JSON.parse(config.component) || [];
+    //       this.contain.visual = data.visual;
+    //       //添加水印。只有查看页面生效
+    //       if (!isBuild) {
+    //         const password = this.contain.visual.password
+    //         if (!this.validatenull(password)) {
+    //           this.$prompt('请输入密码', '提示', {
+    //             confirmButtonText: '确定',
+    //             showCancelButton: false,
+    //             showClose: false,
+    //             closeOnClickModal: false,
+    //             inputPattern: new RegExp(password),
+    //             inputErrorMessage: '密码不正确，请重新输入'
+    //           }).then(() => {
+    //             callback();
+    //           })
+    //         } else {
+    //           callback();
+    //         }
+
+    //       } else {
+    //         callback();
+    //       }
+    //       loading.close();
+    //     }).catch((err) => {
+    //       console.log(err)
+    //       loading.close();
+    //     })
+    //   } else if (this.option) {
+    //     config = this.option;
+    //     this.contain.config = config.detail || {};
+    //     this.contain.nav = config.component || [];
+    //     callback();
+    //   } else {
+    //     this.setScale(width);
+    //   }
     },
     //适配尺寸
     setResize() {
