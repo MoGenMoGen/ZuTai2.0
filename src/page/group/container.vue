@@ -115,7 +115,7 @@ export default {
             padding:'0 20px',
             boxSizing: 'border-box',
             alignItems: 'center',
-            zIndex: '1'
+            zIndex:'1'
         }
     },
     leftStyle() {
@@ -129,7 +129,7 @@ export default {
             width: this.setPx((this.contain.config.scale *this.layoutObj.width)/100),
             height: this.setPx((this.contain.config.scale * (this.contain.config.height - height)) / 100),
             background: this.layoutObj.navBg,
-            zIndex: '1'
+            zIndex:'1'
         }
     },
     topTitleStyle() {
@@ -161,10 +161,11 @@ export default {
     },
     //初始化数据
     initData() {
-      const pid = this.$route.name === 'view' ? this.$route.params.id : ''
+      const pid = this.$route ? this.$route.params.id : ''
       getVisualApp(pid).then(res => {
           this.layoutObj = JSON.parse(res.data.data.layout)
           this.pageList = res.data.data.visuals
+          document.title = res.data.data.name
           const id = this.$route.query.id ? this.$route.query.id : this.pageList[0].id
           this.selectId = id
           this.contain.id = id;
@@ -195,7 +196,6 @@ export default {
                 detail: JSON.parse(config.detail) || {},
                 component: JSON.parse(config.component) || [],
               }
-          		  document.title = res.data.data.name
               this.contain.config = JSON.parse(config.detail) || {};
               this.contain.nav = JSON.parse(config.component) || [];
               this.contain.visual = data.visual;

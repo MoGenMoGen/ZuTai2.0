@@ -1593,20 +1593,18 @@ export default {
         }
         this.$set(this.layoutObj,'navType',item)
         this.$refs.container.setResize()
-        // let data = {
-        //     id: '1501470310035066881',
-        //     layout: JSON.stringify(this.layoutObj)
-        // }
-        // updateVisualApp(data)
     },
     // 选中当前页
     choosePage(id) {
         this.navConfigure = false
         this.pageId = id
         this.tabsActive = '0'
+        this.$refs.top.handleBuild2()
         getObj(id).then(res => {
             this.nav = JSON.parse(res.data.data.config.component) || []
             this.config = JSON.parse(res.data.data.config.detail) || {};
+            this.obj = res.data.data
+            this.visual = res.data.data.visual
         })
     },
     // 显示导航配置
