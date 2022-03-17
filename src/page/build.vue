@@ -563,9 +563,9 @@
                     <el-collapse-item title="菜单配置">
                         <div style="height: 36px;display: flex;justify-content: space-between;padding: 0 10px;box-sizing: border-box;"
                         :class="['menu__item']" 
-                        v-for="(item,index) in layoutObj.navList" :key="index">
+                        v-for="(item,index) in layoutObj.navList" :key="index" @click.stop="navSetting(item,index)">
                             <span>{{item.name}}</span>
-                            <i class="el-icon-setting" style="color: #fff;" @click.stop="navSetting(item,index)"></i>
+                            <i class="el-icon-delete" style="color: #fff;" @click.stop="navDel(item,index)"></i>
                         </div>
                         <block v-if="isNavSetting">
                             <el-form-item label="显示名字">
@@ -1064,6 +1064,39 @@ export default {
     getVisualApp(this.$route.params.id).then(res => {
         this.layoutObj = JSON.parse(res.data.data.layout)
         this.pageList = res.data.data.visuals
+        if(!this.layoutObj) {
+            this.layoutObj = {
+            navType: 'blank',
+            width: 200,
+            navBg: '#205520',
+            fontFamily: '微软雅黑',
+            color: '#FFFFFF',
+            colorSelect: '#FFFFFF',
+            cmenuBg: '#242424',
+            menuColorHover: '#0066FF',
+            menuColorSelect: '#0066FF',
+            height: 48,
+            topBg: '#FFFFFF',
+            logo: '',
+            topFontFamily: '微软雅黑',
+            topColor: '#333333',
+            topTitleShow: true,
+            navList: []
+          }
+        }
+        if(this.pageList.length==0) {
+            let data = {
+                title: '页面1',
+                pid: this.$route.params.id,
+                width: 1920,
+                height: 1080
+            }
+            addObj(data).then(res => {
+              getVisualApp(this.$route.params.id).then(res => {
+                this.pageList = res.data.data.visuals
+              })
+            })
+        }
         const id = this.$route.query.id ? this.$route.query.id : this.pageList[0].id
         this.pageId = id
         getObj(this.pageId).then(res => {
@@ -1072,6 +1105,7 @@ export default {
             this.obj = res.data.data
             this.visual = res.data.data.visual
         })
+        this.$refs.container.initData()
     })
     this.$nextTick(() => {
       this.initSize()
@@ -1636,6 +1670,15 @@ export default {
         this.isNavSetting = true
         this.navSettingIndex = index
     },
+    navDel(item,index) {
+        this.$confirm('是否确认删除?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+            this.layoutObj.navList.splice(index,1)
+        })
+    },
     // 选择页面
     pageSelect(item,index) {
         this.layoutObj.navList[this.navSettingIndex].id = item.id
@@ -1750,7 +1793,7 @@ export default {
             border: 1px solid #ebebeb;
             .nav-inset {
                 position: absolute;
-                background-color: #e0f1ff;
+                background-color: #686de0;
             }
         }
     }

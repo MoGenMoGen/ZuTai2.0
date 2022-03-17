@@ -253,74 +253,77 @@ export default {
         spinner: 'el-icon-loading',
         background: 'rgba(0, 0, 0, 0.7)'
       });
-      this.$nextTick(() => {
-        html2canvas(document.getElementById('content'), {
-          useCORS: true,
-          backgroundColor: null,
-          allowTaint: true
-        }).then(canvas => {
-          function dataURLtoFile(dataurl, filename) {
-            var arr = dataurl.split(','),
-                mime = arr[0].match(/:(.*?);/)[1],
-                bstr = atob(arr[1]),
-                n = bstr.length,
-                u8arr = new Uint8Array(n);
-            while (n--) {
-              u8arr[n] = bstr.charCodeAt(n);
-            }
-            return new File([u8arr], filename, {type: mime});
-          }
-
-          var file = dataURLtoFile(canvas.toDataURL('image/jpeg', 0.05), new Date().getTime() + '.jpg');
-          var formdata = new FormData();
-          formdata.append('file', file)
-          axios.post('/api/blade-resource/oss/endpoint/put-file-base64', formdata, {
-            headers: {
-              "Content-Type": "multipart/form-data",
-              "Blade-Auth": 'bearer ' + JSON.parse(localStorage.getItem('zt-token'))
-            }
-          }).then(res => {
-            //const data = res.data.data;
-            const url = res.data.data;
-            console.log(this.contain);
-            const formdata = {
-              visual: {
-                id: this.contain.visual.id,
-                backgroundUrl: url
-              },
-              config: {
-                id: this.contain.obj.config.id,
-                visualId: this.contain.visual.id,
-                detail: JSON.stringify(this.contain.config),
-                component: JSON.stringify(this.contain.nav),
-              },
-            }
-            let layoutData = {
-                id: this.$route.params.id,
-                layout: JSON.stringify(this.layout)
-            }
-            updateVisualApp(layoutData)
-            return updateComponent(formdata)
-          }).then(() => {
-            loading.close();
-            this.$message.success('保存成功')
-            // this.$confirm('保存成功大屏配置, 是否打开预览?', '提示', {
-            //   confirmButtonText: '确定',
-            //   cancelButtonText: '取消',
-            //   type: 'warning'
-            // }).then(() => {
-            //   let routeUrl = this.$router.resolve({
-            //     path: '/view/' + this.contain.id
-            //   })
-            //   window.open(routeUrl.href, '_blank');
-            // }).catch(() => { });
-
-          }).catch(() => {
-            this.$message.error('模版例子不能修改')
-            loading.close();
-          })
-        })
+      const formdata = {
+        visual: {
+          id: this.contain.visual.id,
+          // backgroundUrl: url
+        },
+        config: {
+          id: this.contain.obj.config.id,
+          visualId: this.contain.visual.id,
+          detail: JSON.stringify(this.contain.config),
+          component: JSON.stringify(this.contain.nav),
+        },
+      }
+      let layoutData = {
+          id: this.$route.params.id,
+          layout: JSON.stringify(this.layout)
+      }
+      updateVisualApp(layoutData)
+      updateComponent(formdata).then(()=> {
+          this.$message.success('保存成功')
+          loading.close();
       })
+      // this.$nextTick(() => {
+      //   html2canvas(document.getElementById('content'), {
+      //     useCORS: true,
+      //     backgroundColor: null,
+      //     allowTaint: true
+      //   }).then(canvas => {
+      //     function dataURLtoFile(dataurl, filename) {
+      //       var arr = dataurl.split(','),
+      //           mime = arr[0].match(/:(.*?);/)[1],
+      //           bstr = atob(arr[1]),
+      //           n = bstr.length,
+      //           u8arr = new Uint8Array(n);
+      //       while (n--) {
+      //         u8arr[n] = bstr.charCodeAt(n);
+      //       }
+      //       return new File([u8arr], filename, {type: mime});
+      //     }
+
+      //     var file = dataURLtoFile(canvas.toDataURL('image/jpeg', 0.05), new Date().getTime() + '.jpg');
+      //     var formdata = new FormData();
+      //     formdata.append('file', file)
+      //     axios.post('/api/blade-resource/oss/endpoint/put-file-base64', formdata, {
+      //       headers: {
+      //         "Content-Type": "multipart/form-data",
+      //         "Blade-Auth": 'bearer ' + JSON.parse(localStorage.getItem('zt-token'))
+      //       }
+      //     }).then(res => {
+      //       //const data = res.data.data;
+      //       // const url = res.data.data;
+            
+      //     }).then(() => {
+      //       loading.close();
+      //       this.$message.success('保存成功')
+      //       // this.$confirm('保存成功大屏配置, 是否打开预览?', '提示', {
+      //       //   confirmButtonText: '确定',
+      //       //   cancelButtonText: '取消',
+      //       //   type: 'warning'
+      //       // }).then(() => {
+      //       //   let routeUrl = this.$router.resolve({
+      //       //     path: '/view/' + this.contain.id
+      //       //   })
+      //       //   window.open(routeUrl.href, '_blank');
+      //       // }).catch(() => { });
+
+      //     }).catch(() => {
+      //       this.$message.error('模版例子不能修改')
+      //       loading.close();
+      //     })
+      //   })
+      // })
     },
     handleBuild2() {
       const formdata = {
