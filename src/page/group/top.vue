@@ -282,6 +282,7 @@ export default {
           }).then(res => {
             //const data = res.data.data;
             const url = res.data.data;
+            console.log(this.contain);
             const formdata = {
               visual: {
                 id: this.contain.visual.id,
