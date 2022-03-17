@@ -726,7 +726,7 @@ import components from '@/option/components'
 import SketchRule from "vue-sketch-ruler";
 import { getList } from "@/api/db";
 import crypto from '@/utils/crypto'
-import {getAllData,getCategoryAll,getVisualApp,getObj,updateVisualApp} from '@/api/visual'
+import {getAllData,getCategoryAll,getVisualApp,getObj,updateVisualApp,addObj,updateObj,delObj} from '@/api/visual'
 import select from "@/assets/select.png"
 import unselect from "@/assets/unselect.png"
 export default {
@@ -1069,6 +1069,8 @@ export default {
         getObj(this.pageId).then(res => {
             this.nav = JSON.parse(res.data.data.config.component) || []
             this.config = JSON.parse(res.data.data.config.detail) || {};
+            this.obj = res.data.data
+            this.visual = res.data.data.visual
         })
     })
     this.$nextTick(() => {
@@ -1532,6 +1534,7 @@ export default {
         this.pageForm.title = ''
         this.pageForm.width = 1920
         this.pageForm.height = 1080
+        this.pageForm.pid = this.$route.params.id
     },
     // 更新页面
     updatePage(item,index) {
@@ -1552,6 +1555,17 @@ export default {
         }).then(() => {
           delObj(item.id).then(() => {
             this.pageList.splice(index, 1)
+            getVisualApp(this.$route.params.id).then(res => {
+              this.layoutObj = JSON.parse(res.data.data.layout)
+              this.pageList = res.data.data.visuals
+              this.pageId = this.pageList[0].id
+              getObj(this.pageId).then(res => {
+                  this.nav = JSON.parse(res.data.data.config.component) || []
+                  this.config = JSON.parse(res.data.data.config.detail) || {};
+                  this.obj = res.data.data
+                  this.visual = res.data.data.visual
+              })
+            })
             this.$message.success('删除成功')
           })
         }).catch(() => {
@@ -1561,28 +1575,25 @@ export default {
     handleSave(form, done) {
       done();
       if (this.pageType == 'add') {
-        addObj(Object.assign({
-          category: this.activeName,
-        }, this.pageForm)).then(res => {
+        addObj(this.pageForm).then(res => {
           this.pageBox = false;
+          getVisualApp(this.$route.params.id).then(res => {
+            this.pageList = res.data.data.visuals
+          })
           this.$message.success('新增成功');
         })
       } else {
         updateObj({
           id: this.pageForm.id,
-          category: this.pageForm.category,
-          password: this.pageForm.password,
-          status: this.pageForm.status,
           title: this.pageForm.title,
-    	  navSelect: this.pageForm.navSelect
         }).then(() => {
           this.pageBox = false;
+          getVisualApp(this.$route.params.id).then(res => {
+            this.pageList = res.data.data.visuals
+          })
           this.$message.success('修改成功');
         })
       }
-      getVisualApp(this.$route.params.id).then(res => {
-          this.pageList = res.data.data.visuals
-      })
     },
     // 选择导航布局类型
     selectLayout(item) {
@@ -1601,12 +1612,16 @@ export default {
         this.pageId = id
         this.tabsActive = '0'
         this.$refs.top.handleBuild2()
-        getObj(id).then(res => {
-            this.nav = JSON.parse(res.data.data.config.component) || []
-            this.config = JSON.parse(res.data.data.config.detail) || {};
-            this.obj = res.data.data
-            this.visual = res.data.data.visual
-        })
+        setTimeout(()=>{
+            getObj(id).then(res => {
+                this.nav = JSON.parse(res.data.data.config.component) || []
+                this.config = JSON.parse(res.data.data.config.detail) || {};
+                this.obj = res.data.data
+                this.visual = res.data.data.visual
+                let width = this.$refs.container.$refs.content.offsetWidth
+                this.$refs.container.setScale(width);
+            })
+        }, 0);
     },
     // 显示导航配置
     configure() {

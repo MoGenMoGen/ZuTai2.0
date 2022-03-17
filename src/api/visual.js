@@ -59,7 +59,8 @@ export const addObj = (data) => request({
       category: data.category,
       status: data.status,
       title: data.title,
-	  navSelect: data.navSelect
+	  navSelect: data.navSelect,
+      app: data.pid,
     },
     config: {
       detail: JSON.stringify({
