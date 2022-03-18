@@ -41,7 +41,9 @@ export default ({
         return {
             width:this.component.width+'px',
             height:this.component.height+'px',
-            background:this.option.bgColor
+            backgroundImage:`url('${this.option.backgroundImage}')`,
+            backgroundSize:'100% 100%',
+            backgroundRepeat:'no-repeat'
         }
     },
 
@@ -73,12 +75,10 @@ export default ({
         getInit(){
             this.canvas = document.getElementById('renderCanvas'+this.option.index); // 得到canvas对象的引用
             this.engine = new BABYLON.Engine(this.canvas, true); // 初始化 BABYLON 3D engine
-            console.log('2222')
             /******* Add the create scene function ******/
             var createScene = ()=> {
                 // 创建一个场景scene
                 var scene = new BABYLON.Scene(this.engine);
-
                 // 添加一个相机，并绑定鼠标事件
                 // var camera = new BABYLON.ArcRotateCamera(
                 //     "Camera",
@@ -89,11 +89,10 @@ export default ({
                 //     scene
                 // );
                 // camera.attachControl(this.canvas, true);
-
-                var camera = new BABYLON.ArcRotateCamera("ArcRotateCamera", 1, 0.8, 10, new BABYLON.Vector3(0, 0, 0), scene);
-                camera.setPosition(new BABYLON.Vector3(0, 0, -10));
+                //相机沿纵轴旋转，沿纬度旋转，距离目标的距离，相机的坐标
+                var camera = new BABYLON.ArcRotateCamera("ArcRotateCamera", 1.5, 1.5, 10, new BABYLON.Vector3(0, 2, 0), scene);
+              //  camera.setPosition(new BABYLON.Vector3(0, 0, -10));
                 camera.attachControl(this.canvas, true);
-                console.log(this.option.ifRoate)
                 if(this.option.ifRoate){
                     console.log(this.option.rotateSpeed/6)
                     this.timer = setInterval(()=>{
@@ -105,18 +104,19 @@ export default ({
 
 
                 // 添加一组灯光到场景
+                var light = new BABYLON.PointLight("Omni", new BABYLON.Vector3(0, 0, 0), scene);
                 // eslint-disable-next-line no-unused-vars
-                // var light1 = new BABYLON.HemisphericLight(
-                //     "light1",
-                //     new BABYLON.Vector3(1, 1, 0),
-                //     scene
-                // );
-                // // eslint-disable-next-line no-unused-vars
-                // var light2 = new BABYLON.PointLight(
-                //     "light2",
-                //     new BABYLON.Vector3(0, 1, -1),
-                //     scene
-                // );
+                var light1 = new BABYLON.HemisphericLight(
+                    "light1",
+                    new BABYLON.Vector3(1, 1, 0),
+                    scene
+                );
+                // eslint-disable-next-line no-unused-vars
+                var light2 = new BABYLON.PointLight(
+                    "light2",
+                    new BABYLON.Vector3(0, 1, -1),
+                    scene
+                );
                 const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
                 if(this.option.materialColor){
                     this.materialColor = this.option.materialColor.slice(5,this.option.materialColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
@@ -146,12 +146,35 @@ export default ({
                     //
                     // });
                     // http://192.168.0.29:89/img/model/11.gltf
-                     BABYLON.SceneLoader.Append("", this.option.modeUrl, scene, function (scene) {
+                    let arr = this.option.modeUrl.split('/')
+                    let fileUrl = arr.slice(0,arr.length-1)
+                   BABYLON.SceneLoader.ImportMesh('',fileUrl.join('/')+'/', arr[arr.length-1], scene,  (newMeshes,particleSystems,skeletons)=> {
                         console.log('------------------')
-                        // Create a default arc rotate camera and light.
-                        scene.createDefaultCameraOrLight(true, true, true);
-                        // scene.material = myMaterial
-                        // scene.scaling = new BABYLON.Vector3(this.option.scale, this.option.scale, this.option.scale);
+                       newMeshes.map(item=>{
+                           item.material = myMaterial
+                           item.position.x = this.option.posX
+                           item.position.y = this.option.posY
+                           item.position.z = this.option.posZ
+                           item.rotation.x = this.option.rotationX
+                           item.rotation.y = this.option.rotationY
+                           item.rotation.z = this.option.rotationZ
+                           item.scaling.x = this.option.scale
+                           item.scaling.y = this.option.scale
+                           item.scaling.z = this.option.scale
+                           return item
+                       })
+                       // console.log(newMeshes)
+                       // console.log(particleSystems)
+                       // console.log(skeletons)
+                       // newMeshes[0].position.y = this.option.posY
+                       //  newMeshes[0].position.z = this.option.posZ
+                         // scene.createDefaultCameraOrLight(true, true, true);
+
+                         // Create a default arc rotate camera and light.
+                        // scene.createDefaultCameraOrLight(true, true, true);
+                        //  container.material = myMaterial
+                        //  container.addAllToScene();
+                         // newMesh.scaling = new BABYLON.Vector3(this.option.scale, this.option.scale, this.option.scale);
                         // The default camera looks at the back of the asset.
                         // Rotate the camera by 180 degrees to the front of the asset.
                         // scene.activeCamera.alpha += Math.PI;
@@ -160,10 +183,18 @@ export default ({
                     // model.scaling = new BABYLON.Vector3(this.option.scale, this.option.scale, this.option.scale);
                 }
 
-                //背景
-                let bgColor = this.option.backgroundColor.slice(5,this.option.backgroundColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
+                //背景色
+                let bgColor = []
+                if(this.option.backgroundImage){
+                    bgColor = [0,0,0,0]
+                }else {
+                    bgColor = this.option.backgroundColor.slice(5,this.option.backgroundColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
+                }
                 scene.clearColor = new BABYLON.Color4(bgColor[0], bgColor[1], bgColor[2], bgColor[3]);
 
+                scene.registerBeforeRender(function () {
+                    light.position = camera.position;
+                });
 
                 return scene;
             };

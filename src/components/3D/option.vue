@@ -40,51 +40,67 @@
             </div>
             <div class="btn">
                 <input v-model="main.activeOption.modeUrl"/>
-                <button>重置</button>
-                <el-button type="text" @click="imgVisible=true">模型库</el-button>
+                <p>
+                    <el-button type="text" @click="main.activeOption.modeUrl = ''">重置</el-button>
+                    <el-button type="text" @click="imgVisible=true">模型库</el-button>
+                </p>
+
             </div>
         </el-form-item>
-        <el-form-item label="材质预设">
-            <avue-select v-model="main.activeOption.material" placeholder="请选择" type="tree" :dic="materialList"></avue-select>
-        </el-form-item>
+        <!--<el-form-item label="材质预设">-->
+            <!--<avue-select v-model="main.activeOption.material" placeholder="请选择" type="tree" :dic="materialList"></avue-select>-->
+        <!--</el-form-item>-->
         <el-form-item label="模型颜色">
             <avue-input-color v-model="main.activeOption.materialColor"></avue-input-color>
         </el-form-item>
+
         <el-collapse accordion>
             <el-collapse-item title="背景设置">
                 <el-form-item label="背景颜色">
                     <avue-input-color v-model="main.activeOption.backgroundColor"></avue-input-color>
                 </el-form-item>
-                <el-form-item label="背景">
-                    <avue-input-color type="textarea" v-model="main.activeOption.headerBackground"></avue-input-color>
+                <el-form-item label="背景图片">
+                    <el-image style="width: 30px; height: 30px"  :src="main.activeOption.backgroundImage" v-show="main.activeOption.backgroundImage"  fit="fit">
+                    </el-image>
+                    <el-button type="text" @click="$refs.imglist.openImg('activeObj.data.value', 'border')">选择图片</el-button>
+                    <el-button type="text" @click="main.activeOption.backgroundImage=''">删除图片</el-button>
                 </el-form-item>
 
             </el-collapse-item>
+            <el-collapse-item title="初始设置">
+                <el-form-item label="模型X轴位置">
+                    <input v-model="main.activeOption.posX"></input>
+                </el-form-item>
+                <el-form-item label="模型Y轴位置">
+                    <input v-model="main.activeOption.posY"></input>
+                </el-form-item>
+                <el-form-item label="模型Z轴位置">
+                    <input v-model="main.activeOption.posZ"></input>
+                </el-form-item>
+                <el-form-item label="模型X轴角度（。）">
+                    <input v-model="main.activeOption.rotationX"></input>
+                </el-form-item>
+                <el-form-item label="模型Y轴角度（。）">
+                    <input v-model="main.activeOption.rotationY"></input>
+                </el-form-item>
+                <el-form-item label="模型Z轴角度（。）">
+                    <input v-model="main.activeOption.rotationZ"></input>
+                </el-form-item>
+                <el-form-item label="模型绽放">
+                    <input v-model="main.activeOption.scale"></input>
+                </el-form-item>
+            </el-collapse-item>
             <el-collapse-item title="交互设置">
-                <el-form-item label="">
-                    <el-checkbox v-model="main.activeOption.ifRoate">自动旋转</el-checkbox>
+                <el-form-item label="自动旋转">
+                    <el-checkbox v-model="main.activeOption.ifRoate"></el-checkbox>
                 </el-form-item>
-                <el-form-item label="旋转速度" v-show="main.activeOption.ifRoate">
+                <el-form-item label="旋转速度(度/s)" v-show="main.activeOption.ifRoate">
                     <el-slider v-model="main.activeOption.rotateSpeed" :max="360"  :step="1"></el-slider>
-                </el-form-item>
-                <el-form-item label="默认缩放">
-                    <el-slider v-model="main.activeOption.scale" :max="2"  :step="0.1"></el-slider>
-                </el-form-item>
-                <el-form-item label="边框颜色">
-                    <avue-input-color type="textarea" v-model="main.activeOption.borderColor"></avue-input-color>
-                </el-form-item>
-                <el-form-item label="首列颜色">
-                    <avue-input-color type="textarea" v-model="main.activeOption.firstLineColor"></avue-input-color>
-                </el-form-item>
-                <el-form-item label="奇行颜色">
-                    <avue-input-color type="textarea" v-model="main.activeOption.nthColor"></avue-input-color>
-                </el-form-item>
-                <el-form-item label="偶行颜色">
-                    <avue-input-color type="textarea" v-model="main.activeOption.othColor"></avue-input-color>
                 </el-form-item>
             </el-collapse-item>
 
         </el-collapse>
+        <imglist ref="imglist"   @change="handleSetImg"></imglist>
     </div>
 </template>
 
@@ -94,6 +110,7 @@
         dicOption
     } from '@/option/config'
     import {getFilePath} from '@/api/visual'
+    import imglist from '../../page/group/imglist'
     export default {
         data() {
             return {
@@ -124,6 +141,7 @@
                 }]
             }
         },
+        components:{imglist},
         inject: ["main"],
         computed: {
             headers(){
@@ -137,6 +155,11 @@
             this.getFileList()
         },
         methods: {
+            handleSetImg(val){
+                this.main.activeOption.backgroundImage = val
+
+                this.$forceUpdate()
+            },
             getFileList(){
                 getFilePath().then(res=>{
                     console.log(res.data.data)

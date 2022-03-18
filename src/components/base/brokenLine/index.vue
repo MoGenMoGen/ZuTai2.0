@@ -130,12 +130,11 @@
 							y: this.y
 						})
 						this.main.activeOption.optionArr = this.pointArray
-
 						this.fabricEvent();
-
 					}
 				}
-
+				console.log('up')
+				console.log(this.pointArray)
 			},
 
 			//绘图
