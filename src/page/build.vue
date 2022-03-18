@@ -449,10 +449,10 @@
 		             label-position="left"
 		             size="mini">
 		      <el-form-item label="X位置">
-		        <avue-input-number v-model="activeObjS.left" @focus="ifInput=true" @blur="ifInput=false"></avue-input-number>
+		        <el-input-number v-model="activeObjS.left" @change="" @focus="ifInput=true" @blur="ifInput=false" :controls="false"></el-input-number>
 		      </el-form-item>
 		      <el-form-item label="Y位置">
-		        <avue-input-number v-model="activeObjS.top" @focus="ifInput=true" @blur="ifInput=false"></avue-input-number>
+		        <el-input-number v-model="activeObjS.top" @focus="ifInput=true" @blur="ifInput=false" :controls="false"></el-input-number>
 		      </el-form-item>
 		    </el-form>
 		  </el-tab-pane>
