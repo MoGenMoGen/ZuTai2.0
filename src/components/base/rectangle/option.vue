@@ -14,7 +14,7 @@
 	  <el-form-item label="旋转">
 		  <avue-input-number v-model="main.activeOption.rotate"></avue-input-number>
 	  </el-form-item>
-	<el-form-item label="开启弹窗">
+	<!-- <el-form-item label="开启弹窗">
 	  <avue-switch v-model="main.activeOption.popup"></avue-switch>
 	</el-form-item>
 	<el-form-item label="弹窗高度" v-if="main.activeOption.popup">
@@ -37,7 +37,7 @@
 	</el-form-item>
 	<el-form-item label="浮窗链接" v-if="main.activeOption.fc">
 	  <el-input v-model="main.activeOption.fcUrl"></el-input>
-	</el-form-item>
+	</el-form-item> -->
   </div>
 </template>
 

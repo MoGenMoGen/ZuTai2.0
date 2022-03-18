@@ -57,7 +57,7 @@
 <!--      =-->
 <!--      <avue-input v-model="main.activeOption.openVal" style="width: 70px"></avue-input>-->
 <!--    </el-form-item>-->
-    <eventOption></eventOption>
+    <!-- <eventOption></eventOption> -->
   </div>
 </template>
 

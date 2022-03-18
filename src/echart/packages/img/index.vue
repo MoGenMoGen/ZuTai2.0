@@ -81,9 +81,9 @@ export default create({
     //鼠标划入
     mouseover() {
       //浮窗
-      if (this.option.fc) {
-        this.$parent.$parent.over(this.option.fcUrl,this.$parent.left,this.$parent.top+80)
-      }
+      // if (this.option.fc) {
+      //   this.$parent.$parent.over(this.option.fcUrl,this.$parent.left,this.$parent.top+80)
+      // }
       //显示边框颜色
       if (this.option.suspension) {
         if (this.option.suspensionColor == undefined) {
@@ -101,10 +101,10 @@ export default create({
         this.colorStyle = ""
         //e.currentTarget.className = "avue-echart-img"
       }
-      if (this.option.fc) {
-        this.$parent.$parent.leave()
+      // if (this.option.fc) {
+      //   this.$parent.$parent.leave()
 
-      }
+      // }
     },
     handleClick() {
       //有跳转连接 跳转

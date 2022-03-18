@@ -1,12 +1,12 @@
 <template>
   <div class="middle">
     <div id="wrapper" class="wrapper" @mousedown="contain.handleMouseDown">
-      <div :style="topStyle" v-if="layoutObj.navType == 'top' || layoutObj.navType == 'topALeft'">
+      <div :style="topStyle" v-if="(layoutObj.navType == 'top' || layoutObj.navType == 'topALeft')&&!contain.visual.type">
         <img :src="layoutObj.logo" v-if="layoutObj.logo" style="width: 60px;height: 20px;"><span v-if="layoutObj.topTitleShow" :style="topTitleStyle">{{title}}</span>
       </div>
       <div style="display: flex" :style="{width: ((contain.config.scale * contain.config.width) / 100)+'px'}">
           <div :style="leftStyle" style="display: flex;flex-direction: column;overflow-y: auto;flex-shrink: 0;"
-           v-if="layoutObj.navType == 'left' || layoutObj.navType == 'topALeft'">
+           v-if="(layoutObj.navType == 'left' || layoutObj.navType == 'topALeft')&&!contain.visual.type">
             <block v-if="layoutObj.navList">
                 <div v-for="(item,index) in layoutObj.navList" 
                 :style="navStyle" class="nav-customize" :class="item.id==selectId?'nav-active':''"
@@ -77,12 +77,12 @@ export default {
       const val = (scale / 100);
       let width = 0,
       height = 0
-      if(this.layoutObj.navType=='top'||this.layoutObj.navType=='topALeft') {
+      if((this.layoutObj.navType=='top'||this.layoutObj.navType=='topALeft')&&!this.contain.visual.type) {
         height = this.setPx(this.contain.config.height - this.layoutObj.height)
       } else {
         height = this.setPx(this.contain.config.height)
       }
-      if(this.layoutObj.navType=='left'||this.layoutObj.navType=='topALeft') {
+      if((this.layoutObj.navType=='left'||this.layoutObj.navType=='topALeft')&&!this.contain.visual.type) {
         width = this.setPx(this.contain.config.width - this.layoutObj.width)
       } else {
         width = this.setPx(this.contain.config.width)
@@ -121,7 +121,7 @@ export default {
     },
     leftStyle() {
         let height = 0
-        if(this.layoutObj.navType=='top'||this.layoutObj.navType=='topALeft') {
+        if((this.layoutObj.navType=='top'||this.layoutObj.navType=='topALeft')&&!this.contain.visual.type) {
           height = this.layoutObj.height
         } else {
           height = 0
@@ -168,7 +168,10 @@ export default {
           this.pageList = res.data.data.visuals
           this.title = res.data.data.name
           document.title = res.data.data.name
-          const id = this.$route.query.id ? this.$route.query.id : this.pageList[0].id
+          let id = this.$route.query.id ? this.$route.query.id : this.pageList[0].id
+          if(this.layoutObj.indexId&&!this.$route.query.id&&!this.contain.menuFlag) {
+            id = this.layoutObj.indexId
+          }
           this.selectId = id
           this.contain.id = id;
           this.contain.contentWidth = this.$refs.content.offsetWidth;
@@ -307,12 +310,12 @@ export default {
     setResize() {
       let width = 0,
       height = 0
-      if(this.layoutObj.navType=='top'||this.layoutObj.navType=='topALeft') {
+      if((this.layoutObj.navType=='top'||this.layoutObj.navType=='topALeft')&&!this.contain.visual.type) {
         height = this.setPx((this.contain.config.scale * (this.contain.config.height - this.layoutObj.height)) / 100)
       } else {
         height = this.setPx(this.contain.config.scale * this.contain.config.height /100)
       }
-      if(this.layoutObj.navType=='left'||this.layoutObj.navType=='topALeft') {
+      if((this.layoutObj.navType=='left'||this.layoutObj.navType=='topALeft')&&!this.contain.visual.type) {
         width = this.setPx((this.contain.config.scale * (this.contain.config.width - this.layoutObj.width)) / 100)
       } else {
         width = this.setPx(this.contain.config.scale * this.contain.config.width /100)
@@ -490,6 +493,7 @@ export default {
       })
     },
     selectNav(item) {
+        if(this.contain.menuFlag) return
         this.selectId = item.id
         if (item.type=='_self') {
             if(item.typeLink=='self') {

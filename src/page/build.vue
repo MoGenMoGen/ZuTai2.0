@@ -28,12 +28,29 @@
             <el-collapse-item title="页面">
                 <template slot="title">
                   <div class="collapse-self">
-                      <span>页面</span><i @click.stop="addPage" class="header-icon el-icon-plus"></i>
+                      <span>页面</span><i @click.stop="addPage('0')" class="header-icon el-icon-plus"></i>
                   </div>
                 </template>
                 <div style="height: 36px;display: flex;justify-content: space-between;" 
                 :class="['menu__item',{'is-active':pageId==item.id}]" 
-                v-for="(item,index) in pageList" :key="index" @click="choosePage(item.id)"
+                v-for="(item,index) in pageList.filter(v=>!v.type)" :key="index" @click="choosePage(item.id)"
+                >
+                    <span style="width: 80%;">{{item.title}}</span>
+                    <p style="width: 20%;display: flex;justify-content: space-between;color: #fff;">
+                        <i class="el-icon-edit" @click.stop="updatePage(item,index)"></i>
+                        <i class="el-icon-delete" @click.stop="delPage(item,index)"></i>
+                    </p>
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="子页面">
+                <template slot="title">
+                  <div class="collapse-self">
+                      <span>子页面</span><i @click.stop="addPage('1')" class="header-icon el-icon-plus"></i>
+                  </div>
+                </template>
+                <div style="height: 36px;display: flex;justify-content: space-between;" 
+                :class="['menu__item',{'is-active':pageId==item.id}]" 
+                v-for="(item,index) in pageList.filter(v=>v.type=='1')" :key="index" @click="choosePage(item.id)"
                 >
                     <span style="width: 80%;">{{item.title}}</span>
                     <p style="width: 20%;display: flex;justify-content: space-between;color: #fff;">
@@ -209,6 +226,9 @@
                 <!-- <el-form-item label="大屏名称">
                   <avue-input v-model="config.name"></avue-input>
                 </el-form-item> -->
+                <el-form-item label="设为首页">
+                  <el-radio v-model="layoutObj.indexId" :label="obj.config.visualId">设为首页</el-radio>
+                </el-form-item>
                 <el-form-item label="大屏宽度">
                   <avue-input-number v-model="config.width"></avue-input-number>
                 </el-form-item>
@@ -456,23 +476,55 @@
                   </el-form-item>
                   <block v-if="item.action=='popup'">
                       <el-form-item label="弹窗高度">
-                        <el-input v-model="item.popupH"></el-input>
+                        <avue-input v-model="item.popupH"></avue-input>
                       </el-form-item>
                       <el-form-item label="弹窗宽度">
-                        <el-input v-model="item.popupW"></el-input>
+                        <avue-input v-model="item.popupW"></avue-input>
                       </el-form-item>
-                      <el-form-item label="弹窗链接">
-                        <el-input v-model="item.popupLink"></el-input>
+                      <el-form-item label="目标链接">
+                        <avue-radio v-model="item.popupType"
+                                    :dic="dicOption.targetType">
+                        </avue-radio>
+                      </el-form-item>
+                      <el-form-item label="弹窗链接" v-if="item.popupType=='self'">
+                        <el-select v-model="item.popupLink2" filterable>
+                          <el-option
+                            v-for="(cItem,cIndex) in pageList.filter(v=>v.type=='1')"
+                            :key="cItem.id"
+                            :label="cItem.title"
+                            :value="cItem.id"
+                            @click.native ="popupSelect(cItem,item)">
+                          </el-option>
+                        </el-select>
+                      </el-form-item>
+                      <el-form-item label="弹窗链接" v-if="item.popupType=='out'">
+                        <avue-input v-model="item.popupLink" ></avue-input>
                       </el-form-item>
                   </block>
                   <block  v-if="item.action=='fc'">
-                      <el-form-item label="浮窗链接">
-                        <el-input v-model="item.fcLink"></el-input>
+                      <el-form-item label="目标链接">
+                        <avue-radio v-model="item.fcType"
+                                    :dic="dicOption.targetType">
+                        </avue-radio>
+                      </el-form-item>
+                      <el-form-item label="浮窗链接" v-if="item.fcType=='self'">
+                        <el-select v-model="item.fcLink2" filterable>
+                          <el-option
+                            v-for="(cItem,cIndex) in pageList.filter(v=>v.type=='1')"
+                            :key="cItem.id"
+                            :label="cItem.title"
+                            :value="cItem.id"
+                            @click.native ="fcSelect(cItem,item)">
+                          </el-option>
+                        </el-select>
+                      </el-form-item>
+                      <el-form-item label="浮窗链接" v-if="item.fcType=='out'">
+                        <avue-input v-model="item.fcLink" ></avue-input>
                       </el-form-item>
                   </block>
                   <block v-if="item.action=='title'">
                       <el-form-item label="提示文字">
-                        <el-input v-model="item.titleWord"></el-input>
+                        <avue-input v-model="item.titleWord"></avue-input>
                       </el-form-item>
                   </block>
                   <block v-if="item.action=='link'">
@@ -481,31 +533,22 @@
                                     :dic="dicOption.target">
                         </avue-radio>
                       </el-form-item>
-                      <el-form-item label="链接方式">
+                      <el-form-item label="目标链接">
                         <avue-radio v-model="item.linkType"
-                                    :dic="dicOption.linkOption">
+                                    :dic="dicOption.targetType">
                         </avue-radio>
                       </el-form-item>
-                      <el-form-item label="外部链接" v-if="item.linkType==1">
+                      <el-form-item label="外部链接" v-if="item.linkType=='out'">
                         <avue-input v-model="item.linkHref"></avue-input>
                       </el-form-item>
-                      <el-form-item label="内部链接" v-if="item.linkType==2">
-                        <el-select v-model="item.linkValue1" filterable>
-                          <el-option
-                            v-for="(cItem,cIndex) in options1"
-                            :key="cItem.categoryValue"
-                            :label="cItem.categoryKey"
-                            :value="cItem.categoryValue"
-                            @click.native ="handleSelect(item,cIndex)">
-                          </el-option>
-                        </el-select>
+                      <el-form-item label="内部链接" v-if="item.linkType=='self'">
                         <el-select v-model="item.linkValue2" filterable>
                           <el-option
-                            v-for="(cItem,cIndex) in options1[item.selectIndex?item.selectIndex:0].visuals"
+                            v-for="(cItem,cIndex) in pageList.filter(v=>v.type=='1')"
                             :key="cItem.id"
                             :label="cItem.title"
                             :value="cItem.id"
-                            @click.native ="handleSelect2(item)">
+                            @click.native ="handleSelect(cItem,item)">
                           </el-option>
                         </el-select>
                       </el-form-item>
@@ -825,7 +868,8 @@ export default {
         topFontFamily: '微软雅黑',
         topColor: '#333333',
         topTitleShow: true,
-        navList: []
+        navList: [],
+        indexId: ''
       }, //导航布局配置对象
       navConfigure: false, //是否导航布局配置
       isNavSetting: false, //显示nav配置项
@@ -867,7 +911,12 @@ export default {
           }]
         }]
       }, //新增/修改页面配置项
-      pageForm: {}
+      pageForm: {},
+      obj: {
+          config: {
+              id: ''
+          }
+      }
     }
   },
   components: {
@@ -1066,23 +1115,24 @@ export default {
         this.pageList = res.data.data.visuals
         if(!this.layoutObj) {
             this.layoutObj = {
-            navType: 'blank',
-            width: 200,
-            navBg: '#205520',
-            fontFamily: '微软雅黑',
-            color: '#FFFFFF',
-            colorSelect: '#FFFFFF',
-            cmenuBg: '#242424',
-            menuColorHover: '#0066FF',
-            menuColorSelect: '#0066FF',
-            height: 48,
-            topBg: '#FFFFFF',
-            logo: '',
-            topFontFamily: '微软雅黑',
-            topColor: '#333333',
-            topTitleShow: true,
-            navList: []
-          }
+                navType: 'blank',
+                width: 200,
+                navBg: '#205520',
+                fontFamily: '微软雅黑',
+                color: '#FFFFFF',
+                colorSelect: '#FFFFFF',
+                cmenuBg: '#242424',
+                menuColorHover: '#0066FF',
+                menuColorSelect: '#0066FF',
+                height: 48,
+                topBg: '#FFFFFF',
+                logo: '',
+                topFontFamily: '微软雅黑',
+                topColor: '#333333',
+                topTitleShow: true,
+                navList: [],
+                indexId: ''
+            }
         }
         if(this.pageList.length==0) {
             let data = {
@@ -1552,14 +1602,11 @@ export default {
         this.activeObj.option.interact.splice(index,1)
     },
     // 跳转链接选择
-    handleSelect(item,index) {
-        this.$set(item,'selectIndex',index)
-    },
-    handleSelect2(item) {
-        this.$set(item,'linkHref',window.location.origin + '/view/'+ item.linkValue2)
+    handleSelect(cItem,item) {
+        this.$set(item,'linkHref',window.location.origin + '/view/' + cItem.app + '?id=' + item.linkValue2)
     },
     // 添加新页面
-    addPage() {
+    addPage(type) {
         this.navConfigure = false
         this.pageType = 'add'
         this.pageBox = true
@@ -1568,6 +1615,7 @@ export default {
         this.pageForm.title = ''
         this.pageForm.width = 1920
         this.pageForm.height = 1080
+        this.pageForm.type = type
         this.pageForm.pid = this.$route.params.id
     },
     // 更新页面
@@ -1682,6 +1730,12 @@ export default {
     // 选择页面
     pageSelect(item,index) {
         this.layoutObj.navList[this.navSettingIndex].id = item.id
+    },
+    popupSelect(cItem,item) {
+        this.$set(item,'popupLink',window.location.origin + '/view/'+ cItem.app+'?id='+item.popupLink2)
+    },
+    fcSelect(cItem,item) {
+        this.$set(item,'fcLink',window.location.origin + '/view/'+ cItem.app+'?id='+item.fcLink2)
     },
     // 新增菜单
     addNav() {
