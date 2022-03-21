@@ -19,7 +19,7 @@
                  icon="el-icon-search"
                  type="primary" @click="toSearch">搜索</el-button>
     </div>
-      <el-tabs v-model="activeName" @tab-click="handleClick" type="card">
+      <el-tabs stretch class="myTabs" v-model="activeName" @tab-click="handleClick">
 <!--        <el-tab-pane label="SVG素材" name="0">-->
 <!--          <el-scrollbar class="imgList">-->
 <!--            <img :src="item.value"-->
@@ -35,6 +35,7 @@
               <div class="img" @click="handleSetimg(v.value)" :key="i"
                    v-for="(v,i) in item.children" :style="styleName">
                 <img :src="v.value" height="auto" />
+                <div class="img-name">{{v.img}}</div>
               </div>
             </div>
           </el-scrollbar>
@@ -51,7 +52,7 @@ export default {
   data () {
     return {
       keyWords:'',
-      activeName:0,
+      activeName:1,
       imgVisible: false,
       imgObj: '',
       type: '',
@@ -79,7 +80,7 @@ export default {
   },
   mounted() {
 
-    //console.log( this.arrShow)
+    // console.log( this.arrShow)
     this.getFileList()
   },
   watch: {
@@ -101,6 +102,7 @@ export default {
       getFilePath().then(res=>{
         this.imgOption2 = res.data.data
         this.arrShow = res.data.data
+        console.log(this.arrShow)
       })
     },
     toSearch(){
@@ -153,20 +155,34 @@ export default {
   }
   .img{
     display: flex;
+    flex-direction: column;
     float: left;
-    align-items: center;
+    // align-items: center;
     justify-content: center;
     width: 100px;
     height: 100px;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+    margin-bottom: 5px;
     img{
       width: auto!important;
-      height: auto!important;
+      height: 80% !important;
       max-width: 100%;
-      max-height: 100%;
+      max-height: 80%;
+      margin: 0 auto !important;
+    }
+    .img-name {
+        height: 20%;
+        background-color: #fafafa;
+        color: #555;
+        padding: 0 10px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
   }
   /deep/.el-tabs__item{
-    color: #ffffff
+    color: #ffffff;
   }
   /deep/.el-tabs__item.is-active{
     color: #409EFF;

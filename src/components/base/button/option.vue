@@ -80,7 +80,7 @@ export default {
     },
     clickSource(type) {
       this.type = type
-      this.$refs.imglist.openImg('activeObj.data.value', 'border');
+      this.$refs.imglist.openImg('activeObj.data.value', 'background');
     },
   }
 }

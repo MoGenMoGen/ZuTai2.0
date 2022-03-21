@@ -36,7 +36,7 @@ export default {
   },
   methods:{
     openImg(){
-      this.$refs.imglist.openImg('activeObj.data.value', 'border');
+      this.$refs.imglist.openImg('activeObj.data.value', 'background');
     },
     handleSetImg(val, type){
       this.main.activeOption.url = val;

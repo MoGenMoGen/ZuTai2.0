@@ -15,10 +15,13 @@
                      class="nav-item"
                      :title="item.name">
                         <div class="nav-top">
-                            <div v-if="index==1" style="inset:3px 3px 37px;" class="nav-inset"></div>
+                            <!-- <div v-if="index==1" style="inset:3px 3px 37px;" class="nav-inset"></div>
                             <div v-if="index==2" style="inset:3px 45px 3px 3px;" class="nav-inset"></div>
                             <div v-if="index==3" style="inset:3px 3px 37px;" class="nav-inset"></div>
-                            <div v-if="index==3" style="inset:11px 45px 3px 3px;" class="nav-inset"></div>
+                            <div v-if="index==3" style="inset:11px 45px 3px 3px;" class="nav-inset"></div> -->
+                            <img :src="topLogo" v-if="index==1">
+                            <img :src="leftLogo" v-if="index==2">
+                            <img :src="topALeftLogo" v-if="index==3">
                         </div>
                         <img :src="(layoutObj.navType?layoutObj.navType==item.type:'blank'==item.type)?select:unselect" style="width: 14px;">
                     </div>
@@ -772,12 +775,18 @@ import crypto from '@/utils/crypto'
 import {getAllData,getCategoryAll,getVisualApp,getObj,updateVisualApp,addObj,updateObj,delObj} from '@/api/visual'
 import select from "@/assets/select.png"
 import unselect from "@/assets/unselect.png"
+import topLogo from "@/assets/top.png"
+import leftLogo from "@/assets/left.png"
+import topALeftLogo from "@/assets/topALeft.png"
 export default {
   mixins: [init, components],
   data () {
     return {
         select,
         unselect,
+        topLogo,
+        leftLogo,
+        topALeftLogo,
         ifmoseDown:false,
         currentIndex:0,//轮播图图片索引
       show: false,
@@ -1693,6 +1702,7 @@ export default {
         this.navConfigure = false
         this.pageId = id
         this.tabsActive = '0'
+        this.handleInitActive();
         this.$refs.top.handleBuild2()
         setTimeout(()=>{
             getObj(id).then(res => {
@@ -1843,11 +1853,14 @@ export default {
             height: 50px;
             background-color: #fff;
             margin-bottom: 10px;
-            position: relative;
-            border: 1px solid #ebebeb;
+            // position: relative;
+            // border: 1px solid #ebebeb;
             .nav-inset {
                 position: absolute;
                 background-color: #686de0;
+            }
+            img {
+                display: inline-block;
             }
         }
     }

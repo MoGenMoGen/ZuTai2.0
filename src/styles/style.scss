@@ -228,6 +228,17 @@
   .tabs{
     margin-top: -10px;
     box-sizing: border-box;
+    .myTabs .el-tabs__header {
+        background: transparent;
+        margin: 0 0 15px;
+    }
+    .myTabs .el-tabs__nav-wrap::after {
+        background-color: #E4E7ED;
+    }
+    .myTabs .el-tabs__active-bar{
+      bottom:0;
+      top:unset;
+    }
   }
   .tabs .el-input-number{
     width:100%;
@@ -245,7 +256,7 @@
 
   }
   .tabs .el-tabs__nav-wrap::after{
-    background: #27343e;
+    background-color: #27343e;
   }
   .tabs .el-tabs__item{
     padding: 10;

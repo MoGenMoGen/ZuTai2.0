@@ -326,7 +326,6 @@ export default {
       // })
     },
     handleBuild2() {
-      this.contain.handleInitActive();
       const formdata = {
         visual: {
           id: this.contain.visual.id,
