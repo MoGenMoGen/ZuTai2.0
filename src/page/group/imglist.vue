@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="模型库"  width="90%"   :visible.sync="imgVisible">
+  <el-dialog title="模型库" width="90%" :visible.sync="imgVisible">
     <div style="margin:0 auto;" class="upload">
       <el-upload class="upload-demo"
                  :on-success="onSuccess"
@@ -11,7 +11,7 @@
                  list-type="picture">
         <el-button size="small"
                    icon="el-icon-upload"
-                   type="primary">点击上传1</el-button>
+                   type="primary">点击上传</el-button>
       </el-upload>
 
       <el-input v-model="keyWords" placeholder="请输入内容"></el-input>
@@ -29,7 +29,7 @@
 <!--                 :key="index" />-->
 <!--          </el-scrollbar>-->
 <!--        </el-tab-pane>-->
-        <el-tab-pane :label="item.title" :name="index+1" :key="index" v-for="(item,index) in arrShow">
+        <el-tab-pane v-if="canSelect(item.title)" :label="item.title" :name="index+1" :key="index" v-for="(item,index) in arrShow">
           <el-scrollbar class="imgList">
             <div class="imgList2">
               <div class="img" @click="handleSetimg(v.value)" :key="i"
@@ -62,7 +62,8 @@ export default {
       imgOption2:[],
       arrShow:[],
       imgTabs: [],
-      tab:''
+      tab:'',
+      title: ''
     }
   },
   computed: {
@@ -76,6 +77,17 @@ export default {
     },
     headers(){
       return {"Blade-Auth" : 'bearer ' + JSON.parse(localStorage.getItem('zt-token'))}
+    },
+    canSelect(title) {
+        return (title)=> {
+            if(this.title&&title!='3D模型') {
+                return false
+            } else if (!this.title&&title=='3D模型') {
+                return false
+            } else {
+                return true
+            }
+        }
     }
   },
   mounted() {
@@ -102,7 +114,6 @@ export default {
       getFilePath().then(res=>{
         this.imgOption2 = res.data.data
         this.arrShow = res.data.data
-        console.log(this.arrShow)
       })
     },
     toSearch(){
@@ -114,7 +125,6 @@ export default {
       this.tab = val.label
     },
     onSuccess (res) {
-      console.log(11111111111)
       this.getFileList()
       // const url = res.data.link;
       // this.imgOption[this.imgActive].unshift({
@@ -123,10 +133,14 @@ export default {
       // });
       //this.activeName = 2
     },
-    openImg (item, type) {
+    openImg (item, type,title) {
       this.type = type;
       this.imgObj = item
       this.imgVisible = true;
+      if (title) {
+        this.title = title
+        this.activeName = this.arrShow.findIndex(v=>v.title==title) + 1
+      }
     },
     handleSetimg (item) {
       this.imgVisible = false;
@@ -164,6 +178,7 @@ export default {
     border: 1px solid #dedede;
     box-sizing: border-box;
     margin-bottom: 5px;
+    cursor: pointer;
     img{
       width: auto!important;
       height: 80% !important;

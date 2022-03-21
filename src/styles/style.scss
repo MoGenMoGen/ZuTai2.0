@@ -228,6 +228,10 @@
   .tabs{
     margin-top: -10px;
     box-sizing: border-box;
+    .myTabs .el-tabs__item {
+        padding: 0;
+        margin: 0 20px;
+    }
     .myTabs .el-tabs__header {
         background: transparent;
         margin: 0 0 15px;
@@ -238,6 +242,12 @@
     .myTabs .el-tabs__active-bar{
       bottom:0;
       top:unset;
+    }
+    .myTabs .el-tabs__item:hover {
+        color: #409EFF;
+    }
+    .myTabs .is-active {
+        border-bottom: 2px solid #409EFF;
     }
   }
   .tabs .el-input-number{
@@ -303,7 +313,7 @@
   .imgList img{
     width: 100px;
     height: 100px;
-    margin: 20px 10px ;
+    margin: 20px 10px;
   }
   .el-input-number__decrease, .el-input-number__increase{
     background: transparent;
