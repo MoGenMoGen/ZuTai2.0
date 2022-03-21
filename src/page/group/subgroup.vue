@@ -43,7 +43,9 @@
                       @focus="handleFocus"
                       @blur="handleBlur">
         <!--out鼠标划出  over鼠标划入-->
-        <!--<p style="color: #fff;font-size: 30px">{{item.mirrorTop}}</p>-->
+        <!--<p style="color: #fff;font-size: 30px" v-if="contain.active.includes(item.index)">{{contain.active.includes(item.index)}}</p>-->
+
+
         <div
                 :style="{transform:(item.mirrorTop ? 'scaleY(-1)' : 'scaleY(1)')+' '+(item.mirrorLeft ? 'scaleX(-1)' : 'scaleX(1)'),width:'100%',height:'100%'}"
         >

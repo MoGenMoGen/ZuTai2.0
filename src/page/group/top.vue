@@ -353,12 +353,16 @@ export default {
       obj.top = 200
       obj.index = uuid();
       obj.option.index = obj.index
+
       if (first) {
         this.contain.nav.unshift(obj);
       } else {
         this.contain.nav.push(obj);
       }
-
+      this.$nextTick(()=>{
+          this.contain.active = [obj.index];
+          this.contain.activeIndex = obj.index;
+      })
     },
     handleUndo() {
       this.contain.editorUndo()

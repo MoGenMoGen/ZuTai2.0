@@ -108,13 +108,11 @@
 								b = true
 							}
 						}
-            if (p.con == '!=') {
-              if (item != p.val) {
-                b = true
-              }
-            }
-
-
+						if (p.con == '!=') {
+						  if (item != p.val) {
+							b = true
+						  }
+						}
 						if (p.con == '<') {
 							if (item < p.val) {
 								b = true
@@ -140,6 +138,9 @@
 							this.imgShowUrl = p.url
 						}
 					})
+				}else {
+                    this.show = true
+                    this.imgShowUrl ='/img/model/Symbol(符号图标)/controls/glass_button.svg'
 				}
 
 			}

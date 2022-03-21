@@ -1,7 +1,7 @@
 <template>
   <div :style="styleName" >
       <!--<canvas id="renderCanvas" class="renderCanvas"></canvas>-->
-      <canvas :id="'renderCanvas'+option.index" class="renderCanvas"></canvas>
+      <canvas :id="'renderCanvas'+option.index" class="renderCanvas" v-show="show"></canvas>
   </div>
 </template>
 
@@ -12,6 +12,7 @@ export default ({
   name: "threeD",
   data () {
     return {
+        show:false,
         canvas:null,
         engine:null,
         materialColor:[0.0,0.7,0.95,1],
@@ -73,6 +74,7 @@ export default ({
     },
     methods: {
         getInit(){
+            this.show = false
             this.canvas = document.getElementById('renderCanvas'+this.option.index); // 得到canvas对象的引用
             this.engine = new BABYLON.Engine(this.canvas, true); // 初始化 BABYLON 3D engine
             /******* Add the create scene function ******/
@@ -163,24 +165,8 @@ export default ({
                            item.scaling.z = this.option.scale
                            return item
                        })
-                       // console.log(newMeshes)
-                       // console.log(particleSystems)
-                       // console.log(skeletons)
-                       // newMeshes[0].position.y = this.option.posY
-                       //  newMeshes[0].position.z = this.option.posZ
-                         // scene.createDefaultCameraOrLight(true, true, true);
-
-                         // Create a default arc rotate camera and light.
-                        // scene.createDefaultCameraOrLight(true, true, true);
-                        //  container.material = myMaterial
-                        //  container.addAllToScene();
-                         // newMesh.scaling = new BABYLON.Vector3(this.option.scale, this.option.scale, this.option.scale);
-                        // The default camera looks at the back of the asset.
-                        // Rotate the camera by 180 degrees to the front of the asset.
-                        // scene.activeCamera.alpha += Math.PI;
+                       this.show = true
                     });
-                    // model.material = myMaterial
-                    // model.scaling = new BABYLON.Vector3(this.option.scale, this.option.scale, this.option.scale);
                 }
 
                 //背景色
@@ -206,6 +192,7 @@ export default ({
             this.engine.runRenderLoop(function () {
                 scene.render();
             });
+
         },
 
     },

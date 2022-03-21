@@ -1675,7 +1675,7 @@ export default [{
                     "prop": "threeD",
                 },
                 "option": {
-                    modeUrl:'http://192.168.0.29:89/img/model/22.obj',
+                    modeUrl:'http://192.168.0.29:89/img/model/3D模型/22.obj',
                     materialColor:'rgba(255,0,0,1)',
                     backgroundColor:'rgba(0,0,0,1)',
                     rotate2: 0,

@@ -11,7 +11,7 @@
                  list-type="picture">
         <el-button size="small"
                    icon="el-icon-upload"
-                   type="primary">点击上传</el-button>
+                   type="primary">点击上传1</el-button>
       </el-upload>
 
       <el-input v-model="keyWords" placeholder="请输入内容"></el-input>

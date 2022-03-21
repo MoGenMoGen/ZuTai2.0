@@ -77,13 +77,13 @@
                 <el-form-item label="模型Z轴位置">
                     <input v-model="main.activeOption.posZ"></input>
                 </el-form-item>
-                <el-form-item label="模型X轴角度（。）">
+                <el-form-item label="模型X轴角度(。)">
                     <input v-model="main.activeOption.rotationX"></input>
                 </el-form-item>
-                <el-form-item label="模型Y轴角度（。）">
+                <el-form-item label="模型Y轴角度(。)">
                     <input v-model="main.activeOption.rotationY"></input>
                 </el-form-item>
-                <el-form-item label="模型Z轴角度（。）">
+                <el-form-item label="模型Z轴角度(。)">
                     <input v-model="main.activeOption.rotationZ"></input>
                 </el-form-item>
                 <el-form-item label="模型绽放">
