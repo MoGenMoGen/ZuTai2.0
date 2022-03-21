@@ -267,22 +267,25 @@ export const writePlcData = (valNm,val) => {
   })
 }
 
-export const listForZt = () => {
+export const listForZt = (app) => {
     return request({
       url: '/api/blade-mh/trend/listForZt',
       method: 'get',
+      params: {
+        app:app,
+      }
     });
 }
 
-export const subListForZt = (pid,type,status,dataType) => {
+export const subListForZt = (pid,type,dataType,app) => {
     return request({
       url: '/api/blade-mh/trend/subListForZt',
       method: 'get',
       params: {
         pid:pid,
         type:type,
-        status:status,
-        dataType:dataType
+        dataType:dataType,
+        app:app
       }
     });
 }

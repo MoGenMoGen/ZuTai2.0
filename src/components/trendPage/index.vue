@@ -129,6 +129,7 @@ export default {
   data() {
     return {
       pid: '',
+      id:'',
       timer: null,
       map: new Map(),
       map2: new Map(),
@@ -234,7 +235,8 @@ export default {
     },
     //获取
     init() {
-      listForZt().then(res => {
+     this.id = this.$route.params.id
+      listForZt(this.id).then(res => {
         this.menuList = res.data.data
         this.getSub(this.menuList[0].id, 1, this.dataType)
         this.getSub(this.menuList[0].id, 2, this.dataType)
@@ -255,34 +257,28 @@ export default {
       if (type === 1) {
         this.map = new Map();
         this.map2 = new Map();
-        subListForZt(pid, type, 1, dataType).then(res => {
+        subListForZt(pid, type, dataType,this.id).then(res => {
           res.data.data.map(res => {
             this.data.push(res)
             this.map.set(res.id, res)
             this.map2.set(res.addr, res.id)
-
-
             if (res.val != 0){
               this.subList.push(res)
               this.value.push(res.id)
-
             }
-
           })
-
           this.subList2 = JSON.parse(JSON.stringify(this.subList))
         })
 
-
       } else {
-        subListForZt(this.pid, 2, 1, dataType).then(res => {
+        subListForZt(this.pid, 2, dataType,this.id).then(res => {
           this.cruxList = res.data.data
         })
         this.cruxList = []
         clearTimeout(this.timer)
         this.timer = null;
         this.timer = setInterval(() => {
-          subListForZt(this.pid, 2, 1, dataType).then(res => {
+          subListForZt(this.pid, 2, dataType,this.id).then(res => {
             this.cruxList = res.data.data
           })
         }, 10000);
@@ -304,43 +300,43 @@ export default {
     .el-container.is-vertical {
       background: #204469;
     }
-    
+
     .el-menu-item {
       background: #204469;
       color: #ffffff;
       font-weight: bold;
     }
-    
+
     .el-menu-item:hover {
       background-color: rgb(104, 144, 178) !important;
     }
-    
+
     .el-menu-item.is-active {
       color: #9b9898;
     }
-    
+
     .el-dropdown {
       color: #ffffff;
       font-size: 14px;
     }
-    
+
     .el-card__header {
       border-bottom: 0px solid #ebeef5;
     }
-    
+
     .el-card {
       border: 0px solid #EBEEF5;
       background-color: #3472ab;
       color: #303133;
       transition: .3s;
     }
-    
+
     .tip {
       float: left;
       width: 120px;
       border-left: 5px solid #50bfff;
     }
-    
+
     .li1 {
       margin-left: 5px;
       text-align: left;
@@ -349,7 +345,7 @@ export default {
       color: rgb(255, 255, 255);
       list-style-type: none
     }
-    
+
     .li2 {
       margin-left: 5px;
       text-align: left;
@@ -358,37 +354,37 @@ export default {
       color: rgb(255, 255, 255);
       list-style-type: none
     }
-    
+
     .line-height {
       height: 210px;
       margin-top: 5px;
     }
-    
+
     .clearfix:before,
     .clearfix:after {
       display: table;
       content: "";
     }
-    
+
     .clearfix:after {
       clear: both;
     }
-    
+
     .el-card__header {
       padding: 5px 20px;
       border-bottom: 1px solid #ebeef5;
       box-sizing: border-box;
     }
-    
+
     .el-dialog__body {
       padding: 10px 20px;
       background-color: #3472ab;
     }
-    
+
     .el-dialog__header {
       background-color: #3472ab;
     }
-    
+
     .el-dialog__title {
       color: white;
     }
