@@ -1,6 +1,6 @@
 // import { Loading } from 'element-ui';
 import axios from 'axios';
-//import router from './router';
+import router from './router';
 
 axios.defaults.timeout = 10000;
 //返回其他状态吗
@@ -32,6 +32,7 @@ axios.interceptors.response.use(res => {
   // NProgress.done();
   //获取状态码
   const status = res.data.code || res.status;
+  const msg = res.data.msg
   // const statusWhiteList = website.statusWhiteList || [];
   // const message = res.data.msg || res.data.error_description || '未知错误';
   // //如果在白名单里则自行catch逻辑处理
@@ -45,7 +46,15 @@ axios.interceptors.response.use(res => {
   if (status === 401 && res.config.url.indexOf("writePlcData") === -1){
     let protocol = window.location.protocol;
     let url = window.location.host;
-      localStorage.setItem("next-url", window.location.href)
+    localStorage.setItem("next-url", window.location.href)
+    localStorage.setItem("appId", router.history.current.params.id)
+    window.location.href = protocol + "//" + url + "/login"
+  }
+  if(msg==='未登录') {
+    let protocol = window.location.protocol;
+    let url = window.location.host;
+    localStorage.setItem("next-url", window.location.href)
+    localStorage.setItem("appId", router.history.current.params.id)
     window.location.href = protocol + "//" + url + "/login"
   }
 

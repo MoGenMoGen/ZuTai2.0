@@ -110,11 +110,15 @@ export const login = (data) => request({
   },
   data: `tenantId=000000&username=${data.username}&password=${data.password}&grant_type=password&scope=all&type=account`
 });
-// export const login = (data) => request({
-//   url: '/api/blade-mh/data/login',
-//   method: 'post',
-//   data: data
-// });
+export const login2 = (data) => request({
+  url: '/api/blade-visual/visualappaccount/login',
+  method: 'get',
+  params: {
+      name: data.username,
+      password: data.password,
+      appId: data.appId
+  }
+});
 //验证token是否有效
 export const verToken = (account,token) => request({
   url: '/api/blade-mh/data/verToken',
@@ -307,6 +311,15 @@ export const getVisualApp = (id) => request({
   method: 'get',
   params: {
     id: id
+  }
+});
+
+export const getVisualAppView = (id) => request({
+  url: '/api/blade-visual/visualapp/appDtlView',
+  method: 'get',
+  params: {
+    id: id,
+    token: JSON.parse(localStorage.getItem('zt-token'))
   }
 });
 

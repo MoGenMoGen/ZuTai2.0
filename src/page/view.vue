@@ -5,7 +5,7 @@
 </template>
 <script>
 import init from '@/mixins/'
-import {verToken,getAllData,getVisualApp} from '@/api/visual'
+import {verToken,getAllData,getVisualAppView} from '@/api/visual'
 
 export default {
   data() {
@@ -25,7 +25,7 @@ export default {
   },
   mounted() {
     // this.isLogin()
-    getVisualApp(this.$route.params.id).then(res => {
+    getVisualAppView(this.$route.params.id).then(res => {
       this.layoutObj = JSON.parse(res.data.data.layout)
       this.pageList = res.data.data.visuals
     })

@@ -608,7 +608,7 @@
                     </el-collapse-item>
                     <el-collapse-item title="菜单配置">
                         <div style="height: 36px;display: flex;justify-content: space-between;padding: 0 10px;box-sizing: border-box;"
-                        :class="['menu__item']" 
+                        :class="['menu__item',{'is-active':navSettingIndex==index}]"
                         v-for="(item,index) in layoutObj.navList" :key="index" @click.stop="navSetting(item,index)">
                             <span>{{item.name}}</span>
                             <i class="el-icon-delete" style="color: #fff;" @click.stop="navDel(item,index)"></i>
@@ -1113,11 +1113,11 @@ export default {
     document.addEventListener('keydown',this.keyDown)
     document.addEventListener('mouseup',this.mouseup2)
     this.initFun()
-    getCategoryAll().then(res => {
-    	res.data.data.forEach((item,index) => {
-    		this.options1.push(item)
-    	})
-    })
+    // getCategoryAll().then(res => {
+    // 	res.data.data.forEach((item,index) => {
+    // 		this.options1.push(item)
+    // 	})
+    // })
     // this.$route.params.id1501470310035066881
     getVisualApp(this.$route.params.id).then(res => {
         this.layoutObj = JSON.parse(res.data.data.layout)

@@ -16,7 +16,7 @@
 <script>
 import {md5} from '../utils/md5.js'
 import {
-  login
+  login2
 } from '@/api/visual'
 
 export default {
@@ -62,20 +62,21 @@ export default {
   },
   methods: {
     submit(form) {
-      form.password = md5(form.password)
+      // form.password = md5(form.password)
+      form.appId = localStorage.getItem('appId')
       // form.account = form.username
-      login(form).then(res => {
-
-        if (res.data.error_code === 400) {
-          this.$message.error("用户名或密码不正确")
+      login2(form).then(res => {
+        console.log(res);
+        if (res.data.code === 400) {
+          this.$message.error(res.data.msg)
         } else {
           this.$message.success("登录成功")
-          localStorage.setItem('zt-token', JSON.stringify(res.data.access_token));
-          if(localStorage.getItem('next-url')){
+          localStorage.setItem('zt-token', JSON.stringify(res.data.data));
+          // if(localStorage.getItem('next-url')){
               window.location.href = localStorage.getItem('next-url')
-          }else {
-              window.location.href = './index'
-          }
+          // }else{
+              // window.location.href = './index'
+          // }
           // window.location.href = localStorage.getItem('next-url')
         }
 
