@@ -470,6 +470,9 @@ export default [{
 				"closeBgColor": '#f00',
 				"closeBgColor2": '#f00',
 				"closeRadius": '10',
+                "ifConfirm" : false, //是否启用二次确认
+                "confirmTitle":'注意',
+                "confirmContent":'请再次确认操作无误！',
             },
         }
     }, {

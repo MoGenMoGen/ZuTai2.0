@@ -23,6 +23,7 @@
     "mockjs": "^1.1.0",
     "monaco-editor": "^0.21.3",
     "mqtt": "^4.2.8",
+    "node-sass": "^4.14.1",
     "view-design": "^4.7.0-rc.1",
     "vue": "^2.6.11",
     "vue-qr": "^3.2.4",

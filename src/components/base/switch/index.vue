@@ -92,20 +92,36 @@ export default {
       }
     },
     change() {
-      this.value = this.option.openValue === this.value ? this.option.closeValue : this.option.openValue
-      if (this.option.valueName) {
-        writePlcData(this.option.valueName,this.value).then(res=>{
-          if (res.data.code === 401){
-            this.value = localStorage.getItem(this.option.valueName)
-            this.$message.error('没有修改权限');
-          }
-          if (res.data.code === 200){
-            localStorage.setItem(this.option.valueName, this.value)
-            this.$message.success('操作成功');
-          }
-        })
-      }
-    }
+        if(this.option.ifConfirm){
+            this.$confirm(this.option.confirmContent, this.option.confirmTitle, {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                this.changeValue()
+            }).catch(() => {
+
+            });
+        }else {
+            this.changeValue()
+        }
+
+    },
+     changeValue(){
+         this.value = this.option.openValue === this.value ? this.option.closeValue : this.option.openValue
+         if (this.option.valueName) {
+             writePlcData(this.option.valueName,this.value).then(res=>{
+                 if (res.data.code === 401){
+                     this.value = localStorage.getItem(this.option.valueName)
+                     this.$message.error('没有修改权限');
+                 }
+                 if (res.data.code === 200){
+                     localStorage.setItem(this.option.valueName, this.value)
+                     this.$message.success('操作成功');
+                 }
+             })
+         }
+     }
   }
 }
 </script>

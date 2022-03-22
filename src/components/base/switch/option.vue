@@ -16,6 +16,9 @@
 					<el-button type="text" @click="clickSource('open')">选择图标</el-button>
 					<!--			<el-button type="text" @click="main.activeOption.openUrl=''">删除图标</el-button>-->
 				</el-form-item>
+				<el-form-item label="字体大小">
+					<avue-input-number v-model="main.activeOption.fontSize" :max="200"></avue-input-number>
+				</el-form-item>
 				<el-form-item label="开启文字">
 					<el-input placeholder="请输入开启文字" v-model="main.activeOption.openText" clearable></el-input>
 					<span style="color: #f00;font-size: 12px">优先显示图片，没有图片显示文字</span>
@@ -82,8 +85,17 @@
 				<el-form-item label="关闭圆角弧度">
 					<avue-input-number v-model="main.activeOption.closeRadius"></avue-input-number>
 				</el-form-item>
-				<el-form-item label="字体大小">
-					<avue-input-number v-model="main.activeOption.fontSize" :max="200"></avue-input-number>
+
+			</el-collapse-item>
+			<el-collapse-item title="弹窗设置" name="3">
+				<el-form-item label="启用二次确认">
+					<el-checkbox v-model="main.activeOption.ifConfirm"></el-checkbox>
+				</el-form-item>
+				<el-form-item label="弹窗标题" v-show="main.activeOption.ifConfirm">
+					<el-input placeholder="请输入值" v-model="main.activeOption.confirmTitle" clearable></el-input>
+				</el-form-item>
+				<el-form-item label="弹窗文字" v-show="main.activeOption.ifConfirm">
+					<el-input placeholder="请输入值" v-model="main.activeOption.confirmContent" clearable></el-input>
 				</el-form-item>
 			</el-collapse-item>
 		</el-collapse>
