@@ -1679,19 +1679,22 @@ export default [{
                 },
                 "option": {
                     modeUrl:'http://192.168.0.29:89/img/model/3D模型/22.obj',
-                    materialColor:'rgba(255,0,0,1)',
                     backgroundColor:'rgba(0,0,0,1)',
-                    rotate2: 0,
+                    backgroundImage:'',
                     duration: '1000',
                     ifRoate:false,
                     rotateSpeed:10,
-                    scale:1,
-                    posX:0,
-                    posY:0,
-                    posZ:0,
-                    rotationX:0,
-                    rotationY:0,
-                    rotationZ:0,
+                    modelOption:{
+                        materialColor:'rgba(255,0,0,1)',
+                        scale:1,
+                        posX:0,
+                        posY:0,
+                        posZ:0,
+                        rotationX:0,
+                        rotationY:0,
+                        rotationZ:0,
+                    }
+
                 }
             }
         },]

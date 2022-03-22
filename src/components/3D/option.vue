@@ -18,7 +18,7 @@
             <!--<avue-select v-model="main.activeOption.material" placeholder="请选择" type="tree" :dic="materialList"></avue-select>-->
         <!--</el-form-item>-->
         <el-form-item label="模型颜色">
-            <avue-input-color v-model="main.activeOption.materialColor"></avue-input-color>
+            <avue-input-color v-model="main.activeOption.modelOption.materialColor"></avue-input-color>
         </el-form-item>
 
         <el-collapse accordion>
@@ -36,25 +36,25 @@
             </el-collapse-item>
             <el-collapse-item title="初始设置">
                 <el-form-item label="模型X轴位置">
-                    <input v-model="main.activeOption.posX"></input>
+                    <input v-model="main.activeOption.modelOption.posX"></input>
                 </el-form-item>
                 <el-form-item label="模型Y轴位置">
-                    <input v-model="main.activeOption.posY"></input>
+                    <input v-model="main.activeOption.modelOption.posY"></input>
                 </el-form-item>
                 <el-form-item label="模型Z轴位置">
-                    <input v-model="main.activeOption.posZ"></input>
+                    <input v-model="main.activeOption.modelOption.posZ"></input>
                 </el-form-item>
                 <el-form-item label="模型X轴角度(。)">
-                    <input v-model="main.activeOption.rotationX"></input>
+                    <input v-model="main.activeOption.modelOption.rotationX"></input>
                 </el-form-item>
                 <el-form-item label="模型Y轴角度(。)">
-                    <input v-model="main.activeOption.rotationY"></input>
+                    <input v-model="main.activeOption.modelOption.rotationY"></input>
                 </el-form-item>
                 <el-form-item label="模型Z轴角度(。)">
-                    <input v-model="main.activeOption.rotationZ"></input>
+                    <input v-model="main.activeOption.modelOption.rotationZ"></input>
                 </el-form-item>
                 <el-form-item label="模型绽放">
-                    <input v-model="main.activeOption.scale"></input>
+                    <input v-model="main.activeOption.modelOption.scale"></input>
                 </el-form-item>
             </el-collapse-item>
             <el-collapse-item title="交互设置">

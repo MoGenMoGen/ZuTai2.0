@@ -15,16 +15,38 @@ export default ({
         show:false,
         canvas:null,
         engine:null,
+        scene:null,
         materialColor:[0.0,0.7,0.95,1],
+        myMeshes:null,
+        oldModeUrl:'',
+        myMaterial:null,
     };
   },
   watch: {
-        'option':{
-            handler(){
-                this.getInit()
-            },
-            deep:true
+    'option.modelOption':{
+        handler(){
+            console.log('---------watch')
+            this.setModel()
         },
+        deep:true
+    },
+      'option.modeUrl':function () {
+          this.$nextTick(()=>{
+              this.getInit()
+          })
+      },
+      'option.ifRoate':function () {
+          this.setRoate()
+      },
+      'option.rotateSpeed':function () {
+          this.setRoate()
+      },
+      'option.backgroundColor':function () {
+          this.setBg()
+      },
+      'option.backgroundImage':function () {
+          this.setBg()
+      },
       'component.width':function(){
           this.$nextTick(()=>{
               this.getInit()
@@ -59,8 +81,6 @@ export default ({
       component: Object,
   },
     mounted(){
-
-
         this.$nextTick(()=>{
             this.getInit()
         })
@@ -74,126 +94,114 @@ export default ({
     },
     methods: {
         getInit(){
-            this.show = false
+            // this.show = false
             this.canvas = document.getElementById('renderCanvas'+this.option.index); // 得到canvas对象的引用
             this.engine = new BABYLON.Engine(this.canvas, true); // 初始化 BABYLON 3D engine
             /******* Add the create scene function ******/
-            var createScene = ()=> {
-                // 创建一个场景scene
-                var scene = new BABYLON.Scene(this.engine);
-                // 添加一个相机，并绑定鼠标事件
-                // var camera = new BABYLON.ArcRotateCamera(
-                //     "Camera",
-                //     Math.PI / 2,
-                //     Math.PI / 2,
-                //     2,
-                //     new BABYLON.Vector3(0, 0, 5),
-                //     scene
-                // );
-                // camera.attachControl(this.canvas, true);
+            // 创建一个场景scene
+            this.scene = new BABYLON.Scene(this.engine);
+            /******* End of the create scene function ******/
+
+            // var scene = createScene(); //Call the createScene function
+            this.creatScene()
+            // 最后一步调用engine的runRenderLoop方案，执行scene.render()，让我们的3d场景渲染起来
+            this.engine.runRenderLoop( ()=> {
+                this.scene.render();
+            });
+
+        },
+        //创造场景
+        creatScene(){
                 //相机沿纵轴旋转，沿纬度旋转，距离目标的距离，相机的坐标
-                var camera = new BABYLON.ArcRotateCamera("ArcRotateCamera", 1.5, 1.5, 10, new BABYLON.Vector3(0, 2, 0), scene);
-              //  camera.setPosition(new BABYLON.Vector3(0, 0, -10));
+                var camera = new BABYLON.ArcRotateCamera("ArcRotateCamera", 1.5, 1.5, 10, new BABYLON.Vector3(0, 2, 0), this.scene);
+                //  camera.setPosition(new BABYLON.Vector3(0, 0, -10));
                 camera.attachControl(this.canvas, true);
-                if(this.option.ifRoate){
-                    console.log(this.option.rotateSpeed/6)
-                    this.timer = setInterval(()=>{
-                        scene.activeCamera.alpha += this.option.rotateSpeed/3600;
-                    },100)
-                }else {
-                    clearInterval(this.timer)
-                }
-
-
+                this.setRoate()
                 // 添加一组灯光到场景
-                var light = new BABYLON.PointLight("Omni", new BABYLON.Vector3(0, 0, 0), scene);
+                var light = new BABYLON.PointLight("Omni", new BABYLON.Vector3(0, 0, 0), this.scene);
                 // eslint-disable-next-line no-unused-vars
                 var light1 = new BABYLON.HemisphericLight(
                     "light1",
                     new BABYLON.Vector3(1, 1, 0),
-                    scene
+                    this.scene
                 );
                 // eslint-disable-next-line no-unused-vars
                 var light2 = new BABYLON.PointLight(
                     "light2",
                     new BABYLON.Vector3(0, 1, -1),
-                    scene
+                    this.scene
                 );
-                const myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
-                if(this.option.materialColor){
-                    this.materialColor = this.option.materialColor.slice(5,this.option.materialColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
-                }
 
-                myMaterial.diffuseColor = new BABYLON.Color4(this.materialColor[0],this.materialColor[1],this.materialColor[2]); //漫射色
-                myMaterial.alpha = this.materialColor[3]
-                // var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
-                //
-                // myMaterial.diffuseColor = new BABYLON.Color3(1, 0, 1);
-                // myMaterial.specularColor = new BABYLON.Color3(0.5, 0.6, 0.87);
-                // myMaterial.emissiveColor = new BABYLON.Color3(1, 1, 1);
+                this.setBg()
 
-                // 添加一个球体到场景中
-                // eslint-disable-next-line no-unused-vars
-                // var sphere = BABYLON.MeshBuilder.CreateSphere(
-                //     "sphere",
-                //     { diameter: 2 },
-                //     scene
-                // );
-                // sphere.material = myMaterial
-                if(this.option.modeUrl){
-
-                    // BABYLON.SceneLoader.Append('','22.obj', scene, function (scene) {
-                    //
-                    //     // 模型添加成功后，执行场景对象的一些方法
-                    //
-                    // });
-                    // http://192.168.0.29:89/img/model/11.gltf
-                    let arr = this.option.modeUrl.split('/')
-                    let fileUrl = arr.slice(0,arr.length-1)
-                   BABYLON.SceneLoader.ImportMesh('',fileUrl.join('/')+'/', arr[arr.length-1], scene,  (newMeshes,particleSystems,skeletons)=> {
-                        console.log('------------------')
-                       newMeshes.map(item=>{
-                           item.material = myMaterial
-                           item.position.x = this.option.posX
-                           item.position.y = this.option.posY
-                           item.position.z = this.option.posZ
-                           item.rotation.x = this.option.rotationX
-                           item.rotation.y = this.option.rotationY
-                           item.rotation.z = this.option.rotationZ
-                           item.scaling.x = this.option.scale
-                           item.scaling.y = this.option.scale
-                           item.scaling.z = this.option.scale
-                           return item
-                       })
-                       this.show = true
-                    });
-                }
-
-                //背景色
-                let bgColor = []
-                if(this.option.backgroundImage){
-                    bgColor = [0,0,0,0]
-                }else {
-                    bgColor = this.option.backgroundColor.slice(5,this.option.backgroundColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
-                }
-                scene.clearColor = new BABYLON.Color4(bgColor[0], bgColor[1], bgColor[2], bgColor[3]);
-
-                scene.registerBeforeRender(function () {
+                this.scene.registerBeforeRender(function () {
                     light.position = camera.position;
                 });
-
-                return scene;
-            };
-            /******* End of the create scene function ******/
-
-            var scene = createScene(); //Call the createScene function
-
-            // 最后一步调用engine的runRenderLoop方案，执行scene.render()，让我们的3d场景渲染起来
-            this.engine.runRenderLoop(function () {
-                scene.render();
-            });
+                if(this.option.modeUrl){
+                    this.getModel()
+                }
+        },
+        //旋转设置
+        setRoate(){
+            if(this.option.ifRoate){
+                console.log(this.option.rotateSpeed/6)
+                this.timer = setInterval(()=>{
+                    this.scene.activeCamera.alpha += (this.option.rotateSpeed/3600).toFixed(2);
+                },100)
+            }else {
+                clearInterval(this.timer)
+            }
+        },
+        //设置背景
+        setBg(){
+            //背景色
+            let bgColor = []
+            if(this.option.backgroundImage){
+                bgColor = [0,0,0,0]
+            }else {
+                bgColor = this.option.backgroundColor.slice(5,this.option.backgroundColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
+            }
+            console.log(this.scene)
+            this.scene.clearColor = new BABYLON.Color4(bgColor[0], bgColor[1], bgColor[2], bgColor[3]);
+        },
+        //引入模型
+        async getModel(){
+            this.show = false
+            // http://192.168.0.29:89/img/model/11.gltf
+            let arr = this.option.modeUrl.split('/')
+            let fileUrl = arr.slice(0,arr.length-1)
+            this.myMeshes = await BABYLON.SceneLoader.ImportMeshAsync('',fileUrl.join('/')+'/', arr[arr.length-1], this.scene)
+            this.setModel()
 
         },
+        //设置模型
+        setModel(){
+            if(!this.myMaterial){
+                this.myMaterial = new BABYLON.StandardMaterial("myMaterial", this.scene);
+            }
+            if(this.option.modelOption && this.option.modelOption.materialColor){
+                this.materialColor = this.option.modelOption.materialColor.slice(5,this.option.modelOption.materialColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
+                this.myMaterial.diffuseColor = new BABYLON.Color4(this.materialColor[0],this.materialColor[1],this.materialColor[2]); //漫射色
+                this.myMaterial.alpha = this.materialColor[3]
+            }
+            console.log(this.myMeshes)
+            console.log(this.option)
+            if(!this.myMeshes || !this.option.modelOption) return
+            this.myMeshes.meshes.map(item=>{
+                if(this.myMaterial) item.material = this.myMaterial
+                item.position.x = this.option.modelOption.posX
+                item.position.y = this.option.modelOption.posY
+                item.position.z = this.option.modelOption.posZ
+                item.rotation.x = this.option.modelOption.rotationX
+                item.rotation.y = this.option.modelOption.rotationY
+                item.rotation.z = this.option.modelOption.rotationZ
+                item.scaling.x = this.option.modelOption.scale
+                item.scaling.y = this.option.modelOption.scale
+                item.scaling.z = this.option.modelOption.scale
+                return item
+            })
+            this.show = true
+        }
 
     },
     beforeDestroy(){
