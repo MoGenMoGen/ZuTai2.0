@@ -1,96 +1,106 @@
 <template>
-  <div :style="[styleName]" :class="{'avue-echart-img--rotate':rotate==true}">
-    <Slider v-model="value" :range="option.range" :disabled="option.disabled" :show-stops="option.showStop"
-            :step="option.step" @on-change="changeValue"
+  <div
+    :style="[styleName, styleChange]"
+    :class="{ 'avue-echart-img--rotate': rotate == true }"
+  >
+    <Slider
+      v-model="value"
+      :min="Number(option.min)"
+      :max="Number(option.max)"
+      :range="option.range"
+      :disabled="option.disabled"
+      :show-stops="option.showStop"
+      :step="Number(option.step)"
+      @on-input="changeValue"
     ></Slider>
-
   </div>
-</template>
+</template>  
 <script>
-import {getVal,writePlcData} from '@/api/visual'
+import { getVal, writePlcData } from "@/api/visual";
 
 export default {
-  name: 'baseSlider',
+  name: "baseSlider",
   props: {
     option: Object,
     component: Object,
   },
   data() {
     return {
-      value: ""
-    }
+      value: "",
+    };
   },
   computed: {
     styleChange() {
       return {
-        "--width": this.component.width + 'px',
-        "--height": this.component.height + 'px',
-        // "--background":this.option.backColor
-      }
+        "--width": this.component.width + "px",
+        "--height": this.component.height + "px",
+        "--diameter": this.option.diameter + "px",
+        "--baseColor": this.option.baseColor,
+        "--progressColor": this.option.progressColor,
+        // "--background": '#e74c3c',
+      };
     },
-	styleName() {
-		return Object.assign(
-			{
-				transform: 'rotate(' + this.option.rotate + 'deg)'
-			}
-		);
-	}
+    styleName() {
+      return Object.assign({
+        transform: "rotate(" + this.option.rotate + "deg)",
+      });
+    },
   },
   created() {
-    this.getInfo()
+    console.log(111, this.styleChange);
+    this.getInfo();
     //setInterval(this.getInfo, 10000);
   },
-  mounted() {
-
-  },
+  mounted() {},
   // 销毁监听，防止内存泄露
-  destroyed() {
-
-  },
+  destroyed() {},
   methods: {
     //是否显示
     getInfo() {
       if (this.option.valNm) {
-        getVal(this.option.valNm).then(res => {
+        getVal(this.option.valNm).then((res) => {
           this.value = res.data.data;
-        })
+        });
       }
     },
-    changeValue(val){
-
+    changeValue(val) {
+      console.log("修改滑动条", val);
       if (this.option.valNm) {
-        writePlcData(this.option.valNm,val).then(res=>{
-          if (res.data.code === 401){
-            this.getInfo()
-            this.$message.error('没有修改权限');
-          }
-        })
+        writePlcData(this.option.valNm, val).then((res) => {
+          if (res.data.code === 401) {
+            this.$message.error("没有修改权限");
+          } else this.getInfo();
+        });
       }
-
-
       //console.log(val)
     },
 
     format(val) {
-      return '进度' + val + '%';
+      return "进度" + val + "%";
     },
-
-
-  }
-}
+  },
+};
 </script>
-<style>
+<style lang="scss" >
 .ivu-slider-button {
-  width: 21px;
-  height: 21px;
+  width: var(--diameter);
+  height: var(--diameter);
+  border-color: var(--progressColor) !important;
 }
-
+.ivu-slider-button-wrap {
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: var(--diameter);
+  height: var(--diameter);
+}
 .ivu-slider-wrap {
   height: 12px;
+  background: var(--baseColor);
 }
 
 .ivu-slider-bar {
   height: 12px;
+  background: var(--progressColor);
 }
 </style>
 <style lang="scss" scoped>
@@ -114,7 +124,6 @@ p {
   height: calc(100% - 5px);
   top: 50%;
   transform: translateY(-50%);
-
 }
 
 .ivu-switch-large.ivu-switch-checked:after {

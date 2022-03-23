@@ -8,7 +8,7 @@
     <div class="app"  :class="{'app--none':!menuFlag}">
       <div class="menu"  v-show="menuFlag"  @click.self="handleMouseDown">
         <el-collapse accordion>
-            <el-collapse-item title="导航布局">
+            <el-collapse-item title="导航布局">  
                 <div class="nav-box">
                     <div v-for="(item,index) in navTypeList" :key="index"
                      @click="selectLayout(item.type)"
