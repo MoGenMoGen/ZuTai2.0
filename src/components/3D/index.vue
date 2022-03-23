@@ -157,11 +157,10 @@ export default ({
                 clearInterval(this.timer)
 
                 this.timer = setInterval(()=>{
-                    console.log('---转---')
                     this.scene.activeCamera.alpha += this.option.rotateSpeed/583;
                 },100)
             }else{
-                console.log('停止旋转')
+                // console.log('停止旋转')
                 clearInterval(this.timer)
             }
         },
@@ -169,7 +168,7 @@ export default ({
         setBg(){
             //背景色
             let bgColor = []
-            if(this.option.backgroundImage){
+            if(this.option.backgroundImage || !this.option.backgroundColor){
                 bgColor = [0,0,0,0]
             }else {
                 bgColor = this.option.backgroundColor.slice(5,this.option.backgroundColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
@@ -198,9 +197,12 @@ export default ({
                 this.materialColor = this.option.modelOption.materialColor.slice(5,this.option.modelOption.materialColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
                 this.myMaterial.diffuseColor = new BABYLON.Color4(this.materialColor[0],this.materialColor[1],this.materialColor[2]); //漫射色
                 this.myMaterial.alpha = this.materialColor[3]
+            }else {
+                this.myMaterial = null
             }
             this.myMeshes.meshes.map(item=>{
                 if(this.myMaterial) item.material = this.myMaterial
+                else item.material = null
                 item.position.x = this.option.modelOption.posX
                 item.position.y = this.option.modelOption.posY
                 item.position.z = this.option.modelOption.posZ
