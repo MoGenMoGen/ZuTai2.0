@@ -1,7 +1,12 @@
 <template>
-  <div :style="styleName" >
+  <div :style="styleName"
+       v-loading="!show"
+       element-loading-text="加载中"
+       element-loading-spinner="el-icon-loading"
+       element-loading-background="rgba(0, 0, 0, 1)"
+  >
       <!--<canvas id="renderCanvas" class="renderCanvas"></canvas>-->
-      <canvas :id="'renderCanvas'+option.index" class="renderCanvas" v-show="show"></canvas>
+      <canvas :id="'renderCanvas'+option.index" class="renderCanvas"></canvas>
   </div>
 </template>
 
@@ -31,9 +36,12 @@ export default ({
         deep:true
     },
       'option.modeUrl':function () {
-          this.$nextTick(()=>{
-              this.getInit()
-          })
+          //先清空模型
+          this.scene.importedMeshesFiles = []
+          this.scene.meshes = []
+          if(this.option.modeUrl){
+              this.getModel()
+          }
       },
       'option.ifRoate':function () {
           this.setRoate()
@@ -49,12 +57,13 @@ export default ({
       },
       'component.width':function(){
           this.$nextTick(()=>{
-              this.getInit()
+              this.engine.resize();
           })
       },
       'component.height':function(){
           this.$nextTick(()=>{
-              this.getInit()
+              // this.getInit()
+              this.engine.resize();
           })
       }
   },
@@ -137,6 +146,7 @@ export default ({
                 this.scene.registerBeforeRender(function () {
                     light.position = camera.position;
                 });
+
                 if(this.option.modeUrl){
                     this.getModel()
                 }
@@ -144,11 +154,14 @@ export default ({
         //旋转设置
         setRoate(){
             if(this.option.ifRoate){
-                console.log(this.option.rotateSpeed/6)
+                clearInterval(this.timer)
+
                 this.timer = setInterval(()=>{
-                    this.scene.activeCamera.alpha += (this.option.rotateSpeed/3600).toFixed(2);
+                    console.log('---转---')
+                    this.scene.activeCamera.alpha += this.option.rotateSpeed/583;
                 },100)
-            }else {
+            }else{
+                console.log('停止旋转')
                 clearInterval(this.timer)
             }
         },
@@ -166,13 +179,15 @@ export default ({
         },
         //引入模型
         async getModel(){
-            this.show = false
-            // http://192.168.0.29:89/img/model/11.gltf
-            let arr = this.option.modeUrl.split('/')
-            let fileUrl = arr.slice(0,arr.length-1)
-            this.myMeshes = await BABYLON.SceneLoader.ImportMeshAsync('',fileUrl.join('/')+'/', arr[arr.length-1], this.scene)
-            this.setModel()
-
+            if(this.option.modeUrl){
+                this.show = false
+                // http://192.168.0.29:89/img/model/11.gltf
+                let arr = this.option.modeUrl.split('/')
+                let fileUrl = arr.slice(0,arr.length-1)
+                this.myMeshes = await BABYLON.SceneLoader.ImportMeshAsync('',fileUrl.join('/')+'/', arr[arr.length-1], this.scene)
+                this.setModel()
+            }
+            console.log(this.scene)
         },
         //设置模型
         setModel(){
@@ -184,9 +199,6 @@ export default ({
                 this.myMaterial.diffuseColor = new BABYLON.Color4(this.materialColor[0],this.materialColor[1],this.materialColor[2]); //漫射色
                 this.myMaterial.alpha = this.materialColor[3]
             }
-            console.log(this.myMeshes)
-            console.log(this.option)
-            if(!this.myMeshes || !this.option.modelOption) return
             this.myMeshes.meshes.map(item=>{
                 if(this.myMaterial) item.material = this.myMaterial
                 item.position.x = this.option.modelOption.posX

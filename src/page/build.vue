@@ -1173,7 +1173,7 @@ export default {
   methods: {
 
       mouseup2(){
-          console.log('鼠标抬起',this.ifBack)
+          // console.log('鼠标抬起',this.ifBack)
         if(this.ifBack){ //撤销的不用监听
             this.ifBack = false
         }else { //非撤销的，多个组件拖动手松开鼠标调监听函数

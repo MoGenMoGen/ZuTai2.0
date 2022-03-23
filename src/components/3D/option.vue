@@ -113,6 +113,12 @@
                 return {"Blade-Auth" : 'bearer ' + JSON.parse(localStorage.getItem('zt-token'))}
             }
         },
+        watch:{
+          'main.activeOption.modeUrl':function () {
+              this.main.activeOption.ifRoate = false
+              this.main.activeOption.rotateSpeed = 10
+          }
+        },
         mounted() {
             
         },

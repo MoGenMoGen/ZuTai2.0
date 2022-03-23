@@ -40,7 +40,7 @@ export default {
     nav: {
       handler (val, oldval) {
 
-          console.log('nav变化了-----------------------')
+          // console.log('nav变化了-----------------------')
           //表格组件如果有下面这个参数删掉，这个参数是组件自己添加的，不知道是在什么情况下会更新，然后一直触发监听事件 ，这个必须要有
           val.forEach(item=>{
             if(item.title=='表格'){
@@ -119,7 +119,7 @@ export default {
     },
     // 能否撤销
     canUndo () {
-      console.log('是否撤销',this.currentHistoryIndex)
+      // console.log('是否撤销',this.currentHistoryIndex)
       return this.currentHistoryIndex > 0
     },
     canRedo () {
@@ -213,7 +213,7 @@ export default {
         let newst = JSON.stringify(val)
 
         if (newst != this.copyNav) {
-          console.log('我不一样哦');
+          // console.log('我不一样哦');
             // console.log(JSON.stringify(val))
             // console.log('-----------------')
             // console.log(this.copyNav)
@@ -249,8 +249,8 @@ export default {
                 })
             }
          })
-      console.log('currentHistoryIndex',this.currentHistoryIndex)
-      console.log('historyCache.length',this.historyCache.length)
+      // console.log('currentHistoryIndex',this.currentHistoryIndex)
+      // console.log('historyCache.length',this.historyCache.length)
       if (this.currentHistoryIndex + 1 < this.historyCache.length) {
           this.historyCache.splice(this.currentHistoryIndex + 1)
           this.historyCache.push({
@@ -271,7 +271,7 @@ export default {
 			this.currentHistoryIndex++
 		}
 		// console.log('this.currentHistoryIndex2',this.currentHistoryIndex)
-		console.log('this.historyCache2',this.historyCache)
+		// console.log('this.historyCache2',this.historyCache)
 	  }
     },
     //撤销
