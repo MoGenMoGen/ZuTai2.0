@@ -90,7 +90,7 @@
                                 <avue-input placeholder="请输入值" v-model="item[cItem.key]" clearable></avue-input>
                               </el-form-item>
                               <el-form-item :label="`${cItem.title}变量名称`">
-                                <avue-input placeholder="请输入变量名称" v-model="item['mqtt_'+cItem.key]" clearable></avue-input>
+                                <avue-input placeholder="请输入变量名称" v-model="item['mqtt_'+cItem.key]" clearable @click="selectVar(item,cItem.key)"></avue-input>
                               </el-form-item>
                               <el-form-item :label="`${cItem.title}后缀`">
                                 <avue-input placeholder="请输入后缀" v-model="item['hz_'+cItem.key]" clearable></avue-input>
@@ -102,6 +102,7 @@
                 </el-collapse>
             </el-collapse-item>
         </el-collapse>
+        <devicePoint ref="devicePoint" @change="handleSetPoint"></devicePoint>
     </div>
 </template>
 
@@ -110,13 +111,15 @@
         tableOption,
         dicOption
     } from '@/option/config'
-
+    import devicePoint from '@/page/group/devicePoint';
     export default {
         data() {
             return {
                 timer: '',
                 dicOption: dicOption,
-                tableOption: tableOption
+                tableOption: tableOption,
+                item: {},
+                key: ''
             }
         },
         inject: ["main"],
@@ -124,6 +127,9 @@
             column() {
 
             }
+        },
+        components:{
+          devicePoint
         },
         watch: {
             column: {
@@ -212,6 +218,14 @@
                         // }
                     })
                 })
+            },
+            selectVar(item,key) {
+                this.item = item,
+                this.key = key
+                this.$refs.devicePoint.open()
+            },
+            handleSetPoint(val) {
+                this.$set(this.item,'mqtt_'+this.key,val)
             }
         },
         beforeDestroy() {

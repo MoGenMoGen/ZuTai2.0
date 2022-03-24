@@ -4,7 +4,7 @@
 
 
     <el-form-item label="变量名称">
-      <el-input   type="text"  placeholder="请输入变量名称"   v-model="main.activeOption.valNm">  </el-input>
+      <el-input   type="text"  placeholder="请输入变量名称"   v-model="main.activeOption.valNm" @focus="selectVar('main.activeOption.valNm')">  </el-input>
     </el-form-item>
     <el-form-item label="选择框默认文字">
       <el-input   type="text"  placeholder="请输入文本内容"   v-model="main.activeOption.placeholder">  </el-input>
@@ -148,6 +148,9 @@ export default {
       if (this.main.activeOption.List.length == 1) {
       } else
         this.main.activeOption.List.splice(index, 1)
+    },
+    selectVar(item) {
+        this.main.handleOpenPoint(item)
     }
   },
 };

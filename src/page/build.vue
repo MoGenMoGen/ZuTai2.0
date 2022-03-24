@@ -1,6 +1,6 @@
 <template>
   <div class="build">
-
+    <devicePoint ref="devicePoint" @change="handleSetPoint"></devicePoint>
     <imglist ref="imglist"   @change="handleSetimg"></imglist>
 
     <top ref="top" :layout="layoutObj"></top>
@@ -778,6 +778,7 @@ import unselect from "@/assets/unselect.png"
 import topLogo from "@/assets/top.png"
 import leftLogo from "@/assets/left.png"
 import topALeftLogo from "@/assets/topALeft.png"
+import devicePoint from './group/devicePoint';
 export default {
   mixins: [init, components],
   data () {
@@ -935,7 +936,8 @@ export default {
     codeedit,
     top,
     contentmenu,
-    SketchRule
+    SketchRule,
+    devicePoint
   },
   computed: {
 	isKeysCtrl () {
@@ -1764,6 +1766,16 @@ export default {
             this.layoutObj.navList.push(obj)
         }
     },
+    handleOpenPoint(item) {
+        this.$refs.devicePoint.open(item)
+    },
+    handleSetPoint(val,type) {
+        if(type === 'main.activeObj.mqtt') {
+            this.$set(this.activeObj,'mqtt', val)
+        } else if (type === 'main.activeOption.valNm') {
+            this.$set(this.activeOption,'valNm', val)
+        }
+    }
   }
 }
 </script>

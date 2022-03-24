@@ -9,7 +9,7 @@
 		</el-form-item>
 
 		<el-form-item label="变量名称">
-			<el-input   type="text"  placeholder="请输入变量名称"   v-model="main.activeOption.valNm">  </el-input>
+			<el-input   type="text"  placeholder="请输入变量名称"   v-model="main.activeOption.valNm" @focus="selectVar('main.activeOption.valNm')">  </el-input>
 		</el-form-item>
 
 		<el-form-item label="文字未选中颜色">
@@ -75,7 +75,10 @@
 			del(index) {
 				this.main.activeOption.list.splice(index, 1);
 				this.$forceUpdate()
-			}
+			},
+            selectVar(item) {
+                this.main.handleOpenPoint(item)
+            }
 		}
 	}
 </script>

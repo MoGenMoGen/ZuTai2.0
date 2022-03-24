@@ -7,7 +7,7 @@
 
 
     <el-form-item label="变量名称">
-      <el-input   type="text"  placeholder="请输入变量名称"   v-model="main.activeOption.valNm">  </el-input>
+      <el-input   type="text"  placeholder="请输入变量名称"   v-model="main.activeOption.valNm" @focus="selectVar('main.activeOption.valNm')">  </el-input>
     </el-form-item>
     <el-form-item label="文字未选中颜色">
 		  <avue-input-color color-format="hex" :show-alpha="false" placeholder="请选择颜色" v-model="main.activeOption.color" ></avue-input-color>
@@ -72,7 +72,10 @@
 			del(index) {
 				this.main.activeOption.list.splice(index, 1);
 				this.$forceUpdate()
-			}
+			},
+            selectVar(item) {
+                this.main.handleOpenPoint(item)
+            }
 		}
 	}
 </script>
