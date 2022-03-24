@@ -30,7 +30,7 @@ export default ({
   watch: {
     'option.modelOption':{
         handler(){
-            console.log('---------watch')
+            // console.log('---------watch')
             this.setModel()
         },
         deep:true
@@ -173,7 +173,7 @@ export default ({
             }else {
                 bgColor = this.option.backgroundColor.slice(5,this.option.backgroundColor.length-1).split(',').map((item,index)=> index<3 ? item/255 : parseFloat(item))
             }
-            console.log(this.scene)
+            // console.log(this.scene)
             this.scene.clearColor = new BABYLON.Color4(bgColor[0], bgColor[1], bgColor[2], bgColor[3]);
         },
         //引入模型
@@ -186,7 +186,7 @@ export default ({
                 this.myMeshes = await BABYLON.SceneLoader.ImportMeshAsync('',fileUrl.join('/')+'/', arr[arr.length-1], this.scene)
                 this.setModel()
             }
-            console.log(this.scene)
+            // console.log(this.scene)
         },
         //设置模型
         setModel(){

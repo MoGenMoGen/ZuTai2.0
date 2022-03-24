@@ -14,7 +14,7 @@
                          :max="5"></avue-input-number>
     </el-form-item>
     <el-form-item label="变量名称">
-      <avue-input v-model="main.activeObj.mqtt"> </avue-input>
+      <avue-input v-model="main.activeObj.mqtt"></avue-input>
     </el-form-item>
 
     <el-collapse accordion>

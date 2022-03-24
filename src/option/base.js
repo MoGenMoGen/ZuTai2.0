@@ -78,7 +78,7 @@ export default [{
                 "borderType": 'solid',
             }
         }
-    }, {
+    },{
         "label": '三角形',
         "option": {
             "name": "三角形",
@@ -119,7 +119,7 @@ export default [{
                 "borderType": 'solid',
             }
         }
-    }, {
+    },  {
         label: '多边形',
         option: {
             "name": "多边形",
@@ -146,11 +146,11 @@ export default [{
                 scaleX: 1,
                 scaleY: 1,
                 setUp: false,
-                ifEdit: false,
-                pointShow: true,
-                pointWidth: 15,
-                pointOpacity: 0.5,
-                pointBgColor: '#f00'
+                ifEdit:false,
+                pointShow:true,
+                pointWidth:15,
+                pointOpacity:0.5,
+                pointBgColor:'#f00'
             }
         }
     }, {
@@ -181,13 +181,13 @@ export default [{
                 scaleY: 1,
                 setUp: false,
                 ifEdit: false,
-                pointShow: true,
-                pointWidth: 15,
-                pointOpacity: 0.5,
-                pointBgColor: '#f00'
+                pointShow:true,
+                pointWidth:15,
+                pointOpacity:0.5,
+                pointBgColor:'#f00'
             }
         }
-    }, {
+    },{
         "label": '文本框',
         "option": {
             "title": "文本框",
@@ -207,7 +207,7 @@ export default [{
                 "prop": "text"
             },
             "option": {
-                "lineHeight": 40,
+                "lineHeight":40,
                 "textAlign": "center",
                 "fontSize": 26,
                 "fontWeight": "normal",
@@ -238,11 +238,11 @@ export default [{
                 "fontSize": '18',
                 "textarea": '',
                 "fontFamily": '微软雅黑',
-                "textAlign": 'left'
-
+				"textAlign": 'left'
+				
             }
         }
-    }, {
+    },  {
         label: '二维码',
         option: {
             "name": "二维码",
@@ -331,7 +331,7 @@ export default [{
                 }]
             }
         }
-    }, {
+    },  {
         label: '输入框',
         option: {
             "name": "输入框",
@@ -379,7 +379,7 @@ export default [{
                 "prop": "baseSelect",
             },
             "option": {
-                "List": [{ input: '' }],
+                "List": [{input: ''}],
                 "radius": 0,
                 "borderColor": '#DCDFE6',
                 "borderWidth": 1,
@@ -391,11 +391,11 @@ export default [{
                 "opacity": 100,
                 "fontSize": '18',
                 "input": '',
-                "placeholder": '请选择',
+                "placeholder":'请选择',
                 "fontFamily": '微软雅黑',
             },
         }
-    }, {
+    },{
         label: '按钮',
         option: {
             "name": "按钮",
@@ -424,10 +424,10 @@ export default [{
                 "textarea": '',
                 "fontFamily": '微软雅黑',
                 "radius": 20,
-                "bgImg": '',
+                "bgImg":'',
                 "color2": '#fff',
                 "bgColor2": '#f00',
-                "bgImg2": ''
+                "bgImg2":''
             }
         }
     }, {
@@ -486,7 +486,7 @@ export default [{
             "dataFormatter": "",
             "stylesFormatter": "",
             "component": {
-                "width": 300,
+                "width": 100,
                 "height": 100,
                 "name": "baseSlider",
                 "prop": "baseSlider",
@@ -496,16 +496,13 @@ export default [{
                 "disabled": false,
                 "showStop": false,
                 "step": 1,
-                "min": 0,
-                "max": 100,
-                "valNm": 50,
-                "diameter": 20,
-                "baseColor": '#e8eaec',
-                "progressColor": "#57a3f3"
+                "min":0,
+                "max":100,
+                "valNm":''
             },
 
         }
-    }, {
+    },{
         label: '链接区域',
         option: {
             "name": "链接区域",
@@ -523,7 +520,7 @@ export default [{
             },
             "option": {
                 'linkTarget': '_self',
-                'selectIndex': 0,
+				'selectIndex': 0,
             }
         }
     }, {
@@ -543,8 +540,8 @@ export default [{
                 "prop": "baseModel",
             },
             "option": {
-                linkHref: '',
-                'selectIndex': 0,
+                linkHref:'',
+				'selectIndex':0,
             }
         }
     }, {
@@ -564,9 +561,9 @@ export default [{
                 "prop": "baseNav",
             },
             "option": {
-                navList: [],
-                linkTarget: '_self',
-                textAlign: 'center',
+                navList:[],
+                linkTarget:'_self',
+                textAlign:'center',
                 "color": '#fff',
                 "lineHeight": 24,
                 'fontWeight': 'normal',
@@ -574,20 +571,20 @@ export default [{
                 "fontSize": '18',
                 "textarea": '',
                 "fontFamily": '微软雅黑',
-                "borderColor": '',
-                "borderWidth": 0,
-                "borderType": '',
-                "itemWidth": 150,
-                "itemHeight": 30,
-                "itemSpace": 0,
-                "itemRadius": 0,
-                "bgColor": '',
-                "bgColorActive": '',
-                "colorActive": '',
-                "navStyle": 'horizontal'
+                "borderColor":'',
+                "borderWidth":0,
+                 "borderType":'',
+                "itemWidth":150,
+                "itemHeight":30,
+                "itemSpace":0,
+                "itemRadius":0,
+                "bgColor":'',
+                "bgColorActive":'',
+                "colorActive":'',
+                "navStyle":'horizontal'
             }
         }
-    }, {
+    },{
         label: '箭头',
         option: {
             "name": "箭头",
@@ -610,7 +607,7 @@ export default [{
                 "borderWidth": 1,
                 "borderType": 'solid',
                 "radius": 0,
-                "height": 10
+				"height": 10
             }
         }
     }, {
@@ -636,7 +633,7 @@ export default [{
                 "fontWeight": "normal"
             }
         },
-    },]
+    }, ]
 }, {
     "label": '图表',
     "icon": 'icon-bar',
@@ -679,8 +676,8 @@ export default [{
                 "name": "common",
                 "prop": "common",
             },
-            "option": {
-            }
+			"option": {
+			}
         }
     },
     //     {
@@ -704,601 +701,601 @@ export default [{
     //         }
     //     }
     // },
-    // {
-    //     label: '状态指示',
-    //     option: {
-    //         "name": "状态指示",
-    //         "title": "状态指示",
-    //         "icon": 'icon-zhuangtaideng',
-    //         "img": require('@/assets/icon/指示状态.png'),
-    //         "data": [],
-    //         "dataFormatter": "",
-    //         "stylesFormatter": "",
-    //         "component": {
-    //             "width": 80,
-    //             "height": 80,
-    //             "name": "state",
-    //             "prop": "state",
-    //         },
-    //         "option": {
-    //             "fontSize": 20,
-    //         }
-    //     }
-    // },
-    {
-        label: '指示灯',
-        option: {
-            "name": "指示灯",
-            "title": "指示灯",
-            "icon": 'icon-bar',
-            "img": require('@/assets/icon/指示状态.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 80,
-                "height": 80,
-                "name": "light",
-                "prop": "light",
-            },
-            "option": {
-                "rotateDuration": 1000,
-                "flashDuration": 1000,
-                "jumpDuration": 1000,
-                "rotate": false,
-                "flash": false,
-                "jump": false
+        // {
+        //     label: '状态指示',
+        //     option: {
+        //         "name": "状态指示",
+        //         "title": "状态指示",
+        //         "icon": 'icon-zhuangtaideng',
+        //         "img": require('@/assets/icon/指示状态.png'),
+        //         "data": [],
+        //         "dataFormatter": "",
+        //         "stylesFormatter": "",
+        //         "component": {
+        //             "width": 80,
+        //             "height": 80,
+        //             "name": "state",
+        //             "prop": "state",
+        //         },
+        //         "option": {
+        //             "fontSize": 20,
+        //         }
+        //     }
+        // },
+        {
+            label: '指示灯',
+            option: {
+                "name": "指示灯",
+                "title": "指示灯",
+                "icon": 'icon-bar',
+                "img": require('@/assets/icon/指示状态.png'),
+                "data": [],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 80,
+                    "height": 80,
+                    "name": "light",
+                    "prop": "light",
+                },
+                "option": {
+					"rotateDuration": 1000,
+					"flashDuration": 1000,
+					"jumpDuration": 1000,
+					"rotate": false,
+					"flash": false,
+					"jump": false
+				}
             }
-        }
-    },
-    {
-        label: '弹窗趋势',
-        option: {
-            "name": "弹窗趋势",
-            "title": "弹窗趋势",
-            "icon": 'icon-bar',
-            "img": require('@/assets/line.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 80,
-                "height": 80,
-                "name": "trend",
-                "prop": "trend",
-            },
-            "option": {
-                "url": '',
-                "points": '',
-                "pointNm": '',
-                "unit": ''
+        },
+        {
+            label: '弹窗趋势',
+            option: {
+                "name": "弹窗趋势",
+                "title": "弹窗趋势",
+                "icon": 'icon-bar',
+                "img": require('@/assets/line.png'),
+                "data": [],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 80,
+                    "height": 80,
+                    "name": "trend",
+                    "prop": "trend",
+                },
+                "option": {
+                    "url":'',
+                    "points":'',
+                    "pointNm":'',
+                    "unit":''
+                }
             }
-        }
-    },
-    {
-        label: '流动线',
-        option: {
-            "name": "流动线",
-            "title": "流动线",
-            "icon": 'icon-bar',
-            "img": require('@/assets/icon/线条.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 500,
-                "height": 40,
-                "name": "xline",
-                "prop": "xline",
-            },
-            "option": {
-                "fontSize": 20,
-                "color": '#FF0000',
-                "width": 3,
-                "dasharray": 10,
-                "opacity": 1,
-                "speed": 10,
-                "setUp": false,
-                "points": null,
+        },
+        {
+            label: '流动线',
+            option: {
+                "name": "流动线",
+                "title": "流动线",
+                "icon": 'icon-bar',
+                "img": require('@/assets/icon/线条.png'),
+                "data": [],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 500,
+                    "height": 40,
+                    "name": "xline",
+                    "prop": "xline",
+                },
+                "option": {
+                    "fontSize": 20,
+					"color": '#FF0000',
+					"width": 3,
+					"dasharray": 10,
+					"opacity": 1,
+					"speed": 10,
+					"setUp": false,
+					"points":null,
+                }
             }
-        }
-    },
+        },
 
-    {
-        label: '能耗',
-        option: {
-            "name": "能耗",
-            "title": "能耗",
-            "icon": 'icon-bar',
-            "img": require('@/assets/icon/能耗.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 800,
-                "height": 500,
-                "name": "energy",
-                "prop": "energy",
-            },
-            "option": {}
-        }
-    },
-
-    {
-        label: '液位',
-        option: {
-            "name": "液位",
-            "title": "液位",
-            "icon": 'icon-yewei',
-            "img": require('@/assets/icon/液位.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 100,
-                "height": 100,
-                "name": "level",
-                "prop": "level",
-            },
-            "option": {
-                "type": 'rect'
+        {
+            label: '能耗',
+            option: {
+                "name": "能耗",
+                "title": "能耗",
+                "icon": 'icon-bar',
+                "img": require('@/assets/icon/能耗.png'),
+                "data": [],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 800,
+                    "height": 500,
+                    "name": "energy",
+                    "prop": "energy",
+                },
+                "option": {}
             }
-        }
-    },
-    {
-        label: '移动',
-        option: {
-            "name": "移动",
-            "title": "移动",
-            "icon": 'icon-bar',
-            "img": require('@/assets/icon/移动小车.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 400,
-                "height": 400,
-                "name": "moveCar",
-                "prop": "moveCar",
-            },
-            "option": {}
-        }
-    },
-    {
-        label: '游标',
-        option: {
-            "name": "游标",
-            "title": "游标",
-            "icon": 'icon-youbiao',
-            "img": require('@/assets/base/游标.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 400,
-                "height": 400,
-                "name": "cursor",
-                "prop": "cursor",
-            },
-            "option": {}
-        }
-    },
+        },
 
-    {
-        "label": 'datav',
-        "option": {
-            "name": "datav",
-            "title": "datav",
-            "icon": 'icon-bar',
-            "img": require('@/assets/text6.png'),
-            "dataType": 1,
-            "dataMethod": 'get',
-            "data": {
-                "categories": [
-                    "苹果",
-                    "三星",
-                    "小米",
-                    "oppo",
-                    "vivo"
-                ],
-                "series": [{
-                    "name": "手机品牌",
-                    "data": [
-                        1000879,
-                        3400879,
-                        2300879,
-                        5400879,
-                        3400879
-                    ]
-                }]
-            },
-            "echartFormatter": "(data)=>{\n  console.log(data);\n  return {\n    config:{\n\t  data: [66] \n\t}\n  }\n}",
-            "url": baseUrl + "/bar",
-            "time": 5000,
-            "component": {
-                "width": 150,
-                "height": 200,
+        {
+            label: '液位',
+            option: {
+                "name": "液位",
+                "title": "液位",
+                "icon": 'icon-yewei',
+                "img": require('@/assets/icon/液位.png'),
+                "data": [],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 100,
+                    "height": 100,
+                    "name": "level",
+                    "prop": "level",
+                },
+                "option": {
+					"type": 'rect'
+				}
+            }
+        },
+        {
+            label: '移动',
+            option: {
+                "name": "移动",
+                "title": "移动",
+                "icon": 'icon-bar',
+                "img": require('@/assets/icon/移动小车.png'),
+                "data": [],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 400,
+                    "height": 400,
+                    "name": "moveCar",
+                    "prop": "moveCar",
+                },
+                "option": {}
+            }
+        },
+        {
+            label: '游标',
+            option: {
+                "name": "游标",
+                "title": "游标",
+                "icon": 'icon-youbiao',
+                "img": require('@/assets/base/游标.png'),
+                "data": [],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 400,
+                    "height": 400,
+                    "name": "cursor",
+                    "prop": "cursor",
+                },
+                "option": {}
+            }
+        },
+
+        {
+            "label": 'datav',
+            "option": {
                 "name": "datav",
-                "prop": "datav",
-            },
-            "option": {
-                "is": 'dv-water-level-pond'
-            }
-        }
-    }, {
-        "label": '柱形图',
-        "option": {
-            "name": "柱状图",
-            "title": "柱状图",
-            "icon": 'icon-zhuzhuangtu',
-            "img": require('@/assets/bar.png'),
-            "dataType": 1,
-            "dataMethod": 'get',
-            "data": {
-                "categories": [
-                    "苹果",
-                    "三星",
-                    "小米",
-                    "oppo",
-                    "vivo"
-                ],
-                "series": [{
-                    "name": "手机品牌",
-                    "data": [
-                        1000879,
-                        3400879,
-                        2300879,
-                        5400879,
-                        3400879
-                    ]
-                }]
-            },
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "url": baseUrl + "/bar",
-            "time": 5000,
-            "component": {
-                "width": 600,
-                "height": 300,
-                "name": "bar",
-                "prop": "bar",
-            },
-            "option": {
-                "gridX": 90,
-                "gridY": 0,
-                "gridX2": 0,
-                "gridY2": 0,
-                "legend": true,
-                "nameColor": "#eee",
-                "lineColor": "#eee",
-                "xNameFontSize": 16,
-                "yNameFontSize": 16,
-                "labelShow": true,
-                "labelShowColor": '#fff',
-                "labelShowFontSize": 14,
-                "labelShowFontWeight": 300,
-                "yAxisInverse": false,
-                "xAxisInverse": false,
-                "xAxisShow": true,
-                "yAxisShow": true,
-                "xAxisSplitLineShow": false,
-                "yAxisSplitLineShow": false,
-                "barWidth": 30,
-                "barRadius": 8,
-                "barColor": [{
-                    "color1": "#83bff6",
-                    "color2": "#188df0",
-                    "postion": 90,
-                    "$index": 0,
-                    "_show": true
-                }, {
-                    "color1": "#23B7E5",
-                    "color2": "#564AA3",
-                    "postion": 50,
-                    "$index": 1,
-                    "_show": true
-                }],
-                "barMinHeight": 2
-            }
-        }
-    }, {
-        "label": '折线图',
-        "option": {
-            "name": "折线图",
-            "title": "折线图",
-            "icon": 'icon-zhexiantu1',
-            "img": require('@/assets/line.png'),
-            "dataType": 1,
-            "dataMethod": 'get',
-            "data": {
-                "categories": [
-                    "苹果",
-                    "三星",
-                    "小米",
-                    "oppo",
-                    "vivo"
-                ],
-                "series": [{
-                    "name": "手机品牌",
-                    "data": [
-                        1000879,
-                        3400879,
-                        2300879,
-                        5400879,
-                        3400879
-                    ]
-                }]
-            },
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "url": baseUrl + "/bar",
-            "time": 5000,
-            "component": {
-                "width": 600,
-                "height": 300,
-                "name": "line",
-                "prop": "line",
-            },
-            "option": {
-                "gridX": 90,
-                "gridY": 0,
-                "gridX2": 0,
-                "gridY2": 0,
-                "nameColor": "#eee",
-                "lineColor": "#eee",
-                "lineWidth": 5,
-                "xNameFontSize": 16,
-                "yNameFontSize": 16,
-                "labelShow": false,
-                "labelShowFontSize": 14,
-                "labelShowFontWeight": 300,
-                "yAxisInverse": false,
-                "xAxisInverse": false,
-                "xAxisShow": true,
-                "yAxisShow": true,
-                "xAxisSplitLineShow": false,
-                "yAxisSplitLineShow": false,
-                "barWidth": 30,
-                "barRadius": 8,
-                "barColor": [{
-                    "color1": "#83bff6",
-                    "color2": "#188df0",
-                    "postion": 90,
-                    "$index": 0,
-                    "_show": true
-                }, {
-                    "color1": "#23B7E5",
-                    "color2": "#564AA3",
-                    "postion": 50,
-                    "$index": 1,
-                    "_show": true
-                }],
-                "symbolSize": 6,
-                "smooth": true,
-                "barMinHeight": 2
-            }
-        }
-    }, {
-        label: '饼图',
-        option: {
-            "name": "饼图",
-            "title": "饼图",
-            "icon": 'icon-pie',
-            "img": require('@/assets/pie.png'),
-            "dataType": 1,
-            "dataMethod": 'get',
-            "time": 5000,
-            "url": baseUrl + "/pie",
-            "data": [{
-                "name": "苹果",
-                "value": 1000879,
-                "url": "http://www.baidu.com"
-            }, {
-                "name": "三星",
-                "value": 3400879,
-                "url": "http://www.baidu.com"
-            }, {
-                "name": "小米",
-                "value": 2300879,
-                "url": "http://www.baidu.com"
-            }, {
-                "name": "oppo",
-                "value": 5400879,
-                "url": "http://www.baidu.com"
-            }, {
-                "name": "大疆",
-                "value": 3000,
-                "url": "http://www.baidu.com"
-            }, {
-                "name": "抖音",
-                "value": 2000,
-                "url": "http://www.baidu.com"
-            }],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "resize": false,
-            "component": {
-                "width": 600,
-                "height": 300,
-                "name": "pie",
-                "prop": "pie",
-            },
-            "option": {
-                "legend": true,
-                "labelShow": true,
-                "barColor": [{
-                    "color1": "#83bff6"
+                "title": "datav",
+                "icon": 'icon-bar',
+                "img": require('@/assets/text6.png'),
+                "dataType": 1,
+                "dataMethod": 'get',
+                "data": {
+                    "categories": [
+                        "苹果",
+                        "三星",
+                        "小米",
+                        "oppo",
+                        "vivo"
+                    ],
+                    "series": [{
+                        "name": "手机品牌",
+                        "data": [
+                            1000879,
+                            3400879,
+                            2300879,
+                            5400879,
+                            3400879
+                        ]
+                    }]
                 },
-                {
-                    "color1": "#23B7E5"
+                "echartFormatter": "(data)=>{\n  console.log(data);\n  return {\n    config:{\n\t  data: [66] \n\t}\n  }\n}",
+                "url": baseUrl + "/bar",
+                "time": 5000,
+                "component": {
+                    "width": 150,
+                    "height": 200,
+                    "name": "datav",
+                    "prop": "datav",
                 },
-                {
-                    "color1": "rgba(154, 168, 212, 1)"
-                },
-                {
-                    "color1": "#188df0"
-                },
-                {
-                    "color1": "#564AA3"
+                "option": {
+                    "is": 'dv-water-level-pond'
                 }
-                ]
             }
-        }
-    }, {
-        label: '象形图',
-        option: {
-            "title": "象形图",
-            "name": "象形图",
-            "icon": "icon-pictorialBar",
-            "img": require('@/assets/bar2.png'),
-            "dataType": 1,
-            "dataMethod": 'get',
-            "time": 5000,
-            "url": baseUrl + "/pie",
-            "data": [{
-                "name": "苹果",
-                "value": 1000879,
-            }, {
-                "name": "三星",
-                "value": 3400879,
-            }, {
-                "name": "小米",
-                "value": 2300879,
-            }, {
-                "name": "oppo",
-                "value": 5400879,
-            }, {
-                "name": "大疆",
-                "value": 3000,
-            }, {
-                "name": "抖音",
-                "value": 2000,
-            }],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 600,
-                "height": 300,
-                "name": "pictorialbar",
-                "prop": "pictorialbar",
-            },
+        }, {
+            "label": '柱形图',
             "option": {
-                symbolSize: 30,
-                split: 30,
-                symbol: '/img/source/source256.png',
-                fontSize: '24',
-                xAxisShow: false,
-                yAxisShow: true,
-                color: '#4dffff',
-                nameColor: '#564AA3',
-                xNameFontSize: '24',
-                yNameFontSize: '24',
-            }
-        }
-    }, {
-        label: '雷达图',
-        option: {
-            "title": "雷达图",
-            "name": "雷达图",
-            "icon": "icon-radar",
-            "img": require('@/assets/radar.png'),
-            "dataType": 1,
-            "dataMethod": 'get',
-            "time": 5000,
-            "url": baseUrl + "/radar",
-            "data": {
-                indicator: [{
-                    name: '销售',
-                    max: 6500
+                "name": "柱状图",
+                "title": "柱状图",
+                "icon": 'icon-zhuzhuangtu',
+                "img": require('@/assets/bar.png'),
+                "dataType": 1,
+                "dataMethod": 'get',
+                "data": {
+                    "categories": [
+                        "苹果",
+                        "三星",
+                        "小米",
+                        "oppo",
+                        "vivo"
+                    ],
+                    "series": [{
+                        "name": "手机品牌",
+                        "data": [
+                            1000879,
+                            3400879,
+                            2300879,
+                            5400879,
+                            3400879
+                        ]
+                    }]
                 },
-                {
-                    name: '管理',
-                    max: 16000
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "url": baseUrl + "/bar",
+                "time": 5000,
+                "component": {
+                    "width": 600,
+                    "height": 300,
+                    "name": "bar",
+                    "prop": "bar",
                 },
-                {
-                    name: '信息技术',
-                    max: 30000
-                },
-                {
-                    name: '客服',
-                    max: 38000
-                },
-                {
-                    name: '研发',
-                    max: 52000
-                },
-                {
-                    name: '市场',
-                    max: 25000
+                "option": {
+                    "gridX": 90,
+                    "gridY": 0,
+                    "gridX2": 0,
+                    "gridY2": 0,
+                    "legend": true,
+                    "nameColor": "#eee",
+                    "lineColor": "#eee",
+                    "xNameFontSize": 16,
+                    "yNameFontSize": 16,
+                    "labelShow": true,
+                    "labelShowColor": '#fff',
+                    "labelShowFontSize": 14,
+                    "labelShowFontWeight": 300,
+                    "yAxisInverse": false,
+                    "xAxisInverse": false,
+                    "xAxisShow": true,
+                    "yAxisShow": true,
+                    "xAxisSplitLineShow": false,
+                    "yAxisSplitLineShow": false,
+                    "barWidth": 30,
+                    "barRadius": 8,
+                    "barColor": [{
+                        "color1": "#83bff6",
+                        "color2": "#188df0",
+                        "postion": 90,
+                        "$index": 0,
+                        "_show": true
+                    }, {
+                        "color1": "#23B7E5",
+                        "color2": "#564AA3",
+                        "postion": 50,
+                        "$index": 1,
+                        "_show": true
+                    }],
+                    "barMinHeight": 2
                 }
-                ],
-                series: [{
-                    data: [{
-                        value: [4300, 10000, 28000, 35000, 50000, 19000],
-                        name: '预算分配（Allocated Budget）'
+            }
+        }, {
+            "label": '折线图',
+            "option": {
+                "name": "折线图",
+                "title": "折线图",
+                "icon": 'icon-zhexiantu1',
+                "img": require('@/assets/line.png'),
+                "dataType": 1,
+                "dataMethod": 'get',
+                "data": {
+                    "categories": [
+                        "苹果",
+                        "三星",
+                        "小米",
+                        "oppo",
+                        "vivo"
+                    ],
+                    "series": [{
+                        "name": "手机品牌",
+                        "data": [
+                            1000879,
+                            3400879,
+                            2300879,
+                            5400879,
+                            3400879
+                        ]
+                    }]
+                },
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "url": baseUrl + "/bar",
+                "time": 5000,
+                "component": {
+                    "width": 600,
+                    "height": 300,
+                    "name": "line",
+                    "prop": "line",
+                },
+                "option": {
+                    "gridX": 90,
+                    "gridY": 0,
+                    "gridX2": 0,
+                    "gridY2": 0,
+                    "nameColor": "#eee",
+                    "lineColor": "#eee",
+                    "lineWidth": 5,
+                    "xNameFontSize": 16,
+                    "yNameFontSize": 16,
+                    "labelShow": false,
+                    "labelShowFontSize": 14,
+                    "labelShowFontWeight": 300,
+                    "yAxisInverse": false,
+                    "xAxisInverse": false,
+                    "xAxisShow": true,
+                    "yAxisShow": true,
+                    "xAxisSplitLineShow": false,
+                    "yAxisSplitLineShow": false,
+                    "barWidth": 30,
+                    "barRadius": 8,
+                    "barColor": [{
+                        "color1": "#83bff6",
+                        "color2": "#188df0",
+                        "postion": 90,
+                        "$index": 0,
+                        "_show": true
+                    }, {
+                        "color1": "#23B7E5",
+                        "color2": "#564AA3",
+                        "postion": 50,
+                        "$index": 1,
+                        "_show": true
+                    }],
+                    "symbolSize": 6,
+                    "smooth": true,
+                    "barMinHeight": 2
+                }
+            }
+        }, {
+            label: '饼图',
+            option: {
+                "name": "饼图",
+                "title": "饼图",
+                "icon": 'icon-pie',
+                "img": require('@/assets/pie.png'),
+                "dataType": 1,
+                "dataMethod": 'get',
+                "time": 5000,
+                "url": baseUrl + "/pie",
+                "data": [{
+                    "name": "苹果",
+                    "value": 1000879,
+                    "url": "http://www.baidu.com"
+                }, {
+                    "name": "三星",
+                    "value": 3400879,
+                    "url": "http://www.baidu.com"
+                }, {
+                    "name": "小米",
+                    "value": 2300879,
+                    "url": "http://www.baidu.com"
+                }, {
+                    "name": "oppo",
+                    "value": 5400879,
+                    "url": "http://www.baidu.com"
+                }, {
+                    "name": "大疆",
+                    "value": 3000,
+                    "url": "http://www.baidu.com"
+                }, {
+                    "name": "抖音",
+                    "value": 2000,
+                    "url": "http://www.baidu.com"
+                }],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "resize": false,
+                "component": {
+                    "width": 600,
+                    "height": 300,
+                    "name": "pie",
+                    "prop": "pie",
+                },
+                "option": {
+                    "legend": true,
+                    "labelShow": true,
+                    "barColor": [{
+                        "color1": "#83bff6"
                     },
-                    {
-                        value: [5000, 14000, 28000, 31000, 42000, 21000],
-                        name: '实际开销（Actual Spending）'
-                    }
+                        {
+                            "color1": "#23B7E5"
+                        },
+                        {
+                            "color1": "rgba(154, 168, 212, 1)"
+                        },
+                        {
+                            "color1": "#188df0"
+                        },
+                        {
+                            "color1": "#564AA3"
+                        }
                     ]
-                }]
-            },
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 970,
-                "height": 400,
-                "name": "radar",
-                "prop": "radar",
-            },
-            "option": {
-                width: '100%',
-                height: 600,
-                titleShow: true,
-                title: '各部门开销',
-                subtext: '最近一个月',
-                titleColor: '#666',
-                tipBackgroundColor: 'rgba(50,50,50,0.7)',
-                tipColor: "#fff",
-                shape: 'polygon',
-                radius: "75%",
-                splitNumber: 4,
-                radarNameColor: '#fff',
-                radarNameSize: 18,
-                titleFontSize: 18,
-                areaOpacity: 0.3,
-                legend: true,
-                // labelShow: true,
-                "barColor": [{
-                    "color1": "#564AA3",
-                },
-                {
-                    "color1": "#188df0",
                 }
-                ]
-            },
-        }
-    },
-    {
-        label: '趋势(新)',
-        option: {
-            "name": "趋势(新)",
-            "title": "趋势(新)",
-            "icon": 'icon-bar',
-            "img": require('@/assets/line.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 850,
-                "height": 300,
-                "name": "trendNew",
-                "prop": "trendNew",
-            },
-            "option": {}
-        }
-    },
+            }
+        }, {
+            label: '象形图',
+            option: {
+                "title": "象形图",
+                "name": "象形图",
+                "icon": "icon-pictorialBar",
+                "img": require('@/assets/bar2.png'),
+                "dataType": 1,
+                "dataMethod": 'get',
+                "time": 5000,
+                "url": baseUrl + "/pie",
+                "data": [{
+                    "name": "苹果",
+                    "value": 1000879,
+                }, {
+                    "name": "三星",
+                    "value": 3400879,
+                }, {
+                    "name": "小米",
+                    "value": 2300879,
+                }, {
+                    "name": "oppo",
+                    "value": 5400879,
+                }, {
+                    "name": "大疆",
+                    "value": 3000,
+                }, {
+                    "name": "抖音",
+                    "value": 2000,
+                }],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 600,
+                    "height": 300,
+                    "name": "pictorialbar",
+                    "prop": "pictorialbar",
+                },
+                "option": {
+                    symbolSize: 30,
+                    split: 30,
+                    symbol: '/img/source/source256.png',
+                    fontSize: '24',
+                    xAxisShow: false,
+                    yAxisShow: true,
+                    color: '#4dffff',
+                    nameColor: '#564AA3',
+                    xNameFontSize: '24',
+                    yNameFontSize: '24',
+                }
+            }
+        }, {
+            label: '雷达图',
+            option: {
+                "title": "雷达图",
+                "name": "雷达图",
+                "icon": "icon-radar",
+                "img": require('@/assets/radar.png'),
+                "dataType": 1,
+                "dataMethod": 'get',
+                "time": 5000,
+                "url": baseUrl + "/radar",
+                "data": {
+                    indicator: [{
+                        name: '销售',
+                        max: 6500
+                    },
+                        {
+                            name: '管理',
+                            max: 16000
+                        },
+                        {
+                            name: '信息技术',
+                            max: 30000
+                        },
+                        {
+                            name: '客服',
+                            max: 38000
+                        },
+                        {
+                            name: '研发',
+                            max: 52000
+                        },
+                        {
+                            name: '市场',
+                            max: 25000
+                        }
+                    ],
+                    series: [{
+                        data: [{
+                            value: [4300, 10000, 28000, 35000, 50000, 19000],
+                            name: '预算分配（Allocated Budget）'
+                        },
+                            {
+                                value: [5000, 14000, 28000, 31000, 42000, 21000],
+                                name: '实际开销（Actual Spending）'
+                            }
+                        ]
+                    }]
+                },
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 970,
+                    "height": 400,
+                    "name": "radar",
+                    "prop": "radar",
+                },
+                "option": {
+                    width: '100%',
+                    height: 600,
+                    titleShow: true,
+                    title: '各部门开销',
+                    subtext: '最近一个月',
+                    titleColor: '#666',
+                    tipBackgroundColor: 'rgba(50,50,50,0.7)',
+                    tipColor: "#fff",
+                    shape: 'polygon',
+                    radius: "75%",
+                    splitNumber: 4,
+                    radarNameColor: '#fff',
+                    radarNameSize: 18,
+                    titleFontSize: 18,
+                    areaOpacity: 0.3,
+                    legend: true,
+                    // labelShow: true,
+                    "barColor": [{
+                        "color1": "#564AA3",
+                    },
+                        {
+                            "color1": "#188df0",
+                        }
+                    ]
+                },
+            }
+        },
+        {
+            label: '趋势(新)',
+            option: {
+                "name": "趋势(新)",
+                "title": "趋势(新)",
+                "icon": 'icon-bar',
+                "img": require('@/assets/line.png'),
+                "data": [],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 850,
+                    "height": 300,
+                    "name": "trendNew",
+                    "prop": "trendNew",
+                },
+                "option": {}
+            }
+        },
 
         // {
         //     label: '散点图',
@@ -1435,7 +1432,7 @@ export default [{
         //     },
         // }
     ]
-},
+}, 
 // {
 //     "label": '文字',
 //     "icon": 'icon-text',
@@ -1551,7 +1548,7 @@ export default [{
     //         }
     //     }
     // },
-    {
+        {
         label: '轮播图',
         option: {
             "title": "轮播图",
@@ -1610,7 +1607,7 @@ export default [{
     //         "stylesFormatter": ""
     //     }
     // },
-    {
+        {
         label: 'video',
         option: {
             "title": "video",
@@ -1645,8 +1642,8 @@ export default [{
             "left": 0,
             "dataType": 0,
             "option": {
-                "url": '',
-                "title": ''
+                "url":'',
+                "title":''
 
             },
             "dataFormatter": "",
@@ -1659,27 +1656,8 @@ export default [{
             },
 
         },
-    }, {
-        "label": '3D',
-        "option": {
-            "title": "3D",
-            "name": "3D",
-            "icon": 'icon-tupianshangchuan',
-            "img": require('@/assets/img.png'),
-            "top": 0,
-            "left": 0,
-            "dataType": 0,
-            "data": {
-                value: ''
-            },
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 400,
-                "height": 400,
-                "name": "threeD",
-                "prop": "threeD",
-            },
+    },{
+            "label": '3D',
             "option": {
                 "title": "3D",
                 "name": "3D",
@@ -1719,8 +1697,7 @@ export default [{
 
                 }
             }
-        }
-    },]
+        },]
 }, {
     "label": '指标',
     "icon": 'icon-a-lujing47',
@@ -1764,281 +1741,281 @@ export default [{
             },
         }
     },
-    {
-        label: '报警数',
-        option: {
-            "name": "报警数",
-            "title": "报警数",
-            "icon": 'icon-bar',
-            "img": require('@/assets/text4.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 100,
-                "height": 100,
-                "name": "alert",
-                "prop": "alert",
-            },
-            "option": {
-                "fontSize": 20,
-            }
-        }
-    }, {
-        "label": '颜色块',
-        "option": {
-            "title": "颜色块",
-            "name": "颜色块",
-            "icon": 'icon-flop',
-            "img": require('@/assets/flop2.png'),
-            "top": 0,
-            "left": 0,
-            "dataType": 0,
-            "data": [{
-                "backgroundColor": '#67C23A',
-                "prefixText": "某某某总人数",
-                "value": '12345',
-                "suffixText": '人',
-            }, {
-                "backgroundColor": '#409EFF',
-                "prefixText": "某某某总人数",
-                "value": '12345',
-                "suffixText": '人',
-            }, {
-                "backgroundColor": '#E6A23C',
-                "prefixText": "某某某总人数",
-                "value": '12345',
-                "suffixText": '人',
-            }, {
-                "backgroundColor": '#F56C6C',
-                "prefixText": "某某某总人数",
-                "value": '12345',
-                "suffixText": '人',
-            }, {
-                "backgroundColor": '#7232dd',
-                "prefixText": "某某某总人数",
-                "value": '12345',
-                "suffixText": '人',
-            }, {
-                "backgroundColor": 'blue',
-                "prefixText": "某某某总人数",
-                "value": '12345',
-                "suffixText": '人',
-            }],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 888,
-                "height": 203,
-                "name": "flop",
-                "prop": "flop",
-            },
-            "option": {
-                "span": 3,
-                "decimals": 2,
-                "whole": true,
-                "padding": 12,
-                "textAlign": 'left',
-                "splity": 23,
-                "splitx": 17,
-                "fontSize": 28,
-                "prefixSplity": 4,
-                "prefixFontSize": 13,
-                "backgroundColor": "#F56C6C",
-                "suffixText": '人',
-                "suffixInline": true,
-                "suffixSplitx": 10,
-                "suffixFontSize": 18,
-            },
-        }
-    }, {
-        "label": '环形图',
-        "option": {
-            "title": "环形图",
-            "name": "环形图",
-            "icon": 'icon-huanxingtu',
-            "img": require('@/assets/progress.png'),
-            "top": 0,
-            "left": 0,
-            "dataType": 0,
-            "data": {
-                "label": "人数增涨",
-                "value": 40,
-                "data": 80
-            },
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 300,
-                "height": 300,
-                "name": "progress",
-                "prop": "progress"
-            },
-            "option": {
-                "type": "circle",
-                "strokeWidth": 25,
-                "color": "rgba(154, 168, 212, 1)",
-                "fontSize": 40,
-                "fontWeight": "normal",
-                "suffixColor": "rgba(154, 168, 212, 1)",
-                "suffixFontSize": 40,
-                "suffixFontWeight": "normal",
-                "borderColor": "#564AA3",
-                "split": 20,
-                "width": 400,
-                "height": 80
-            },
-        }
-    }, {
-        "label": '进度条',
-        "option": {
-            "title": "进度条",
-            "name": "进度条",
-            "icon": 'icon-jindutiao',
-            "img": require('@/assets/progress2.png'),
-            "top": 0,
-            "left": 0,
-            "data": {
-                "label": "人数增涨",
-                "value": 40,
-                "data": 80
-            },
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 400,
-                "height": 100,
-                "name": "progress",
-                "prop": "progress"
-            },
-            "option": {
-                "type": "line",
-                "color": "#fff",
-                "fontSize": 24,
-                "suffixColor": "#fff",
-                "strokeWidth": 13,
-                "fontWeight": "normal",
-                "borderColor": "#564AA3"
-            },
-        }
-    }, {
-        label: '仪表盘',
-        option: {
-            "title": "仪表盘",
-            "icon": 'icon-yibiaopan1',
-            "img": require('@/assets/gauge.png'),
-            "name": "仪表盘",
-            "dataType": 1,
-            "dataMethod": 'get',
-            "time": 5000,
-            "url": baseUrl + "/gauge",
-            "data": {
-                min: 1,
-                max: 10,
-                label: '名称',
-                value: 4,
-                unit: '%'
-            },
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 390,
-                "height": 314,
-                "name": "gauge",
-                "prop": "gauge"
-            },
-            "option": {
-                "lineSize": 15,
-                "axisLabelShow": false,
-                "axisLabelFontSize": 25,
-                "nameFontSize": 20,
-                "valueFontSize": 30,
-                "nameColor": "",
-                "lineColor": "#eee",
-                "min": 1,
-                "max": 10,
-                "unit": '',
-                "barColor": [{
-                    "color1": "rgba(154, 168, 212, 1)",
-                    "postion": "0.2",
-                },
-                {
-                    "color1": "#23B7E5",
-                    "postion": "0.8",
-                },
-                {
-                    "color1": "#564AA3",
-                    "postion": "1",
-                }
-                ]
-            },
-        },
-    }, {
-        label: '字符云',
-        option: {
-            "title": "字符云",
-            "name": "字符云",
-            "icon": "icon-wordCloud",
-            "img": require('@/assets/wordcloud.png'),
-            "top": 725,
-            "left": 3780,
-            "dataType": 1,
-            "dataMethod": 'get',
-            "data": [{
-                name: '三星',
-                value: '1234'
-            }, {
-                name: '小米',
-                value: '1234'
-            }, {
-                name: '华为',
-                value: '1234'
-            }, {
-                name: 'oppo',
-                value: '1234'
-            }, {
-                name: '抖音',
-                value: '1234'
-            }, {
-                name: '快手',
-                value: '1234'
-            }, {
-                name: '淘宝',
-                value: '1234'
-            }, {
-                name: '百度',
-                value: '1234'
-            }, {
-                name: '京东',
-                value: '1234'
-            }, {
-                name: '天猫',
-                value: '1234'
-            }, {
-                name: '字符1',
-                value: '1234'
-            }, {
-                name: '字符1',
-                value: '1234'
-            }],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "url": baseUrl + "/wordCloud",
-            "time": 5000,
-            "component": {
-                "name": "wordcloud",
-                "prop": "wordcloud",
-                "width": 600,
-                "height": 300,
-            },
+        {
+            label: '报警数',
             option: {
-                minFontSize: 30,
-                maxFontSize: 80,
-                split: 30,
-                rotate: true,
+                "name": "报警数",
+                "title": "报警数",
+                "icon": 'icon-bar',
+                "img": require('@/assets/text4.png'),
+                "data": [],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 100,
+                    "height": 100,
+                    "name": "alert",
+                    "prop": "alert",
+                },
+                "option": {
+                    "fontSize": 20,
+                }
+            }
+        }, {
+            "label": '颜色块',
+            "option": {
+                "title": "颜色块",
+                "name": "颜色块",
+                "icon": 'icon-flop',
+                "img": require('@/assets/flop2.png'),
+                "top": 0,
+                "left": 0,
+                "dataType": 0,
+                "data": [{
+                    "backgroundColor": '#67C23A',
+                    "prefixText": "某某某总人数",
+                    "value": '12345',
+                    "suffixText": '人',
+                }, {
+                    "backgroundColor": '#409EFF',
+                    "prefixText": "某某某总人数",
+                    "value": '12345',
+                    "suffixText": '人',
+                }, {
+                    "backgroundColor": '#E6A23C',
+                    "prefixText": "某某某总人数",
+                    "value": '12345',
+                    "suffixText": '人',
+                }, {
+                    "backgroundColor": '#F56C6C',
+                    "prefixText": "某某某总人数",
+                    "value": '12345',
+                    "suffixText": '人',
+                }, {
+                    "backgroundColor": '#7232dd',
+                    "prefixText": "某某某总人数",
+                    "value": '12345',
+                    "suffixText": '人',
+                }, {
+                    "backgroundColor": 'blue',
+                    "prefixText": "某某某总人数",
+                    "value": '12345',
+                    "suffixText": '人',
+                }],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 888,
+                    "height": 203,
+                    "name": "flop",
+                    "prop": "flop",
+                },
+                "option": {
+                    "span": 3,
+                    "decimals": 2,
+                    "whole": true,
+                    "padding": 12,
+                    "textAlign": 'left',
+                    "splity": 23,
+                    "splitx": 17,
+                    "fontSize": 28,
+                    "prefixSplity": 4,
+                    "prefixFontSize": 13,
+                    "backgroundColor": "#F56C6C",
+                    "suffixText": '人',
+                    "suffixInline": true,
+                    "suffixSplitx": 10,
+                    "suffixFontSize": 18,
+                },
+            }
+        }, {
+            "label": '环形图',
+            "option": {
+                "title": "环形图",
+                "name": "环形图",
+                "icon": 'icon-huanxingtu',
+                "img": require('@/assets/progress.png'),
+                "top": 0,
+                "left": 0,
+                "dataType": 0,
+                "data": {
+                    "label": "人数增涨",
+                    "value": 40,
+                    "data": 80
+                },
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 300,
+                    "height": 300,
+                    "name": "progress",
+                    "prop": "progress"
+                },
+                "option": {
+                    "type": "circle",
+                    "strokeWidth": 25,
+                    "color": "rgba(154, 168, 212, 1)",
+                    "fontSize": 40,
+                    "fontWeight": "normal",
+                    "suffixColor": "rgba(154, 168, 212, 1)",
+                    "suffixFontSize": 40,
+                    "suffixFontWeight": "normal",
+                    "borderColor": "#564AA3",
+                    "split": 20,
+                    "width": 400,
+                    "height": 80
+                },
+            }
+        }, {
+            "label": '进度条',
+            "option": {
+                "title": "进度条",
+                "name": "进度条",
+                "icon": 'icon-jindutiao',
+                "img": require('@/assets/progress2.png'),
+                "top": 0,
+                "left": 0,
+                "data": {
+                    "label": "人数增涨",
+                    "value": 40,
+                    "data": 80
+                },
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 400,
+                    "height": 100,
+                    "name": "progress",
+                    "prop": "progress"
+                },
+                "option": {
+                    "type": "line",
+                    "color": "#fff",
+                    "fontSize": 24,
+                    "suffixColor": "#fff",
+                    "strokeWidth": 13,
+                    "fontWeight": "normal",
+                    "borderColor": "#564AA3"
+                },
+            }
+        }, {
+            label: '仪表盘',
+            option: {
+                "title": "仪表盘",
+                "icon": 'icon-yibiaopan1',
+                "img": require('@/assets/gauge.png'),
+                "name": "仪表盘",
+                "dataType": 1,
+                "dataMethod": 'get',
+                "time": 5000,
+                "url": baseUrl + "/gauge",
+                "data": {
+                    min: 1,
+                    max: 10,
+                    label: '名称',
+                    value: 4,
+                    unit: '%'
+                },
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 390,
+                    "height": 314,
+                    "name": "gauge",
+                    "prop": "gauge"
+                },
+                "option": {
+                    "lineSize": 15,
+                    "axisLabelShow": false,
+                    "axisLabelFontSize": 25,
+                    "nameFontSize": 20,
+                    "valueFontSize": 30,
+                    "nameColor": "",
+                    "lineColor": "#eee",
+					"min": 1,
+					"max": 10,
+					"unit": '',
+                    "barColor": [{
+                        "color1": "rgba(154, 168, 212, 1)",
+                        "postion": "0.2",
+                    },
+                        {
+                            "color1": "#23B7E5",
+                            "postion": "0.8",
+                        },
+                        {
+                            "color1": "#564AA3",
+                            "postion": "1",
+                        }
+                    ]
+                },
+            },
+        }, {
+            label: '字符云',
+            option: {
+                "title": "字符云",
+                "name": "字符云",
+                "icon": "icon-wordCloud",
+                "img": require('@/assets/wordcloud.png'),
+                "top": 725,
+                "left": 3780,
+                "dataType": 1,
+                "dataMethod": 'get',
+                "data": [{
+                    name: '三星',
+                    value: '1234'
+                }, {
+                    name: '小米',
+                    value: '1234'
+                }, {
+                    name: '华为',
+                    value: '1234'
+                }, {
+                    name: 'oppo',
+                    value: '1234'
+                }, {
+                    name: '抖音',
+                    value: '1234'
+                }, {
+                    name: '快手',
+                    value: '1234'
+                }, {
+                    name: '淘宝',
+                    value: '1234'
+                }, {
+                    name: '百度',
+                    value: '1234'
+                }, {
+                    name: '京东',
+                    value: '1234'
+                }, {
+                    name: '天猫',
+                    value: '1234'
+                }, {
+                    name: '字符1',
+                    value: '1234'
+                }, {
+                    name: '字符1',
+                    value: '1234'
+                }],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "url": baseUrl + "/wordCloud",
+                "time": 5000,
+                "component": {
+                    "name": "wordcloud",
+                    "prop": "wordcloud",
+                    "width": 600,
+                    "height": 300,
+                },
+                option: {
+                    minFontSize: 30,
+                    maxFontSize: 80,
+                    split: 30,
+                    rotate: true,
+                }
             }
         }
-    }
     ]
 }, {
     "label": '表格',
@@ -2063,8 +2040,8 @@ export default [{
                 "prop": "myTable",
             },
             "option": {
-                "config": ['border'],
-                "bgColor": '#fff',
+                "config":['border'],
+                "bgColor":'#fff',
                 "data": [],
                 "columnShow": true,
                 "columnViews": true,
@@ -2075,47 +2052,47 @@ export default [{
                 "bodyColor": "rgba(0, 0, 0, 1)",
                 "borderColor": "rgba(51, 65, 107, 1)",
                 "bodyTextAlign": "center",
-                "dataList": [],
+                "dataList":[],
                 "column": [{
                     "title": "车牌号",
                     "key": "type1",
                     "slot": "type1",
-                    "width": 0,
+                    "width":0,
                     "fixed": 'no',
-                    "align": "left",
-                    "ellipsis": false, //开启后，文本将不换行，超出部分显示为省略号
-                    "tooltip": false, //开启后，文本将不换行，超出部分显示为省略号，并用 Tooltip 组件显示完整内容
-                    "hide": false
+                    "align":"left",
+                    "ellipsis":false, //开启后，文本将不换行，超出部分显示为省略号
+                    "tooltip":false, //开启后，文本将不换行，超出部分显示为省略号，并用 Tooltip 组件显示完整内容
+                    "hide":false
                 }, {
                     "title": "驾驶员",
                     "key": "type2",
                     "slot": "type2",
-                    "width": 0,
+                    "width":0,
                     "fixed": 'no',
-                    "align": "left",
-                    "ellipsis": false, //开启后，文本将不换行，超出部分显示为省略号
-                    "tooltip": false, //开启后，文本将不换行，超出部分显示为省略号，并用 Tooltip 组件显示完整内容
-                    "hide": false
+                    "align":"left",
+                    "ellipsis":false, //开启后，文本将不换行，超出部分显示为省略号
+                    "tooltip":false, //开启后，文本将不换行，超出部分显示为省略号，并用 Tooltip 组件显示完整内容
+                    "hide":false
                 }, {
                     "title": "里程",
                     "key": "type3",
                     "slot": "type3",
-                    "width": 0,
+                    "width":0,
                     "fixed": 'no',
-                    "align": "left",
-                    "ellipsis": false, //开启后，文本将不换行，超出部分显示为省略号
-                    "tooltip": false, //开启后，文本将不换行，超出部分显示为省略号，并用 Tooltip 组件显示完整内容
-                    "hide": false
+                    "align":"left",
+                    "ellipsis":false, //开启后，文本将不换行，超出部分显示为省略号
+                    "tooltip":false, //开启后，文本将不换行，超出部分显示为省略号，并用 Tooltip 组件显示完整内容
+                    "hide":false
                 }, {
                     "title": "油耗",
                     "key": "type4",
                     "slot": "type4",
-                    "width": 0,
+                    "width":0,
                     "fixed": 'no',
-                    "align": "left",
-                    "ellipsis": false, //开启后，文本将不换行，超出部分显示为省略号
-                    "tooltip": false, //开启后，文本将不换行，超出部分显示为省略号，并用 Tooltip 组件显示完整内容
-                    "hide": false
+                    "align":"left",
+                    "ellipsis":false, //开启后，文本将不换行，超出部分显示为省略号
+                    "tooltip":false, //开启后，文本将不换行，超出部分显示为省略号，并用 Tooltip 组件显示完整内容
+                    "hide":false
                 }],
                 "align": "center",
                 "headerAlign": "center",
@@ -2200,86 +2177,86 @@ export default [{
     //         }
     //     }
     // },
-    {
-        label: '报警列表',
-        option: {
-            "name": "报警列表",
-            "title": "报警列表",
-            "icon": 'icon-liebiao',
-            "img": require('@/assets/text4.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 1800,
-                "height": 900,
-                "name": "alertList",
-                "prop": "alertList",
-            },
-            "option": {
-                "fontSize": 20,
+        {
+            label: '报警列表',
+            option: {
+                "name": "报警列表",
+                "title": "报警列表",
+                "icon": 'icon-liebiao',
+                "img": require('@/assets/text4.png'),
+                "data": [],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 1800,
+                    "height": 900,
+                    "name": "alertList",
+                    "prop": "alertList",
+                },
+                "option": {
+                    "fontSize": 20,
+                }
             }
-        }
-    },
-    {
-        label: '选项卡',
-        option: {
-            "title": "选项卡",
-            "name": "选项卡",
-            "icon": "icon-xuanxiangka",
-            "img": require('@/assets/tabs.png'),
-            "child": {
-                "index": [],
-                "paramName": ""
-            },
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "dataType": 0,
-            "data": [{
-                "label": "选项卡1",
-                "value": "1"
-            },
-            {
-                "label": "选项卡2",
-                "value": "2"
-            }
-            ],
-            "component": {
-                "width": 356.9128919860628,
-                "height": 46.209059233449096,
-                "name": "tabs",
-                "prop": "tabs"
-            },
-            "option": {
-                "type": 'tabs',
-                "color": "#eee",
-                "empColor": "#4dffff",
-                "fontSize": 20,
-                "split": 8,
-                "empBackgroundImage": "/img/banner/banner5.png",
-                "backgroundImage": "/img/banner/banner4.png"
+        },
+        {
+            label: '选项卡',
+            option: {
+                "title": "选项卡",
+                "name": "选项卡",
+                "icon": "icon-xuanxiangka",
+                "img": require('@/assets/tabs.png'),
+                "child": {
+                    "index": [],
+                    "paramName": ""
+                },
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "dataType": 0,
+                "data": [{
+                    "label": "选项卡1",
+                    "value": "1"
+                },
+                    {
+                        "label": "选项卡2",
+                        "value": "2"
+                    }
+                ],
+                "component": {
+                    "width": 356.9128919860628,
+                    "height": 46.209059233449096,
+                    "name": "tabs",
+                    "prop": "tabs"
+                },
+                "option": {
+                    "type": 'tabs',
+                    "color": "#eee",
+                    "empColor": "#4dffff",
+                    "fontSize": 20,
+                    "split": 8,
+                    "empBackgroundImage": "/img/banner/banner5.png",
+                    "backgroundImage": "/img/banner/banner4.png"
+                },
             },
         },
-    },
-    {
-        label: '趋势页面',
-        option: {
-            "name": "趋势页面",
-            "title": "趋势页面",
-            "icon": 'icon-liebiao',
-            "img": require('@/assets/text4.png'),
-            "data": [],
-            "dataFormatter": "",
-            "stylesFormatter": "",
-            "component": {
-                "width": 1800,
-                "height": 750,
-                "name": "trendPage",
-                "prop": "trendPage",
-            },
-            "option": {
+        {
+            label: '趋势页面',
+            option: {
+                "name": "趋势页面",
+                "title": "趋势页面",
+                "icon": 'icon-liebiao',
+                "img": require('@/assets/text4.png'),
+                "data": [],
+                "dataFormatter": "",
+                "stylesFormatter": "",
+                "component": {
+                    "width": 1800,
+                    "height": 750,
+                    "name": "trendPage",
+                    "prop": "trendPage",
+                },
+                "option": {
+                }
             }
-        }
-    },
+        },
     ]
 }]

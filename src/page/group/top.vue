@@ -346,7 +346,6 @@ export default {
     },
     //导入组件到大屏
     handleAdd(option, first = false) {
-
       let obj = this.deepClone(option);
       obj.left = 500;
       obj.top = 200

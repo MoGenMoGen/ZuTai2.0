@@ -328,3 +328,15 @@ export const updateVisualApp = (data) => request({
   method: 'post',
   data: data
 });
+
+// 获取设备列表
+export const getDeviceList = () => request({
+  url: '/api/blade-zt/device/apiList',
+  method: 'get'
+});
+
+// 通过设备id查询采集点信息
+export const getPoint = (id) => request({
+  url: '/api/blade-zt/point/listByDeviceId?deviceId='+id,
+  method: 'get'
+});

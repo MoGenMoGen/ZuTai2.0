@@ -235,8 +235,7 @@ export default {
     },
     //获取
     init() {
-     this.id = this.$route.params.id
-      listForZt(this.id).then(res => {
+      listForZt(this.$route.params.id).then(res => {
         this.menuList = res.data.data
         this.getSub(this.menuList[0].id, 1, this.dataType)
         this.getSub(this.menuList[0].id, 2, this.dataType)
@@ -257,7 +256,7 @@ export default {
       if (type === 1) {
         this.map = new Map();
         this.map2 = new Map();
-        subListForZt(pid, type, dataType,this.id).then(res => {
+        subListForZt(pid, type, dataType,this.$route.params.id).then(res => {
           res.data.data.map(res => {
             this.data.push(res)
             this.map.set(res.id, res)
@@ -271,14 +270,14 @@ export default {
         })
 
       } else {
-        subListForZt(this.pid, 2, dataType,this.id).then(res => {
+        subListForZt(this.pid, 2, dataType,this.$route.params.id).then(res => {
           this.cruxList = res.data.data
         })
         this.cruxList = []
         clearTimeout(this.timer)
         this.timer = null;
         this.timer = setInterval(() => {
-          subListForZt(this.pid, 2, dataType,this.id).then(res => {
+          subListForZt(this.pid, 2, dataType,this.$route.params.id).then(res => {
             this.cruxList = res.data.data
           })
         }, 10000);
