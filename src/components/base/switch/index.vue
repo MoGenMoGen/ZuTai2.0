@@ -120,10 +120,10 @@ export default {
             }).then(() => {
                 this.changeValue()
             }).catch(() => {
-
+  
             });
         }else {
-            this.changeValue()
+            this.changeValue()  
         }
 
     },
