@@ -168,7 +168,7 @@ export const getAlertNum = (addr) => request({
 //报警列表
 export const getAlertList = (current, size, params) => {
   return request({
-    url: '/api/blade-mh/errlog/alertList',
+    url: '/api/blade-zt/alarm/apiList',
     method: 'get',
     params: {
       ...params,

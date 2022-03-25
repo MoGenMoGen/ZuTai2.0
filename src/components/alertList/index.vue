@@ -1,28 +1,19 @@
 <template>
   <div class="alertList">
 
-    <!--    <el-button type="primary" @click="openDataShow">报警设置</el-button>-->
-
     <el-radio-group v-model="query.status" @change="onLoad1" style="margin-bottom: 2px">
       <el-radio-button label="1">实时</el-radio-button>
       <el-radio-button label="2">历史</el-radio-button>
     </el-radio-group>
 
-    <el-input v-model="query.msg" style="width: 200px;margin-left: 10px" placeholder="搜索消息问题"></el-input>
-    <el-input v-model="query.details" style="width: 200px;margin-left: 10px" placeholder="搜索详情"></el-input>
+    <el-input v-model="query.name" style="width: 200px;margin-left: 10px" placeholder="设备名称"></el-input>
+    <el-input v-model="query.remarks" style="width: 200px;margin-left: 10px" placeholder="搜索详情"></el-input>
     <el-button type="primary" @click="onLoad1" style="margin-left: 10px">搜索</el-button>
-    <el-button type="primary" @click="openDataShow" style="margin-left: 10px">报警设置</el-button>
 
     <el-table :data="list" style="width: 100%" stripe max-height="620" @row-dblclick="dblclick">
-      <el-table-column prop="createTime" label="首次发生时间" width="220"></el-table-column>
-      <el-table-column prop="updateTime" label="最近发生时间" width="220"></el-table-column>
-      <el-table-column prop="msg" label="消息问题" width="220"></el-table-column>
-      <el-table-column prop="details" label="详情"></el-table-column>
-      <el-table-column label="操作" width="100">
-        <template slot-scope="scope">
-          <el-button v-if="scope.row.status == '1'" @click="delAlert(scope.row)" type="text">消除</el-button>
-        </template>
-      </el-table-column>
+      <el-table-column v-if="query.status == '2'" prop="createTime" label="发生时间" width="220"></el-table-column>
+      <el-table-column prop="name" label="设备名称" width="320"></el-table-column>
+      <el-table-column prop="remarks" label="报警详情"></el-table-column>
     </el-table>
     <el-pagination
         background @size-change="sizeChangeHandle1"
@@ -34,40 +25,11 @@
     </el-pagination>
 
 
-    <el-dialog title="报警设置" :visible.sync="dataShow" width="30%" append-to-body fullscreen>
-      <el-input placeholder="请输入设备名称搜索" v-model="name">
-        <template slot="prepend">输入设备名称搜索</template>
-        <el-button slot="append" icon="el-icon-search" @click="onLoad"></el-button>
-      </el-input>
-      <el-table :data="data" style="width: 100%">
-        <el-table-column prop="name" label="设备名称"></el-table-column>
-        <el-table-column prop="unit" label="单位" width="180"></el-table-column>
-        <el-table-column prop="faultVal" label="上限" width="180">
-          <template slot-scope="scope">
-            <el-input v-model="scope.row.faultVal" placeholder="请输入上限警报值" @change="updVal(scope.row,1)"></el-input>
-          </template>
-        </el-table-column>
-        <el-table-column prop="lowVal" label="下限" width="180">
-          <template slot-scope="scope">
-            <el-input v-model="scope.row.lowVal" placeholder="请输入下限警报值" @change="updVal(scope.row,2)"></el-input>
-          </template>
-        </el-table-column>
-      </el-table>
-      <el-pagination
-          background @size-change="sizeChangeHandle"
-          @current-change="currentChangeHandle"
-          :current-page="page.currentPage"
-          :page-size="page.pageSize"
-          :total="page.total"
-          layout="prev, pager, next">
-      </el-pagination>
-
-    </el-dialog>
 
   </div>
 </template>
 <script>
-import {getAlertList, updAlert, getSiteList, updAlertVal} from '@/api/visual'
+import {getAlertList, updAlert, updAlertVal} from '@/api/visual'
 
 
 export default {
@@ -91,47 +53,6 @@ export default {
         total: 0
       },
       loading: true,
-      option2: {
-        searchLabelWidth: 150,
-        height: 'auto',
-        size: 'mini',
-        calcHeight: 30,
-        tip: false,
-        addBtn: false,
-        editBtn: false,
-        searchShow: true,
-        searchMenuSpan: 6,
-        border: true,
-        index: true,
-        viewBtn: true,
-        selection: false,
-        menu: false,
-        dialogClickModal: false,
-        column: [
-          {
-            label: "设备名称",
-            prop: "name",
-            search: true,
-          },
-          {
-            label: "单位",
-            prop: "unit",
-            width: 100,
-          },
-          {
-            label: "上限",
-            prop: "faultVal",
-            width: 120,
-
-            slot: true,
-          },
-          {
-            label: "下限",
-            prop: "lowVal",
-            width: 120,
-          },
-        ]
-      },
       dataShow: false,
       show: false,
       list: [],
@@ -159,10 +80,10 @@ export default {
   methods: {
 
     dblclick(row) {
-      if (row.addr) {
-        let url = "http://" + window.location.host + '/view/' + row.addr
-        window.location.href = url;
-      }
+      // if (row.addr) {
+      //   let url = "http://" + window.location.host + '/view/' + row.addr
+      //   window.location.href = url;
+      // }
     },
 
     openDataShow() {
@@ -251,24 +172,22 @@ export default {
     // },
 
     init() {
-      this.onLoad1()
+      this.onLoad()
     },
     onLoad() {
       this.loading = true;
-      getSiteList(this.page.currentPage, this.page.pageSize, this.name).then(res => {
-        const data = res.data.data;
-        this.page.total = data.total;
-        this.data = data.records;
-        this.loading = false;
-      });
-    },
-    onLoad1() {
+      this.query.app = this.$route.params.id
       getAlertList(this.page1.currentPage, this.page1.pageSize, this.query).then(res => {
         const data = res.data.data;
         this.page1.total = data.total;
         this.list = data.records;
+        this.loading = false;
         // this.show = true
       })
+
+    },
+    onLoad1() {
+      this.onLoad()
     }
 
 

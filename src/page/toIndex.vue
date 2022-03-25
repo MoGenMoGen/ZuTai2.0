@@ -21,9 +21,9 @@ export default {
   },
   methods: {
     toIndex() {
-      let protocol = window.location.protocol;
-      let url = window.location.host;
-      window.location.href = protocol + "//" + url + "/view/1414539666304020482"
+      // let protocol = window.location.protocol;
+      // let url = window.location.host;
+      // window.location.href = protocol + "//" + url + "/view/1414539666304020482"
 
 
       // this.$message.success(JSON.stringify(form))
