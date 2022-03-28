@@ -498,7 +498,10 @@ export default [{
                 "step": 1,
                 "min": 0,
                 "max": 100,
-                "valNm": ''
+                "valNm": '',
+                "diameter": 20,
+                "baseColor": '#e8eaec',
+                "progressColor": "#57a3f3"
             },
 
         }
