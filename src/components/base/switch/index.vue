@@ -121,7 +121,7 @@ export default {
                 this.changeValue()
             }).catch(() => {
   
-            });
+            });  
         }else {
             this.changeValue()  
         }
